@@ -1,0 +1,85 @@
+body {
+    margin:0;
+    padding:0;
+    position: relative;
+}
+
+#clock {
+    height: 300px;
+    width:300px;
+    border: solid black 3px;
+    background-image: url("cat.png");
+    background-position: center;
+    background-size: cover;
+    border-radius: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: baseline;
+    position: relative;
+    opacity: 80%;
+    
+
+
+    
+}
+
+#face {
+    height: 300px;
+    width:300px;
+    position: absolute;
+    top:1%;
+    left:1%;
+    background-image: url("watch2.jpg");
+    background-position: center;
+    background-size: cover;
+    border-radius: 100%;
+    
+
+} 
+
+#hour {
+    height: 60px;
+    width: 8px;
+    background-color: red;
+    position: absolute;
+    top:90px;
+    left:50%;
+    animation: rotate 21600s infinite linear;
+
+}
+
+#minute {
+    height: 90px;
+    width: 6px;
+    background-color: purple ;
+    opacity: 0.7;
+    position: absolute;
+    top:60px;
+    left:50%;
+    animation: rotate 360s infinite linear;
+
+    
+}
+
+#second {
+    height: 130px;
+    width: 4px;
+    background-color:royalblue;
+    position: absolute;
+    top:20px;
+    left:50%;
+    animation: rotate 60s infinite linear;
+  
+}
+
+@keyframes rotate {
+    0% {
+      transform: rotate(0);
+      transform-origin: center bottom;
+    }
+  
+    100% {
+      transform: rotate(360deg);
+      transform-origin: center bottom;
+    }
+}
