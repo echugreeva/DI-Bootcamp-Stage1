@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+    color:aliceblue;
+  }
+
+body {
+    width: 80%;
+    margin: 0 auto;
+    background-color: black;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding:0 3em;
+
+}
+
+.red {
+    background-color: crimson;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1em;
+}
+
+nav li {
+    margin-left: 2em;
+}
+
+.hero {
+    display: flex;
+    width: 100%;
+    align-content: space-between;
+    margin-top: 2em;
+}
+
+#hero {
+    width: 65%;
+    height: auto;
+}
+
+.poem {
+    margin: 0 auto;
+    font-size: large;
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+}
+
+section {
+    margin:0 auto;
+    margin-bottom: 5rem;
+
+}
+
+h2 {
+    
+}
+  ul{
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      margin:0;
+      padding: 0;
+  }
+
+  li {
+    width: 25%;
+  }
+  img {
+      width:300px;
+      height: 200px;
+      object-fit: cover;
+      
+  }
+
+  .thumbnail {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+  }
+
+  #timeline {
+    width: 100%;  
+    background-image: url(https://images.ctfassets.net/cnu0m8re1exe/22k91nCM1YhOcmbLNPLJNK/6c14f81b3902cf2bbdf21991ddf0cd28/shutterstock_94060504.jpg?fm=jpg&fl=progressive&w=660&h=433&fit=fill);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+
+  .timeslot {
+    width:80%;
+    padding-bottom: 1.5rem;
+    border-left: 2px solid red;
+    position: relative;
+    padding-left: 20px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    text-align: left;
+    
+
+  }
+    .timeslot:last-child{
+      border: 0px;
+      padding-bottom: 0;
+    }
+    .timeslot::before{
+      content: '';
+      width: 15px;
+      height: 15px;
+      background: white;
+      border: 1px solid red;
+      box-shadow: 3px 3px 0px red;
+      box-shadow: 3px 3px 0px red;
+      border-radius: 50%;
+      position: absolute;
+      left: -10px;
+      top: 0px;
+    }
+
+.content {
+    background-color: dimgray;
+    height: 200px;
+    width: 200px;
+    padding: 0.2em 1em;
+    border-radius: 20%;
+}
+ 
+button {
+    margin-top: 2rem;
+    padding: 1em 0.5em;
+    border-radius: 8px;
+    background-color: crimson;
+    color:white;
+}
+
+footer {
+    text-align: center;
+}
+
