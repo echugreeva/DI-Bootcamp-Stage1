@@ -139,3 +139,14 @@ section ul {
         display: inline-block;
         width: 40%;
     }
+
+    #contact, form {
+        display: inline-block;
+        width: 35%;
+        text-align: left;
+    }
+
+    #contact {
+        margin-left: 25%;
+    }
+
