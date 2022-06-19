@@ -71,9 +71,10 @@ nav li {
 
 .hero div {
     display: inline-block;
-    vertical-align:auto;
+    vertical-align: top;
+    margin-left: 5%;
+    padding-top:10%;
     width: 35%;
-    margin: 0 auto;
 }
 
 section {
@@ -108,9 +109,6 @@ section ul {
 }
 
 #skills {
-    background-image: url(./herobgsmall.png) linear-gradient(radial white, pink);
-    object-fit: contain;
-    background-repeat: no-repeat;
     padding: 2% 0;
     color: royalblue;
     background-color: rgb(255, 255, 224);
