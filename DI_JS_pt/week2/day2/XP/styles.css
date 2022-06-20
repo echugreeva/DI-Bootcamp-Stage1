@@ -1,0 +1,90 @@
+body, html {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(./bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+header {
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    justify-items: stretch;
+    width: 100vw;
+    
+}
+
+.column {
+    width: 80%;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 900px)  {
+    .column {
+        width: 20%;
+
+    }
+}
+
+
+h2 {
+    color: royalblue;
+    text-align: center;
+    
+}
+
+h6{
+    text-transform: uppercase;
+    text-align: center;
+}
+
+img {
+    width: 3em;
+    height: 3em;
+    border-radius: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: 40%;
+    bottom: 7em;
+
+}
+
+.testimonial {
+    position: relative;
+    background-color: white;
+}
+
+.title {
+    width: 100%;
+    background-color: salmon;
+    text-align: center;
+    color: white;
+}
+
+p {
+    padding:2em 1.5em;
+    margin:0;
+}
+
+.blue {
+    background-color: royalblue;
+}
+
+.green {
+    background-color: turquoise;
+}
+
+.bold {
+    font-weight: bold;
+    padding-bottom: 0;
+}

@@ -121,7 +121,7 @@ img {
 }
 
 .icons {
-    display: inline-block;
+    display: none;
     width: 35%;
     margin-left: auto;
     margin-right: auto;
@@ -140,13 +140,14 @@ img {
     display: none;
 }*/
 
- image:hover + .icons i { 
+ img:hover + .icons { 
         display: inline-block;
         color: gray;
         border: 3px 1px gray;
         padding: 3%;
 }
-    
+
+
     
 .icons i {
     display: inline-block;
@@ -180,3 +181,10 @@ button {
     margin: 3% auto;
     color: gray;
 }
+
+
+img:hover +.icons{
+    display: inline-block;
+}
+
+/* fix img/image classes, move .icons under image */
