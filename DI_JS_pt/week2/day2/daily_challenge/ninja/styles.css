@@ -1,0 +1,116 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+    background-color: whitesmoke;
+}
+
+ /* .wrapper { 
+    display: grid;
+    width: 100vw;
+    grid-template-columns: repeat(16,1fr);
+    grid-template-rows: repeat(16,1fr);
+    align-content: stretch;
+
+}
+
+
+.wrapper { 
+    display: grid;
+    width: 100vw;
+    grid-template-columns: 6vw 6vw 6vw;
+    grid-template-rows: 6vh 6vh 6vh;
+    align-content: stretch;
+
+}
+
+.wrapper {
+    display: grid;
+    width: 100vw;
+    grid-template-columns: 2em 2em 2em;
+    grid-template-rows: 2em 2em 2em;
+    align-content: stretch;
+}
+
+*/
+.wrapper {
+    display: grid;
+    margin: 5px auto;
+    grid-template-columns: repeat(16, 2em);
+    grid-template-rows: repeat(16, 2em);
+    column-gap: 0.2em;
+    row-gap: 0.2em;
+    align-content: stretch;
+    border: 1px solid black;
+}
+
+.wrapper2 {
+    display: grid;
+    margin: 5px auto;
+    grid-template-columns: repeat(16, 2.2em);
+    grid-template-rows: repeat(9, 2.2em);
+    align-content: stretch;
+    border: 1px solid black;
+}
+
+/*.wrapper {
+    display: grid;
+    width:100vw;
+    grid-template-columns: repeat(16, 6%);
+    grid-template-rows: repeat(16, 6%);
+    column-gap: 0.5%;
+    row-gap: 0.5%;
+    align-content: stretch;
+} */
+
+
+.unit {
+    width: 100%;
+    height:100%;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.beige {
+    background-color: beige;
+}
+
+.brown {
+    background-color: brown;
+}
+
+.one{ 
+    background-color: lightgrey;
+}
+
+.two {
+    background-color: silver;
+}
+
+.three {
+    background-color: gray;
+}
+
+.four {
+    background-color: black;
+}
+
+.white {
+    background-color: white;
+}
+
+.pink {
+    background-color: salmon;
+}
+
+.red {
+    background-color: indianred;
+}
