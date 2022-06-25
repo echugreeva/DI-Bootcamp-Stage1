@@ -1,0 +1,16 @@
+body {
+    font-family: 'ubuntu', sans-serif;
+}
+.hero {
+    height: 65vh;
+    /* background-image: url(./media/herobgsmall.png); */
+    /* background-attachment: fixed; */
+    /* background-position: center; */
+    /* background-size: cover; */
+}
+
+.card-img-top {
+    width: 100%;
+    height: 12em;
+    object-fit: cover;
+}
