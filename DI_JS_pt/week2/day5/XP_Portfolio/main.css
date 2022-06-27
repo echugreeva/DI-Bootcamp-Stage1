@@ -1,14 +1,18 @@
 body {
     font-family: 'ubuntu', sans-serif;
 }
-.hero {
+header {
     height: 65vh;
-    /* background-image: url(./media/herobgsmall.png); */
-    /* background-attachment: fixed; */
-    /* background-position: center; */
-    /* background-size: cover; */
+    background-image: url(./media/herobgsmall.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.5;
 }
 
+.hero {
+    opacity: 1;
+}
 .card-img-top {
     width: 100%;
     height: 12em;
