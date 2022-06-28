@@ -29,7 +29,7 @@ console.log(str3);
 //ex 3
 
 let num1=prompt("give you first number");
-var num2=prompt("give you secind number");
+let num2=prompt("give you secind number");
 
 num1=Number(num1);
 num2=Number(num2);

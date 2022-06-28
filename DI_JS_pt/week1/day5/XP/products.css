@@ -187,4 +187,4 @@ img:hover +.icons{
     display: inline-block;
 }
 
-/* fix img/image classes, move .icons under image */
+/* fix img/image classes, move .icons under image, change margin to vw % */
