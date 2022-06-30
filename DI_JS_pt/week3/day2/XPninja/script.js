@@ -42,3 +42,46 @@ console.log(Number(array[0])+Number(array[1]));
 
 
 
+// Ex 3
+
+let sentence = prompt(`Type a sentence containing word "Nemo"`);
+
+let nemoPos = sentence.indexOf("Nemo");
+
+if(nemoPos >=0) {
+    console.log(`I found Nemo at ${nemoPos}`);
+} else {
+    console.log(`Can't find Nemo`);
+}
+    
+
+let sentence = prompt(`Type a sentence containing word "Nemo"`);
+
+if(sentence.indexOf("Nemo") >=0) {
+    console.log(`I found Nemo at ${sentence.indexOf("Nemo")}`);
+} else {
+    console.log(`Can't find Nemo`);
+}
+    
+
+// Ex 4
+
+let num1 = Number(prompt(`give me a number:`));
+
+switch (true) {
+    case (num1<2):
+    console.log(`boom`)
+    break;
+    case (num1 >2 && num1%5 === 0 && num1%2 === 0 ):
+    console.log(`BOOM !`)
+    break;
+    case (num1 >2 && num1%2 === 0):
+    console.log(`boom !`)
+    break;
+    case (num1 >2 && num1%5 === 0):
+    console.log(`BOOM`)
+    case (num1>2):
+    console.log((`o`).repeat(num1))
+    break;
+}
+
