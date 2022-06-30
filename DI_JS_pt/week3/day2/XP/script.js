@@ -12,13 +12,18 @@ console.log(`I eat ${favFood} at every ${favMeal}`);
 
 let myWatchedSeries = ["black mirror", "money heist", "the big bang theory"];
 
-let numberOfSeries = myWatchedSeries.length;
+//  let numberOfSeries = myWatchedSeries.length;
 
 let myWatchedSeriesSentence = `${myWatchedSeries[0]}, ${myWatchedSeries[1]}, and ${myWatchedSeries[2]}`;
 
 console.log(myWatchedSeriesSentence);
 
-console.log(`I watched ${numberOfSeries} series: ${myWatchedSeriesSentence}`);
+// console.log(`I watched ${numberOfSeries} series: ${myWatchedSeriesSentence}`);
+
+
+console.log(`I watched ${myWatchedSeries.length} series: ${myWatchedSeriesSentence}`);
+
+
 
 //ex part2
 

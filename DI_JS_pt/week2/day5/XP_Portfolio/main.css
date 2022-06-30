@@ -47,3 +47,8 @@ ul.timeline:before {
 .bg-info {
     --bs-bg-opacity: .4;
 }
+
+.badge {
+    font-size: 0.6em;
+    padding:2%;
+}
