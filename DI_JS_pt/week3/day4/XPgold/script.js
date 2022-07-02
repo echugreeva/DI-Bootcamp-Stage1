@@ -40,3 +40,20 @@ switch (true) {
 
 
 }
+
+// ex 3
+
+let verb = prompt(`Type in a verb:`);
+
+switch (true) {
+    case (verb.length >= 3 && verb.substr(-3)!= "ing") :
+        console.log(`${verb}ing`)
+        break;
+    case (verb.length >= 3 && verb.substr(-3) == "ing") :
+        console.log(`${verb}ly`)
+        break;
+    default:
+        console.log(verb)
+
+}
+
