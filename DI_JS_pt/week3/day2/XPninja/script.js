@@ -55,10 +55,10 @@ if(nemoPos >=0) {
 }
     
 
-let sentence = prompt(`Type a sentence containing word "Nemo"`);
+let sentence1 = prompt(`Type a sentence containing word "Nemo"`);
 
 if(sentence.indexOf("Nemo") >=0) {
-    console.log(`I found Nemo at ${sentence.indexOf("Nemo")}`);
+    console.log(`I found Nemo at ${sentence1.indexOf("Nemo")}`);
 } else {
     console.log(`Can't find Nemo`);
 }
