@@ -111,7 +111,7 @@ for (keys in family) {
 for (value in family) {
     console.log(family[value]);
 }
-// easire way
+// easier way
 console.log(Object.keys(family));
 console.log(Object.values(family));
 
