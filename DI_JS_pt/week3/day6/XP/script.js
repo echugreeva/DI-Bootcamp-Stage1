@@ -3,7 +3,25 @@ let people = ["Greg", "Mary", "Devon", "James"];
 
 people.shift();
 
-people[3] = "Jason";
+//alternative
+
+//find greg position
+
+let toFind = "Greg";
+let Grgposition = people.indexOf(toFind);
+
+people.splice(GrgPosition,1)
+
+// --------
+
+people[3] = "James";
+
+//  more correct way
+
+toFind = "James"
+let jamesPos = people.indexOf(toFind);
+
+people.splice(jamesPos,1,"Jason");
 
 
 people.push("Lena");
