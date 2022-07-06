@@ -14,7 +14,7 @@ infoAboutPerson("David", 45, "blue");
 infoAboutPerson("Josh", 12, "yellow");
 
 
-// Ex 2
+// Ex 2 //missed the tip amount console log
 
 function calculateTip() {
     let bill = Number(prompt(`Enter you bill sum`));
@@ -39,7 +39,9 @@ function calculateTip() {
 calculateTip();
 
 
-// Ex 3  //sum is not working
+// Ex 3  
+
+
 
 function isDivisible() {
     let divisibleBy23 = [];
@@ -58,6 +60,8 @@ function isDivisible() {
     
 }
 
+isDivisible();
+
 
 function isDivisible2(divider) {
     let divisibleByDivider = [];
@@ -67,8 +71,7 @@ function isDivisible2(divider) {
             console.log(i);
         }
     }
-    let sum = 0;
-    
+
     divisibleByDivider.forEach(i => sum += i);
 
     console.log(sum);
@@ -97,23 +100,23 @@ let prices = {
 } 
 
 let shoppingList = ['banana','orange','apple'];
-
+let totalBill = 0; 
 
 // check if item in stock, if yes, get price, and sum the prices together
 function myBill() {     
-    let totalBill = 0;   
+    // let totalBill = 0;   
     for (let i = 0; i < shoppingList; i++) {
 
         for(shoppingList[i] in stock) {
             if (stock[shoppingList[i]] > 0) {
                 totalBill = totalBill + prices[shoppingList[i]];
-                console.log(totalBill);
+                //console.log(totalBill);
             }
             
         }
-
+        
 }
-
+console.log(totalBill);
 }
 
     
@@ -123,30 +126,32 @@ function myBill() {
 
 
 
-//  Ex 5  sum not working
- function changeEnough(itemPrice, amountOfChange) {
+//  Ex 5  sum not working try put coin values in an array and itirate thtough both at the same time
+
+let sumOfChange = 0
+function changeEnough(itemPrice, amountOfChange) {
     
-    let sumOfChange = 0
+    
 
-for (i=0; i < length.amountOfChange; i++) {
-    switch(true) {
-    case (i === 0):
-    sumOfChange += amountOfChange[i]*0.25
-    break;
-    case (i === 1):
-    sumOfChange += amountOfChange[i]*0.10
-    break;
-    case (i === 2):
-    sumOfChange += amountOfChange[i]*0.05
-    break;
-    case (i === 3):
-    sumOfChange += amountOfChange[i]*0.01
-    break;
-}
+    for (i=0; i < length.amountOfChange; i++) {
+        switch(true) {
+        case (i === 0):
+        sumOfChange += amountOfChange[i]*0.25
+        break;
+        case (i === 1):
+        sumOfChange += amountOfChange[i]*0.10
+        break;
+        case (i === 2):
+        sumOfChange += amountOfChange[i]*0.05
+        break;
+        case (i === 3):
+        sumOfChange += amountOfChange[i]*0.01
+        break;
+    }
 
-}
+    }
 
-console.log(sumOfChange);
+    console.log(sumOfChange);
 
 
      if(sumOfChange >= itemPrice) {
@@ -157,8 +162,10 @@ console.log(sumOfChange);
 
  }
 
-//  Ex 6
 
+
+//  Ex 6
+// should check for an empty number too 
 
 function hotelCost() {
 
@@ -175,7 +182,9 @@ return nights * 140;
 }
 
 
-// not working switch part, always returns default cost
+// not working switch part, always returns default cost  //always returns string, so should equal to regex with a-Z & spaces
+
+
 function planeRideCost() {
     let destination = prompt(`Where are you flying`);
 
@@ -186,18 +195,32 @@ function planeRideCost() {
         while (typeof destination !== 'string');
     }
 
-    switch(true){
-        case (destination.match(/London/i)):
+    switch(destination.toLocaleLowerCase){
+        case 'london':
         return `183$`
-        break;
-        case (destination.match(/Paris/i)):
+        case 'paris':
         return `220$`
-        break;
         default:   
         return `300$`; 
 
-
     }
     }
 
+function rentalCarCost() {
+    let days = Number(prompt(`How many days do you need a car for?`));
+
+    if (isNaN(days)) {
+
+    do { days = Number(prompt(`please, specify number of days or we won't be able to provide cost?`)); }
     
+        while (isNaN(days));
+    } 
+
+    if (days > 10) {
+        return days*40*0.95;
+    } else {
+        return days * 40;
+    }
+
+}
+
