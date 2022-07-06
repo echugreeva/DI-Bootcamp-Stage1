@@ -1,85 +1,85 @@
 
-// Ex 1 
-function infoAboutMe() {
-    console.log(`Hi I'm Lena, I'm 32 and I like to go to the beach`);
+// // Ex 1 
+// function infoAboutMe() {
+//     console.log(`Hi I'm Lena, I'm 32 and I like to go to the beach`);
 
-}
+// }
 
-function infoAboutPerson(personName, personAge, personFavoriteColor) {
+// function infoAboutPerson(personName, personAge, personFavoriteColor) {
 
-    console.log (`Your name is ${personName}, you are ${personAge} years old, your favorite color is ${personFavoriteColor}`)
-}
+//     console.log (`Your name is ${personName}, you are ${personAge} years old, your favorite color is ${personFavoriteColor}`)
+// }
 
-infoAboutPerson("David", 45, "blue");
-infoAboutPerson("Josh", 12, "yellow");
+// infoAboutPerson("David", 45, "blue");
+// infoAboutPerson("Josh", 12, "yellow");
 
 
-// Ex 2 //missed the tip amount console log
+// // Ex 2 
+// function calculateTip() {
+//     let bill = Number(prompt(`Enter you bill sum`));
+//     let totalSum = 0;
+//     let tip =0;
+//     switch (true) {
+//         case (bill<50):
+//             tip = bill*0.2
+           
+//             break;
+//         case (50 <= bill && bill <= 200):
+//             tip = bill*0.15
+//             break;
+//         default:
+//             tip = bill*0.1
 
-function calculateTip() {
-    let bill = Number(prompt(`Enter you bill sum`));
-    let totalSum = 0;
-    switch (true) {
-        case (bill<50):
-            totalSum = bill+bill*0.2
-            console.log(totalSum);
-            break;
-        case (50 <= bill && bill <= 200):
-            totalSum = bill+bill*0.15
-            console.log(totalSum);
-            break;
-        default:
-            totalSum = bill+bill*0.1
-            console.log(totalSum);
-
-    }
+//     }
+//     totalSum = bill+tip;
+//     console.log(`Your tip is ${tip} and your total Bill is ${totalSum}`);
     
-}
+// }
 
-calculateTip();
-
-
-// Ex 3  
+// calculateTip();
 
 
+// // Ex 3  
 
-function isDivisible() {
-    let divisibleBy23 = [];
-    for (let i = 0; i <= 500; i++) {
-        if( i%23 === 0) {
-            divisibleBy23.push(i);
-            console.log(i);
-        }
-    }
+// let sum = 0;
     
-    let sum = 0;
+
+// function isDivisible() {
+//     let divisibleBy23 = [];
+//     for (let i = 0; i <= 500; i++) {
+//         if( i%23 === 0) {
+//             divisibleBy23.push(i);
+//             console.log(i);
+//         }
+//     }
     
-    divisibleBy23.forEach(i => sum += i);
+   
+//     divisibleBy23.forEach(i => sum += i);
 
-    console.log(sum);
+//     console.log(sum);
     
-}
+// }
 
-isDivisible();
+// isDivisible();
 
 
-function isDivisible2(divider) {
-    let divisibleByDivider = [];
-    for (let i = 0; i <= 500; i++) {
-        if( i%divider === 0) {
-            divisibleByDivider.push(i);
-            console.log(i);
-        }
-    }
+// function isDivisible2(divider) {
+//     let divisibleByDivider = [];
+//     for (let i = 0; i <= 500; i++) {
+//         if( i%divider === 0) {
+//             divisibleByDivider.push(i);
+//             console.log(i);
+//         }
+//     }
 
-    divisibleByDivider.forEach(i => sum += i);
+//     divisibleByDivider.forEach(i => sum += i);
 
-    console.log(sum);
+//     console.log(sum);
 
-}
+// }
 
-isDivisible2(3);
-isDivisible2(45);
+// isDivisible2(3);
+// isDivisible2(45);
 
 // Ex 4   sum not working
 
@@ -119,7 +119,8 @@ function myBill() {
 console.log(totalBill);
 }
 
-    
+myBill();
+
     
  
     
@@ -128,41 +129,65 @@ console.log(totalBill);
 
 //  Ex 5  sum not working try put coin values in an array and itirate thtough both at the same time
 
-let sumOfChange = 0
+// let sumOfChange = 0
+// function changeEnough(itemPrice, amountOfChange) {
+    
+    
+
+//     for (i=0; i < length.amountOfChange; i++) {
+//         switch(true) {
+//         case (i === 0):
+//         sumOfChange += amountOfChange[i]*0.25
+//         break;
+//         case (i === 1):
+//         sumOfChange += amountOfChange[i]*0.10
+//         break;
+//         case (i === 2):
+//         sumOfChange += amountOfChange[i]*0.05
+//         break;
+//         case (i === 3):
+//         sumOfChange += amountOfChange[i]*0.01
+//         break;
+//     }
+
+//     }
+
+//     console.log(sumOfChange);
+
+
+//      if(sumOfChange >= itemPrice) {
+//          return true;
+//      } else {
+//         return false;
+//      }
+
+//  }
+
+
+let itemPrice;
+let amountOfChange;
+let coins = [0.25, 0.10, 0.05, 0.01];
+let canAfford = itemPrice;
 function changeEnough(itemPrice, amountOfChange) {
-    
-    
-
-    for (i=0; i < length.amountOfChange; i++) {
-        switch(true) {
-        case (i === 0):
-        sumOfChange += amountOfChange[i]*0.25
-        break;
-        case (i === 1):
-        sumOfChange += amountOfChange[i]*0.10
-        break;
-        case (i === 2):
-        sumOfChange += amountOfChange[i]*0.05
-        break;
-        case (i === 3):
-        sumOfChange += amountOfChange[i]*0.01
-        break;
+    // while (canAfford > 0){
+        for (let i=0; i<length.amountOfChange; i++) {
+            canAfford =- amountOfChange[i]*coins[i];
+            console.log(canAfford);
+        //     if (canAfford <= 0) {
+        //         return true;
+        //     } else {
+        //         console.log(`still counting`);
+        //     }
+        // }
     }
+    if (canAfford <= 0) {
+        return true 
+    } else {
+        return false;}
 
-    }
-
-    console.log(sumOfChange);
-
-
-     if(sumOfChange >= itemPrice) {
-         return true;
-     } else {
-        return false;
-     }
-
- }
-
-
+}
+changeEnough(4.25, [25, 20, 5, 0]);
+changeEnough(0.75, [0,0,20,5]);
 
 //  Ex 6
 // should check for an empty number too 

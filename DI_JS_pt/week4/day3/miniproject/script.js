@@ -45,24 +45,12 @@ let compareNumbers = (userNum,computerNum) =>{
     else if (computerNum < userNum) {
     if (computerNum === userNum ) { return alert (`Winner`);}
         return alert(`Your number is bigger then the computer’\s, guess again`) ;
-        // userNum = Number(prompt(`Enter a number between 0 and 10`));
         
 
      }else {
         return alert (`Your number is smaller then the computer’\s, guess again`);
-        // userNum = Number(prompt(`Enter a number between 0 and 10`));
 
 }
 }
 
 
-// Outside of the playTh0eGame() function, create a new function named compareNumbers(userNumber,computerNumber) that takes 2 parameters : userNumber and computerNumber
-
-// The point of this function is to check if the userNumber is the same as the computerNumber:
-// If userNumber is equal to computerNumber, alert “WINNER” and stop the game.
-
-// If userNumber is bigger than computerNumber, alert “Your number is bigger then the computer’s, guess again” (Hint: use the built-in prompt() function to ask the user for a new number).
-
-// If userNumber is lower than computerNumber, alert “Your number is smaller then the computer’s, guess again” (Hint: use the built-in prompt() function to ask the user for a new number).
-
-// If the user guessed more than 3 times, alert “out of chances” and exit the function.
