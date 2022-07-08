@@ -106,10 +106,13 @@ let myBill=()=> {
     for (let i = 0; i < length.shoppingList; i++) {
         let fruit = shoppingList[i];
             if (stock[fruit] > 0) {
-                alert(fruit);
-                totalBill += prices[fruit];
-                stock[fruit]-=1;
+                totalBill = totalBill + prices[fruit];
+                stock[fruit]= -1;
             }
+            
+            
+ 
+        
         
         }
     console.log(totalBill);
