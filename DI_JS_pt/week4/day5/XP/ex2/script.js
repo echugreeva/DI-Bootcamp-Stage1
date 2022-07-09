@@ -21,10 +21,10 @@ let body = document.querySelector("body");
 let AllLi = document.querySelectorAll("li");
 
 
-for (let i = 0; i<length.AllLi; i++) {
-    if (AllLi[i].innerText == "John") {
+for (let i = 0; i<AllLi.length; i++) {
+    if (AllLi[i].innerText === "John") {
         AllLi[i].style.display = "none";
-    } else if (AllLi[i].innerText == "Pete"){
+    } else if (AllLi[i].innerText === "Pete"){
         AllLi[i].style.border = "black solid 1px";
     } else {}
 
