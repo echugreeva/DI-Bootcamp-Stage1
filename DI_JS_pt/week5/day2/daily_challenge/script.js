@@ -20,7 +20,7 @@
 <span id="story"></span>
 </p> */
 
-let noun = document.querySelector("#noun");
+let noun = document.querySelector("#noun").innerHTML;
 let adjective = document.querySelector("#adjective");
 let person = document.querySelector("#person");
 let verb = document.querySelector("#verb");
@@ -33,7 +33,7 @@ let inputLength =() => {
     return input.length
 }
 
-button.addEventListener("click", createStory());
+button.addEventListener("click", createStory(event));
 event.preventDefault()
 
 createStory =() => {
