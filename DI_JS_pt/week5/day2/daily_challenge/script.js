@@ -19,26 +19,36 @@
 <p>Generated story: 
 <span id="story"></span>
 </p> */
-
-let noun = document.querySelector("#noun").innerHTML;
-let adjective = document.querySelector("#adjective");
-let person = document.querySelector("#person");
-let verb = document.querySelector("#verb");
-let place = document.querySelector("#place");
+let form = document.forms[0];
+let noun ;
+let adjective;
+let person ;
+let verb ;
+let place ;
 let button = document.querySelector("#lib-button");
+let story = document.querySelector("#story");
+let words =[];
 
-let words = ['noun','adjective', 'person', 'verb', 'place'];
 
-let inputLength =() => {
-    return input.length
+let string;
+
+let createStory =() => {
+    noun = document.getElementById("noun").value;
+    adjective = document.getElementById("adjective").value;
+    person = document.getElementById("person").value;
+    verb = document.getElementById("verb").value;
+    place = document.getElementById("place").value;
+    words =[noun, adjective, person, verb, place];
+    for (i=0; i< words.length; i++){
+        if (words[i].length<1){alert(`fill all fields`)}
+    }
+    string = `One morning a ${adjective} ${noun} named ${person} ${verb} in ${place}`;
+    story.appendChild(document.createTextNode(string));
+   
 }
 
-button.addEventListener("click", createStory(event));
-event.preventDefault()
 
-createStory =() => {
-    let story = document.querySelector("#story")
-    words.forEach(inputLength) 
-    story.appendChild(document.createTextNode(`One morning a ${adjective} ${noun} named ${person} ${verb} in ${place}`));
-    
-}
+form.addEventListener('submit', function (event){
+    event.preventDefault();
+    createStory();
+})
