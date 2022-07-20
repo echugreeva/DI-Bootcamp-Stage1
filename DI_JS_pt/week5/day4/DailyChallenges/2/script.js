@@ -9,25 +9,16 @@
 
 // Hint : Check out keycodes in Javascript or Regular Expression
 let inputEl = document.querySelector("input");
-let input = document.getElementById("input").value;
-let letters = /^[A-Za-z]+$/;
 
-// let check = (input) => {
-//     if(!toCheck.match(letters)) {
-//         e.preventDefault(); 
-        
-//     } else {true} 
-// }
-inputEl.addEventListener ("input", function (e) {
-    if(!input.match(letters)) {
-        e.preventDefault(); 
-}
-});
 
-inputEl.addEventListener ("input", function (e) {
-    if(!letters.test(input)) {
-        e.preventDefault(); 
-} else {
-    console.log(`good input`)
-}
-});
+inputEl.addEventListener("keydown", function (event) {
+    var charCode = event.keyCode;
+    // console.log(charCode);
+    if (!((charCode > 64) && (charCode < 91))){
+   
+        event.preventDefault()
+    }
+    
+    }
+
+);
