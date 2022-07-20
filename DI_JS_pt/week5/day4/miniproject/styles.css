@@ -2,6 +2,7 @@ body {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+    background-color: lightcyan;
 }
 
 body{
@@ -11,13 +12,11 @@ body{
 #sidebar {
 	display: grid;
 	grid-gap: 5px;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(6, 1fr);
-
-	height: 100vh;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	height: 50vh;
 	width: 20%;
 	float: left;
-
 	background-color: lightcyan;
 	padding: 5px;
 }
@@ -35,21 +34,23 @@ body{
 }.violet {
     background-color: violet;
 }.mint {
-    background-color: mint;
+    background-color: lightseagreen;
 }
 
 
-#colorSections {
+.colorSections {
 	display: grid;
-	grid-template-columns: repeat(20, 1fr);
+	grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(10, 1fr);
 
-	height: 100vh;
+	height: 50vh;
 
 	padding: 5px 5px 5px 0;
 }
 
 #sidebar > * {
-	border: 1px black solid;
+	border: 2px royalblue solid;
+    
 }
 
 .toColor{
@@ -58,10 +59,8 @@ body{
 }
 
 button {
-	grid-column: 1/4; 
-
-	background-color: whitesmoke; /* Green */
-	border: none;
+	grid-column: 1/4;
+	background-color: whitesmoke; 
 	border-radius: 8px;
 	color:black;
 	padding: 5px;
