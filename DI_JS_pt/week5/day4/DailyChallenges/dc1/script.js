@@ -15,54 +15,55 @@
 // BONUS II (not mandatory):
 // Create a function named deleteTask(), that as soon as the user clicks on the “X” button, delete that specific task from the array listTasks.
 
-listTasks =[];
+listTasks = [];
 let form = document.forms[0];
 let ul = document.querySelector("ul");
-let task; 
+let task;
 let newLi;
 let xBtn;
 let checkbox;
 let CBLabel;
 let button = document.querySelector("#submit");
 
+////IF IT IS A FUNCTION PUT A CONST E.G const addTask =()=>{}
 
 let addTask = () => {
     newLi = document.createElement("li");
-    listTasks.push(task);
     task = form.elements.task.value;
+    listTasks.push(task);
     if (task.length > 0) {
         xBtn = document.createElement('i');
         xBtn.classList.add("fa", "fa-thin", "fa-xmark");
         checkbox = document.createElement('input');
-        checkbox.setAttribute('type', 'checkbox'); 
+        checkbox.setAttribute('type', 'checkbox');
         checkbox.setAttribute('name', 'task')
         CBLabel = document.createElement('label');
-        CBLabel.setAttribute("for","task");
+        CBLabel.setAttribute("for", "task");
         CBLabel.appendChild(document.createTextNode(task));
         newLi.appendChild(xBtn);
         newLi.appendChild(checkbox);
         newLi.appendChild(CBLabel);
         //newLi.appendChild(document.createTextNode(task));
         ul.appendChild(newLi);
-        form.elements.task.value="";
-    } else { alert(`input task`)}
-    
+        form.elements.task.value = "";
+    } else { alert(`input task`) }
+
 
 }
 
 //form submit didn't work
-
-// form.addEventListener("sumbit", function (){
-//     //event.preventDefault();
-//     addTask()
-// });
-
-
-button.addEventListener("click", function (event){
+///YOU SIMPLY MISSPELLDE "submit" you wrote "sumbit"
+form.addEventListener("submit", (event) => {
     event.preventDefault();
-    console.log (`click btn`);
-    addTask();
+    addTask()
 });
+
+
+// button.addEventListener("click", function (event){
+//     event.preventDefault();
+//     console.log (`click btn`);
+//     addTask();
+// });
 
 
 // let task ={
