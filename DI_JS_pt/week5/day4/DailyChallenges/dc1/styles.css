@@ -1,0 +1,52 @@
+body {
+	padding:0;
+	margin:0;
+	box-sizing: border-box;
+	height:100vh;
+	background-image: linear-gradient(180deg, red, pink);
+}
+
+section {
+	width: 30vw;
+	margin: 0 auto;
+	text-align: center;
+}
+
+h1 {
+	color: white;
+	text-transform: uppercase;
+}
+button{
+	display: inline;
+}
+
+.listTasks {
+	background-color: white;
+}
+
+ul {
+	list-style: none;
+}
+li {
+	text-align: left;
+	
+}
+
+li > * {
+	margin-right: 0.5em;
+}
+
+form {
+	position: relative;
+}
+
+button {
+	position: absolute;
+	top:0;
+	right:0;
+}
+
+i {
+	color:red;
+	border: black;
+}

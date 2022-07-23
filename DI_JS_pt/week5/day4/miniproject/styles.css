@@ -1,0 +1,73 @@
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    background-color: lightcyan;
+}
+
+body{
+	background-color: lightcyan;
+}
+
+#sidebar {
+	display: grid;
+	grid-gap: 5px;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	height: 50vh;
+	width: 20%;
+	float: left;
+	background-color: lightcyan;
+	padding: 5px;
+}
+.red {
+    background-color: red;
+}
+
+.pink {
+    background-color: pink;
+}
+.purple {
+    background-color: purple;
+}.royalblue {
+    background-color:royalblue;
+}.violet {
+    background-color: violet;
+}.mint {
+    background-color: lightseagreen;
+}
+
+
+.colorSections {
+	display: grid;
+	grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+
+	height: 50vh;
+
+	padding: 5px 5px 5px 0;
+}
+
+#sidebar > * {
+	border: 2px royalblue solid;
+    
+}
+
+.toColor{
+	border: 1px lightgray solid;
+	background-color: white;
+}
+
+button {
+	grid-column: 1/4;
+	background-color: whitesmoke; 
+	border-radius: 8px;
+	color:black;
+	padding: 5px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 22px;
+	margin: 4px 2px;
+	cursor: pointer;
+  }

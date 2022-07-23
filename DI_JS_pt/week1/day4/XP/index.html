@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV basic</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Ubuntu:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Elena Chugreeva</h1>
+        <nav>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/elena-chugreeva-45b282103/"><i class="fa fa-2xl fa-brands fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/echugreeva/DI-Bootcamp-Stage1/tree/master/DI_JS_pt"><i class="fa fa-2xl fa-brands fa-github-square"></i></a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <img src="./portrait3.jpg" alt="portrait">
+        <div>
+            <h2>Hi! I'm Lena.</h2>
+            <h4>A future full-stack developer.</h4>
+            <p>I'm in transition from being a kickass marketing professional to kickass full-stack developer.</p>
+            <progress>75%</progress>
+        </div>
+    </section>
+    <!-- add images left & right to the list -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul> 
+            <h4>Hard skills</h4>
+            <li>Frontend (HTML, CSS, Javascript)</li>
+            <li>Databases (SQL)</li>
+            <li>Backend (Node JS)</li>
+            <li>Libraries (React, Redux, Bootstrap)</li>
+            <li>Git, Github</li>
+            <li>APIs</li>
+        </ul>
+        <ul> 
+            <h4>Soft skills</h4>
+            <li>Collaboration</li>
+            <li>Problem-solver</li>
+            <li>Strategic thinking</li>
+            <li>Communication</li>
+        </ul>
+    </section>
+    <!-- replace later with real projects with working links, maybe a page with projects -->
+    <section id="projects"> 
+        <h2>Projects</h2>
+        <div>
+            <img src="./project1.png" alt="project1">
+            <h4>Project 1</h4>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium corporis iste vero nesciunt iure voluptatem. Excepturi sed odio dolorum quas saepe laboriosam ratione, debitis at distinctio repudiandae quia dolorem nisi! </p>
+        </div>
+        <div>
+            <img src="./project2.png" alt="project1">
+            <h4>Project 2</h4>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto non tempora dolorum corporis minima, nesciunt ad adipisci culpa sequi iste hic ducimus ullam maxime eaque temporibus saepe sint. Quo, consequatur!</p>
+        </div>
+        <div>
+            <img src="./project3.png" alt="project1">
+            <h4>Project 3</h4>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum consectetur temporibus inventore ea magni eum voluptatem quod voluptates, dolorum quia non atque ratione quas veritatis odio! Quae similique voluptatem inventore?</p>
+        </div>
+    </section>
+    <section class="experience">
+        <h2>Experience</h2>
+        <div class="timeline"></div>
+            <div class="container timeslot">
+                <div class="content">
+                    <h3>2022</h3>
+                    <p>Projects mentioned above</p>
+                </div>
+            </div>
+            <div class="container timeslot">
+                <div class="content">
+                    <h3>2020-2022</h3>
+                    <p>Industry: Web creation software</p>
+                    <p>Location: Tel Aviv</p>
+                    <p>Title: Senior UA manager</p>
+                </div>
+            </div>
+            <div class="container timeslot">
+                <div class="content">
+                    <h3>2019-2020</h3>
+                    <p>Industry: Education Tech</p>
+                    <p>Location: Berlin</p>
+                    <p>Title: Senior SEM manager</p>
+                </div>
+            </div>
+            <div class="container timeslot">
+                <div class="content">
+                    <h3>2016-2019</h3>
+                    <p>Industry: Cyber Tech</p>
+                    <p>Location: Tel Aviv</p>
+                    <p>Title: Digital marketing manager</p>
+                </div>
+            </div>
+        </div>    
+    </section>    
+    <section class="education">
+        <h2>Education & languages</h2>
+        <div>
+            <h3>Education</h3>
+            <ul>
+                <li>Developers Institute, Full-stack Javascript Bootcamp, 2022</li>
+                <li>Russian State University of Humanities, International Economics BA, 2007-2012 </li>
+            </ul>
+        </div>
+        <div>
+            <h3>Languages</h3>
+            <ul>
+                <li>English</li>
+                <li>Hebrew</li>
+                <li>Russian</li>
+            </ul>
+        </div>
+    </section>
+    <footer>
+        <div id="contact">
+            <a href="https://www.linkedin.com/in/elena-chugreeva-45b282103/"><i class="fa fa-2xl fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/echugreeva/DI-Bootcamp-Stage1/tree/master/DI_JS_pt"><i class="fa fa-2xl fa-brands fa-github-square"></i></a>
+            <p>e.*****@gmail.com</p>
+            <p>058********</p>
+        </div>
+        <form>
+            <textarea name="message" rows="5" cols="30">Write your message here</textarea>
+            <input type="submit" value="Send">
+        </form>
+    </footer>
+</body>
+</html>

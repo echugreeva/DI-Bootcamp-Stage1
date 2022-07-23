@@ -1,0 +1,77 @@
+body {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    background-image: url(./media/bgrd.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* header { 
+    background-image: linear-gradient(to bottom right, rgb(255, 69, 0, 0.7), rgb(0, 191, 255, 0.7));
+    width: 100%;
+}*/
+
+h2{
+    color: brown;
+    padding: 10px;
+    text-transform: capitalize;
+    font-style: italic ;
+}
+
+section {
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    background-color: rgb(255, 239, 213, 0.65);
+    padding: 2%;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+img {
+    width: 26%;
+    height: 250px;
+    object-fit: cover;
+    margin: 3%;
+    border: 4px solid tan;
+}
+
+table {
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+}
+
+
+td {
+    border: black solid 1px;
+    width: 50%;
+}
+.brown {
+    color: brown;
+    border: solid 1px brown;
+    width: 79.5%;
+    text-align: center;
+    margin: 0 auto;
+}
+.italic {
+    font-style: italic ;
+}
+
+.underscore {
+    text-decoration: underline;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+ol{
+    list-style-type: upper-roman;
+}

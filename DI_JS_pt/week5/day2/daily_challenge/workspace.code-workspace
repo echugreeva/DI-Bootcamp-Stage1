@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../../../DI_hackaton1"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "DI_hackaton1"
+	}
+}

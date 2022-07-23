@@ -1,0 +1,169 @@
+body, html {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'ubuntu', sans-serif;
+    position: relative;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Lora', serif;
+}
+
+header, footer {
+    width:100%;
+    background-color: 	rgb(230, 230, 250);
+
+}
+
+header {
+    position: fixed;
+}
+
+footer {
+    height: 20vh;
+    padding-top:2%;
+}
+
+nav {
+    display:inline-block;
+    vertical-align: center;
+    width: 60%;
+    text-align: end;
+}
+
+h1  {
+    display: inline-block;
+    width: 30%;
+    margin-left: 5%;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav li {
+    display: inline;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-left:0.5em;
+}
+
+.hero {
+    height: 60% vh;
+    text-align: center;
+    margin-top: 5%;
+    
+}
+.hero img {
+    display: inline-block;
+    width: 35%;
+    height: 500px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 100%;
+
+
+}
+
+.hero div {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5%;
+    padding-top:10%;
+    width: 35%;
+}
+
+section {
+    width:100%;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+img {
+    width: 80%;
+    height: 150px;
+    object-fit:contain;
+}
+
+
+#projects div {
+    display: inline-block;
+    width: 30%;
+    margin: 0 auto;
+    vertical-align: text-top;
+    
+}
+
+.projects p {
+    font-size: 0.75em;
+}
+
+section ul {
+    text-align: left;
+    margin-left: 30%;
+}
+
+#skills {
+    padding: 2% 0;
+    color: royalblue;
+    background-color: rgb(255, 255, 224);
+    font-size: 1.2em;
+}
+
+
+.experience {
+    background-color: rgb(255, 240, 245);
+}
+
+  .timeslot {
+    width:80%;
+    padding-bottom: 1.5rem;
+    border-left: 2px solid royalblue;
+    padding-left: 20px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    text-align: left;
+    margin-left: 30%;
+    
+
+  }
+    .timeslot:last-child{
+      border: 0px;
+      padding-bottom: 0;
+    }
+    .timeslot::before{
+      content: '';
+      width: 15px;
+      height: 15px;
+      background: white;
+      border: 1px solid royalblue;
+      box-shadow: 3px 3px 0px royalblue;
+      box-shadow: 3px 3px 0px royalblue;
+      border-radius: 50%;
+      left: -10px;
+      top: 0px;
+    }
+
+    .education div {
+        display: inline-block;
+        width: 40%;
+    }
+
+    #contact, form {
+        display: inline-block;
+        width: 35%;
+        text-align: left;
+    }
+
+    #contact {
+        margin-left: 25%;
+    }
+
+.fa {
+    color: royalblue;
+}

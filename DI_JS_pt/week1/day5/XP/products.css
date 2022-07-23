@@ -1,0 +1,190 @@
+body, html {
+    margin:0;
+    padding:0;
+}
+
+nav, footer {
+    width: 100%;
+    height: 10vh;
+    background-color: black;
+    color: white;
+    position: relative;
+
+
+}
+
+nav > *{ 
+    display: inline-block;
+    position: absolute;
+    
+
+}
+
+nav i {
+    top:0.4em;
+    left:1em;
+}
+
+
+footer {
+    text-align: center;
+}
+
+footer p {
+    position: relative;
+    top: 40%;
+
+}
+
+a {
+    text-transform: uppercase;
+    color: white;
+    position: relative;
+    left: 80%;
+    top: 40%;
+    text-decoration: none;
+
+}
+
+
+
+
+.product-box {
+    position: relative;
+    display: block;
+    width: 80vw;
+    /* height: 50vh; */
+    margin:1em auto;
+    text-align: center;
+}
+
+@media screen and (min-width: 600px) and (max-width:768px) {
+    .product-box {
+        display: inline-block;
+        width: 45vw;
+        margin:1em;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+    .product-box {
+        display: inline-block;
+        width: 22vw;
+        margin:1em;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .product-box {
+        display: inline-block;
+        width: 14vw;
+        margin:1em;
+    }
+}
+
+.image {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 70%;
+    /* background-image: url(./image1.png); */
+    /*object-fit: cover;
+    /* background-repeat: no-repeat;  */
+}
+
+img {
+    display: inline-block;
+    width: 100%;
+}
+
+.new, .discount {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+} 
+
+.new {
+    background-color: green;
+    text-transform: uppercase;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+.discount {
+    background-color: red;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
+
+.icons {
+    display: none;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2;
+    position: absolute;
+    top: 20%;
+    right: 35%;
+    background-color: aliceblue;
+    padding: 1em 0;
+
+    
+    /* display: none; */
+}
+
+/* .icons i { 
+    display: none;
+}*/
+
+ img:hover + .icons { 
+        display: inline-block;
+        color: gray;
+        border: 3px 1px gray;
+        padding: 3%;
+}
+
+
+    
+.icons i {
+    display: inline-block;
+    color: gray;
+    border: 3px 1px gray;
+    padding: 3%;
+    margin: 0.5em;
+
+}
+.icons i:hover {
+    color: green;
+}
+
+.new-price {
+    color: green;
+    font-weight: bold;
+    display: inline;
+    
+}
+
+.old-price {
+    text-decoration: line-through;
+    display: inline;
+}
+
+button {
+    background-color: transparent;
+    border: gray 1px solid;
+    padding: 2%;
+    display: block;
+    margin: 3% auto;
+    color: gray;
+}
+
+
+img:hover +.icons{
+    display: inline-block;
+}
+
+/* fix img/image classes, move .icons under image, change margin to vw % */
