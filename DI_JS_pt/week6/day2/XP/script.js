@@ -148,20 +148,18 @@ displayAll2();
 //ex 6 
 
 let bankAmount = 5000;
-let totalVat = 0;
-let vat = (a) => a = a*.17;
+let vatAdded = (a) => a = a*1.17;
 let balance = [200, -100, 146, 167, -3300, 450];
 let balanceSum =0;
 
    
 let endOfmonth = () => {
     balance.forEach((i)=>{
-        totalVat += vat(i);
-        console.log(totalVat)
-        balanceSum +=i;
+
+        balanceSum +=vatAdded(i);
         console.log(balanceSum);
 
     })
-    return bankAmount - balanceSum - totalVat;
+    return bankAmount + balanceSum;
 }
 
