@@ -146,35 +146,32 @@ form.addEventListener("submit", function(event){
 //part 3
 //create dropdown with all autors, once author is picked create ps for all his quotes
 
-// let dropdown = document.querySelector(".dropdown-menu");
-// let toDisplay =document.querySelector(".toDisplay");
+let dropdown = document.querySelector(".dropdown-menu");
+let toDisplay = document.querySelector(".toDisplay");
 
-// myQuotes.forEach((i)=>{
-//     let li = document.createElement('li');
-//     let author = i['author'];
-//     li.textContent = author;
-//     dropdown.appendChild(li);
-//     li.addEventListener("click", function (event) {
-//         event.preventDefault();
-//         myQuotes.forEach((i)=> {
-//             allQuotes =[];
-//             if (i['author'] === author) {
-//                 allQuotes.push(myQuotes[i]['quote']);
-//             }
-        
-//             allQuotes.forEach((i)=>{
-//                 let p = document.createElement('p');
-//                 p.textContent = allQuotes[i];
-//                 toDisplay.appendChild(p);    
-//             } )
-        
-//         })
-//     })
-// }
-// );
+myQuotes.forEach((element)=>{
+    let li = document.createElement('li');
+    let author = element['author'];
+    li.textContent = author;
+    li.addEventListener('click',() => showQuotes(author));
+    dropdown.appendChild(li);
+    
+    });
+
+function showQuotes (author) {
+
+    let string;
+    myQuotes.forEach((element) => {
+        if (element['author'] === author) {
+            string = element['quote'];
+        }
+    })
+    let p = document.createElement("p");
+    p.textContent = string;
+    toDisplay.appendChild(p);
+}
 
 
 
-
-
+//
 
