@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherApp</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <h1 class = "w3-container w3-indigo">Simple WeatherApp</h1>
+    <section class="w-3container">
+        <form>
+            <input type="text" class="w3-input" name="city" id="city" value="" placeholder="Search city">
+            <input type="submit" class="w3-button w3-red">
+        </form>
+        <div id="weatherCard" class="w3-cell-row"></div>
+        <div id="degreeSwitch">
+            <input type="radio" id="Far" name="degree" value="Farenheit">
+            <label for="html">°F</label>
+            <input type="radio" id="Cel" name="degree" value="Celcius">
+            <label for="css">°C</label>
+        </div>
+        
+    </section>
+    <script src="./script.js"></script>
+</body>
+</html>
+

@@ -1,6 +1,11 @@
 let btn = document.querySelector("button");
 let root = document.querySelector(".root");
 let body= document.querySelector("body");
+const apiKey = `hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My`;
+let xhr = new XMLHttpRequest();
+function getRandom(num = 50){
+  return Math.floor(Math.random()*50)
+};
 let deleteAllBtn = document.createElement("button");
 deleteAllBtn.textContent = "delete All";
 body.appendChild(deleteAllBtn);
@@ -19,8 +24,8 @@ function getGif()
     const text = document.getElementById('gifkeyword').value
     const rating = document.getElementById('rating').value
     let data = `q=${text}&rating=${rating}`;
-    let url = `https://api.giphy.com/v1/gifs/search?${data}&limit=1&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My`;
-    let xhr = new XMLHttpRequest();
+    let url = `https://api.giphy.com/v1/gifs/search?${data}&limit=1&api_key=${apiKey}&offset=${getRandom()}`; //add random
+     // move outside the function 
     xhr.open("GET", url);
     xhr.send();
     xhr.responseType = 'json';
@@ -55,26 +60,3 @@ function getGif()
 
 
 
-
-    
-// let xhr = new XMLHttpRequest();
-// function getGifs() {
-  
-//   xhr.withCredentials = true;
-//   xhr.open("POST", "https://api.giphy.com/v1/gifs/search?q=hilarious&rating=g&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My");
-//   xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-//   xhr.setRequestHeader("X-RapidAPI-Key", "hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My");
-// //   xhr.setRequestHeader("X-RapidAPI-Host", "google-translate1.p.rapidapi.com");
-
-//   xhr.responseType = 'json';
-//   const text = document.getElementById('gifkeyword').value
-//   const rating = document.getElementById('rating').value
-//   let data = `q=${text}&rating=${rating}`;
-//   xhr.send(data);
-
-
-// }
-
-// xhr.onload = function(){
-//   console.log(xhr.response);
-// }

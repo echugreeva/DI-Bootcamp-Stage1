@@ -1,0 +1,33 @@
+body {
+    margin:0;
+    padding:0;
+    box-sizing: content-box;
+}
+h1 {
+    margin: 0 auto;
+    text-align: center;
+}
+
+form {
+    margin: 2% auto;
+    /* width:35%; */
+    text-align: center;
+}
+
+section {
+    margin: 2% auto;
+    width:75%;
+}
+#weatherCard {
+    text-align: center;
+}
+
+#degreeSwitch{
+    margin: 0 auto;
+    text-align: center;
+}
+#city{
+    display: inline-block;
+    max-width: 50%;
+}
+
