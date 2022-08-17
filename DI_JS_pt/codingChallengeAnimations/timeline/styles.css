@@ -20,15 +20,15 @@ body {
     height: 40%;
 }
 
-/* // STYLING */
-    li {
+/* // STYLING  creates line*/
+    ul {
       list-style-type: none;
       position: relative;
-      width: 6px;
+      width: 10px;
       margin: 0 auto;
-      padding-top: 50px;
+      padding: 0;
       background: #fff;
-      z-index: 1;
+      z-index: 7;
     }
 
      .unit{
@@ -43,16 +43,17 @@ body {
         left: 0;
         bottom: 50%;
         transform: translateX(-50%) rotate(45deg) ;
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
-        z-index: 2;
+        z-index: 5;
         background: #eee;
     }
 
      .unit {
         position: relative;
         bottom: 0;
+        left:1em;
         width: 400px;
         padding: 20px;
         box-shadow: 4px 13px 30px 1px rgba(252, 56, 56, 0.2);
@@ -76,16 +77,16 @@ body {
         } */
         
     
-        /* ul >  :nth-child(odd) {
+        ul li:nth-of-type(odd) {
             left: 45px;
             background-color: pink;
         }
 
-        ul > :nth-child(even) {
+        ul li :nth-child(even) {
             left: -439px;;
             background-color: yellowgreen;
 
-        } */
+        }
 
 
 
@@ -104,11 +105,11 @@ body {
         transform: translate3d(100px, -10px, 0) rotate(10deg);
       }
       
- /* li > :nth-of-type(odd) {
+ /* ul > :nth-of-type(odd) {
     transform: translate3d(100px, -10px, 0) rotate(10deg);
- }      */
+ }     
 
- /* li > :nth-of-type(even) {
+ ul > :nth-of-type(even) {
     transform: translate3d(-100px, -10px, 0) rotate(10deg);
  }     
     */
