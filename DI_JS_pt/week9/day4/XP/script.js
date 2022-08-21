@@ -1,13 +1,13 @@
 // EX 1 
 
-fetch("https://dog.ceo/api/breeds/image/random")
+fetch("https://www.swapi.tech/api/starships/9/")
     .then(response => response.json())
     .then(result => console.log(result));
 
 
 
  const f = async () => {
-   const response = await fetch("https://dog.ceo/api/breeds/image/random");
+   const response = await fetch("https://www.swapi.tech/api/starships/9/");
    let data = await response.json();
    console.log(data);
  }

@@ -1,0 +1,56 @@
+body {
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+    background-image: 
+    url("https://images.unsplash.com/photo-1580519542036-c47de6196ba5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80");
+    color: white;
+    font-size: 1.5rem;
+    background-repeat: no-repeat;
+
+}
+main{
+    display: flex-row;
+    width: 30vw;
+    margin: 0 auto;
+    align-items: center;
+    position: relative;
+    background-color: rgba(102, 217, 102, 0.7);
+}
+
+form {
+    
+    width: 100%;
+    
+    text-align: center;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+h1 {
+   color: indigo;
+}
+
+button {
+    margin:1rem;
+    background-color: indigo;
+    font-size: 1.5rem;
+    color: white;
+    position: absolute;
+    top: 30%;
+    left: 70%;
+}
+
+output {
+    display: inline-block;
+    min-width: 20%;
+    height: 1em;
+    background-color: white;
+    color: black;
+}
+
+#submit {
+    margin:1rem;
+    background-color: indigo;
+    color: white;
+    font-size: 1.5rem;
+}
