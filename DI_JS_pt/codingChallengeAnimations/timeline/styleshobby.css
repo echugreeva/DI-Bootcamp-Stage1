@@ -18,8 +18,8 @@ h1 {
   padding: 2em 0;
 }
 img {
-  width: 600px;
-  height: 400px;
+  width: 450px;
+  height: 300px;
   object-fit: cover;
 }
 
@@ -62,7 +62,7 @@ p {
 }
 
 .has-animation.animate-in {
-  animation: textHidden 0.1s 1.1s forwards;
+  animation: textHidden 0.1s 0.5s forwards;
 }
 .has-animation.animate-in ::before {
   content: '';
@@ -82,16 +82,16 @@ p {
       height: 100%;
       z-index: 10;
       background-color: pink;
-      animation-delay: .5s;
+      animation-delay: .2s;
 }
 
 
 .has-animation.animation-ltr.animate-in ::before {
    
-      animation: revealLTR 2.8s ease;
+      animation: revealLTR 1.8s ease;
     }
 .has-animation.animation-ltr.animate-in ::after {
-      animation: revealLTR 2s 1.6s ease;
+      animation: revealLTR 1s .6s ease;
     }
   
   .has-animation.animation-rtl.animate-in ::before {

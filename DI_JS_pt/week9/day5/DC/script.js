@@ -77,7 +77,6 @@ btn.addEventListener('click', (e)=>{
     let y = to.value;
     from.value = y;
     to.value = x;
-    sendRequest()
 })
 
     // allCurrencies.forEach((item) => {
