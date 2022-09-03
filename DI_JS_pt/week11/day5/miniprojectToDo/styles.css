@@ -1,0 +1,15 @@
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+.late {
+    color:orange;
+}
