@@ -1,3 +1,16 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+
+}
+.taskCard {
+    display: inline-block;
+    width: 20%;
+    margin: 2em;
+    padding: 1em;
+}
 .red {
     color: red;
 }

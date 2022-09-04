@@ -8,6 +8,7 @@ toDoAr.sort((a, b) => parseFloat(a.start) - parseFloat(b.start)); //sorts task b
 
 toDoAr.forEach((item)=>{
     let taskDiv = document.createElement("div");
+    taskDiv.classList.add("taskCard");
     if(ifTaskLate(item.end)){
         taskDiv.classList.add("late");
     } else {
@@ -19,6 +20,8 @@ toDoAr.forEach((item)=>{
     let end = document.createElement("p");
     let btn = document.createElement("button");
     let editBtn = document.createElement("button");
+    let editIcon = document.createElement("i");
+    let dropDownIcon = document.createElement("i");
     let dropDownBtn = document.createElement("button");
     p.textContent = item.name;
     start.textContent = item.start;
@@ -26,15 +29,21 @@ toDoAr.forEach((item)=>{
     descP.textContent = item.desc;
     descP.style.display = 'none';
     btn.textContent = "X";
-    editBtn.textContent = "Edit task";
-    dropDownBtn.textContent = "More details";
+    editIcon.classList.add("fa-solid", "fa-pen-to-square");
+    dropDownIcon.classList.add("fa-solid", "fa-caret-down")
+    // editBtn.textContent = "Edit task";
+    
+    editBtn.appendChild(editIcon);
+    // dropDownBtn.textContent = "More details";
+    dropDownBtn.appendChild(dropDownIcon);
+    taskDiv.appendChild(btn); 
     taskDiv.appendChild(editBtn);
     taskDiv.appendChild(p);
     taskDiv.appendChild(dropDownBtn);
     taskDiv.appendChild(descP);
     taskDiv.appendChild(start);
     taskDiv.appendChild(end);
-    taskDiv.appendChild(btn); 
+    
     btn.addEventListener('click', (e)=>{
         if(confirm("are you sure you want permanently delete this task?")){
             //remove object from array
@@ -52,9 +61,12 @@ toDoAr.forEach((item)=>{
     
 
     let checkbox = document.createElement("input");
+    let label = document.createElement("label");
+    label.setAttribute("for", "taskStatus");
+    label.textContent = "Mark as DONE";
     checkbox.setAttribute("type","checkbox");
+    checkbox.setAttribute("id","taskStatus");
     checkbox.addEventListener('change', (e)=>{
-        // e.stopPropagation(); add that click on the checkbox doesn't open description //add dropdown icon to expand
         if(checkbox.checked === true) {
             console.log(`task is done`);
             taskDiv.classList.remove("red", "orange");
@@ -65,6 +77,7 @@ toDoAr.forEach((item)=>{
             taskDiv.classList.add("red");
         }
     })
+    taskDiv.appendChild(label);
     taskDiv.appendChild(checkbox);
     body.appendChild(taskDiv); 
     
@@ -89,4 +102,4 @@ function ifTaskLate(end) {
 
 }
 
-//add expandable, add editted information on task is saved into localStorage?
+// add editted information on task is saved into localStorage?
