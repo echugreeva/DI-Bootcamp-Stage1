@@ -2,7 +2,6 @@ let body = document.querySelector('body');
 let toDoAr = [];
 for (let i=0; i< localStorage.length; i++){
     toDoAr.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-    // console.log(toDoAr);
 }
 
 toDoAr.sort((a, b) => parseFloat(a.start) - parseFloat(b.start)); //sorts task by start date
@@ -10,33 +9,48 @@ toDoAr.sort((a, b) => parseFloat(a.start) - parseFloat(b.start)); //sorts task b
 toDoAr.forEach((item)=>{
     let taskDiv = document.createElement("div");
     if(ifTaskLate(item.end)){
-        taskDiv.classList.add("orange");
+        taskDiv.classList.add("late");
     } else {
         taskDiv.classList.add("red");
     }
     let p = document.createElement("p");
-    p.setAttribute("contentEditable","true")
     let descP = document.createElement("p");
-    descP.setAttribute("contentEditable","true")
     let start = document.createElement("p");
     let end = document.createElement("p");
     let btn = document.createElement("button");
+    let editBtn = document.createElement("button");
+    let dropDownBtn = document.createElement("button");
     p.textContent = item.name;
     start.textContent = item.start;
     end.textContent = timeToComplete(item.end);
     descP.textContent = item.desc;
     descP.style.display = 'none';
     btn.textContent = "X";
+    editBtn.textContent = "Edit task";
+    dropDownBtn.textContent = "More details";
+    taskDiv.appendChild(editBtn);
     taskDiv.appendChild(p);
+    taskDiv.appendChild(dropDownBtn);
     taskDiv.appendChild(descP);
     taskDiv.appendChild(start);
     taskDiv.appendChild(end);
     taskDiv.appendChild(btn); 
     btn.addEventListener('click', (e)=>{
         if(confirm("are you sure you want permanently delete this task?")){
+            //remove object from array
             body.removeChild(taskDiv);
+            
         }
     })
+    editBtn.addEventListener('click', (e)=>{
+        p.setAttribute("contentEditable","true");
+        descP.setAttribute("contentEditable","true");
+    })
+    dropDownBtn.addEventListener('click', (e)=>{
+        descP.style.display = 'block';
+    })
+    
+
     let checkbox = document.createElement("input");
     checkbox.setAttribute("type","checkbox");
     checkbox.addEventListener('change', (e)=>{
@@ -52,25 +66,13 @@ toDoAr.forEach((item)=>{
         }
     })
     taskDiv.appendChild(checkbox);
-    
-    //add function on check change status of task to complete and apply class "done" that will change text to strike through
-    body.appendChild(taskDiv);
-    //adding description drop down
-    taskDiv.addEventListener('click', (e)=>{
-        descP.style.display = 'block';
-    })   
+    body.appendChild(taskDiv); 
     
 })
 
 
-
-
-
 function timeToComplete(end){
     endTime =  Date.parse(end);
-
-    // result = (((Math.abs(startTime - endTime) / 1000)/60)/60/24) + "day";
-    // let result = Math.round(((Math.abs(Date.now() - endTime) / 1000)/60)/60/24) + " days";
     let result = Math.round((((endTime - Date.now()) / 1000)/60)/60/24) + " days";
     console.log(result);
     return result;
@@ -78,7 +80,6 @@ function timeToComplete(end){
 
 function ifTaskLate(end) {
     endTime = Date.parse(end);
-    // let result = Math.round(Math.abs(Date.now() - endTime));
     let result = Math.round(endTime - Date.now());
     if (result < 0) {
         return true
@@ -87,3 +88,5 @@ function ifTaskLate(end) {
     }
 
 }
+
+//add expandable, add editted information on task is saved into localStorage?
