@@ -8,3 +8,8 @@ button {
     color: blue;
     margin-left: 1em;
 }
+
+img {
+    width: 50%;
+    height: auto;
+}
