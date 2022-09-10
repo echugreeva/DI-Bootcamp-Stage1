@@ -1,0 +1,10 @@
+h1{
+    color: red;
+    border-style: dashed;
+    border-color: blue;
+}
+
+button {
+    color: blue;
+    margin-left: 1em;
+}
