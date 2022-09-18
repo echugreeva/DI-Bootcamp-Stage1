@@ -7,10 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/login" method="POST">
-       Username <input type="text" id="uname" name = "uname">
-       Password <input type="password" id="password" name = "password" >
+    <form onsubmit="login()">
+       Username <input type="text" id="userName" name = "userName">
+       Password <input type="text" id="psw" name = "psw" >
         <input type="submit" id="login" name = "login" value="login">
     </form>
+<script src="./script.js"></script>
 </body>
 </html>
