@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import React from 'react';
 import './App.css';
-import books from './books.json'
+// import books from './books.json'
 import Book from './components/Book';
 import Store from './components/Stores';
 
