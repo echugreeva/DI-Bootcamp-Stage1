@@ -3,7 +3,7 @@ import { showDetail } from '../redux/actions'
 
 const MovieList = (props)=> {
     return (
-        <div>
+        <div style={{display: 'inline-block', width: '45%'}}>
             <h1>MovieList</h1>
             {
                 props.list.map((item, i) => {

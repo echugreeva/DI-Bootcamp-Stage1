@@ -1,5 +1,5 @@
 const initState={
-    count:10,
+    count:0,
 }
 
 export const reducer = (state = initState, action={}) => {

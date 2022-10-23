@@ -5,10 +5,10 @@ import MovieList
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      
         <MovieList/>
         <Movie/>
-      </header>
+      
     </div>
   );
 }

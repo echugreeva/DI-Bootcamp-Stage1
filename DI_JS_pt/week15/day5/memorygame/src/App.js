@@ -72,8 +72,7 @@ class App extends React.Component{
           <div> 
             {this.state.heroesArr.map((item)=>{
               return (
-                // <Card key={item.id} info={item} action = {()=>{console.log(item.id)}}/> this works
-
+      
                 <Card key={item.id} info={item} onClick = {()=>{this.handleClick(item.id)}}/>
               )
               

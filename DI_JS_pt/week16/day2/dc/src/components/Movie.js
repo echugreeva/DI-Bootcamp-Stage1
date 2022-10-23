@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 const Movie = (props) => {
     
         return (
-            <div>
+            <div style={{display: 'inline-block', width: '50% '}}>
                 <h1>Movie Details</h1>
                 <h2>Title: {props.d.title&&props.d.title}</h2>
                 <h4>Release Date: {props.d.releaseDate&&props.d.releaseDate}</h4>
