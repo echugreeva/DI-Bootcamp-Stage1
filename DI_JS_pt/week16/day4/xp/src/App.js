@@ -1,4 +1,3 @@
-
 import './App.css';
 import {connect} from 'react-redux'
 import { submit } from './redux/actions'
@@ -10,10 +9,10 @@ function App (props) {
     <div className="App">
       <header className="App-header">
         <div>
-          <input style={{display:'block'}}type='text' id='one' placeholder='blabla'></input>
-          <input style={{display:'block'}}type='text' id='two' placeholder='blabla'></input>
-          <input style={{display:'block'}}type='text' id='three' placeholder='blabla'></input>
-          <input style={{display:'block'}}type='text' id='four' placeholder='blabla'></input>
+          <input style={{display:'block'}}type='text' id='one' placeholder='account name'></input>
+          <input style={{display:'block'}}type='text' id='two' placeholder='fsn'></input>
+          <input style={{display:'block'}}type='text' id='three' placeholder='Ac holder name'></input>
+          <input style={{display:'block'}}type='text' id='four' placeholder='amount'></input>
           <button onClick={()=>{props.submit(
             {
               one:document.querySelector('#one').value,

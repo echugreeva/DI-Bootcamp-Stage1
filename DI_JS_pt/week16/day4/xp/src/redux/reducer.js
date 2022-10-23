@@ -3,7 +3,7 @@ import {submit, edit, del} from './actions'
 const initState = {
     transactionList: [],
     transaction:{},
-    update:{}
+    toUpdate:{}
 }
 
 export const reducer = (state=initState, action={}) => {
@@ -12,10 +12,16 @@ export const reducer = (state=initState, action={}) => {
         return  {...state, transactionList: [...state.transactionList, action.payload ]}
    
         case 'EDIT':
-        const updateList = [...state.transactionList];
-        updateList = updateList.splice(action.payload2,1,action.payload);
-        return  {...state, update: action.payload,transactionList:updateList }
-        //? get key of element and replace it by key
+        let updateList = [...state.transactionList];
+        console.log(state.transactionList[0].one);
+        console.log(action.payload2);
+        console.log(action.payload);
+        document.querySelector('#one').value = action.payload2.one
+        document.querySelector('#two').value = action.payload2.two
+        document.querySelector('#three').value = action.payload2.three
+        document.querySelector('#four').value = action.payload2.four
+        updateList.splice(action.payload,1);
+        return  {...state, transactionList: updateList }
         
    
         case 'DELETE':

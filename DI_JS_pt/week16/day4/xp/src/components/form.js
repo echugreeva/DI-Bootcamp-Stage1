@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 
-const Form = (props) => {
+const FormUpdate = (props) => {
     return(
         <div>
           <input type='text' id='one' placeholder='blabla'></input>
@@ -40,4 +40,4 @@ const mapStateToProps = (state) => {
     }
   }
   
-  export default connect(mapStateToProps, mapDispatchToProps)(Form)
+  export default connect(mapStateToProps, mapDispatchToProps)(FormUpdate)
