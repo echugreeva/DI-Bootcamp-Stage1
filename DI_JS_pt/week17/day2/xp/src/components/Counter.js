@@ -1,15 +1,7 @@
 import {connect} from 'react-redux'
 import {plus, minus, incrIfOdd, incrDelay} from '../redux/action'
 const Counter = (props)=> {
-    // const get = () => {
-    //     fetch(`https://jsonplaceholder.typicode.com/users`)
-    //                 .then(response => response.json())
-    //                 .then((response) => {
-    //                     console.log(response)
-    //                     props.getRobots(response)
-    //                 })
-    //                 .catch(err => console.error(err))
-    // }
+   
     return (
         <>
         <p>{props.num}</p>

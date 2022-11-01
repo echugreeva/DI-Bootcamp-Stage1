@@ -10,7 +10,6 @@ import Food from './components/Food';
 import AnySearch from './components/AnySearch';
 import Home from './components/Home'
 
-// not sure if need NavLinks since I need to trigger fetch on load too//
 
 function App(props) {
 
