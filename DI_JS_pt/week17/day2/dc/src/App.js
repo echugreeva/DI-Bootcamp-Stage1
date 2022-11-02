@@ -34,7 +34,7 @@ const filterRobots = props.robots.filter(
     );
   return (
     <Provider store={store}>
-      <div className="App-header">
+      
         <div className="tc">
           <h1 className="f1">RoboFriends</h1>
           <SearchBox
@@ -48,7 +48,7 @@ const filterRobots = props.robots.filter(
             </ErrorBoundary>
           </Scroll>
         </div>
-    </div>
+    
     </Provider>
     
       );

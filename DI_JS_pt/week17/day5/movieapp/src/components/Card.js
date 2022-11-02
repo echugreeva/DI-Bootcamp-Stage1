@@ -7,14 +7,17 @@ const Card = (props)=> {
     const {data}=props
     console.log(data.imdbID)
     return(
-        <div key={data.imdbId}>
-            <img src={data.Poster}/>
-            <h4>{data.Title}</h4>
-            <button onClick={()=>{
-                props.getMovieData(data.imdbID);
-                navigate(`/movie/${data.imdbID}`)
-                }}>More Details</button>
+        <div className="col-md-3 mb-5">
+            <div className="card card-body bg-dark text-center h-100" key={data.imdbId}>
+                <img className="w-100 mb-2" src={data.Poster}/>
+                <h4 className="text-light card-title">{data.Title}</h4>
+                <button className="btn btn-primary" onClick={()=>{
+                    props.getMovieData(data.imdbID);
+                    navigate(`/movie/${data.imdbID}`)
+                    }}>More Details</button>
+            </div>
         </div>
+        
     )
 }
 

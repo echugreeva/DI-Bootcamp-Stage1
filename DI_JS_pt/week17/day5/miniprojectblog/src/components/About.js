@@ -1,9 +1,9 @@
 const About = (props)=> {
     return (
-        <>
-        <h1>About</h1>
+        <div className="container">
+        <h1 className="center">About</h1>
         <p>sgkjhworhbteoibnotgng</p>
-        </>
+        </div>
     )
 }
 

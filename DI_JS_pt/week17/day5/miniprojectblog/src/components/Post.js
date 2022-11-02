@@ -10,18 +10,21 @@ const Post = (props)=> {
     console.log(post)
     if(!post){
         return(
-            <h1>Loading...</h1>
+            <h1 className="center">Loading...</h1>
         )
     } else {
         return (
-            <div key = {post.id}>
-                <h2>{post.title}</h2>
-                <p>{post.body}</p>
-                <button onClick={(e)=> {
-                    props.deletePost(post.id)
-                    navigate('/')
-                }}>delete</button>
+            <div className="container">
+                <div className="post" key = {post.id}>
+                    <h2 className="center">{post.title}</h2>
+                    <p className="center"> {post.body}</p>
+                    <button  className="btn grey" onClick={(e)=> {
+                        props.deletePost(post.id)
+                        navigate('/')
+                    }}>delete</button>
+                </div>
             </div>
+            
         )
     }
    

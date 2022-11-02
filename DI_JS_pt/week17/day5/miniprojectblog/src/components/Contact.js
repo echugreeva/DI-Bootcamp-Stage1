@@ -1,9 +1,9 @@
 const Contact = (props)=> {
     return (
-        <>
-        <h1>Contacts</h1>
+        <div className="container">
+        <h1 className="center">Contacts</h1>
         <p>sgkjhworhbteoibnotgng</p>
-        </>
+        </div>
     )
 }
 

@@ -7,7 +7,9 @@ import {Provider} from 'react-redux';
 import {reducer} from './redux/reducer';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
+import 'tachyons';
 const store = createStore(reducer, applyMiddleware(thunk));
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

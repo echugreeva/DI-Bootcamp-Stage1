@@ -2,7 +2,7 @@ import {connect} from 'react-redux'
 import Card from './Card'
 const CardList = (props)=> {
     return(
-        <div>
+        <div className="row">
             {
             props.movieList.map(item=>{
                 return(
