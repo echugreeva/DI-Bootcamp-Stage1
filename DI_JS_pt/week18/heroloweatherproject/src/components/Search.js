@@ -13,31 +13,14 @@ const Search = (props)=>{
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                setKeyList(data);
+                setKeyList(data||[]);
             })
             .catch((err) => {
                 console.log(err)
             })
-        // setKeyList(AutocompleteEx)
+        //  setKeyList(AutocompleteEx)
 
     }
-
-
-const fetchWeather = (id) => {
-    fetch(
-        `http://dataservice.accuweather.com/currentconditions/v1/${id}?apikey=lBHawUgG9LRqS3TZNMPItFBx1VH87wIt`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data);
-            setOneDay(data);
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-    // setOneDay(OneDaysEx)
-
-}
 
 const fetchWeatherFive = (id) => {
     fetch(
@@ -64,12 +47,15 @@ const fetchWeatherFive = (id) => {
     const {chosen, setChosen} =useContext(AppContext)
     return (
         <div className='mv2'>
-            <input type='text' onChange = {(e)=>setInput(e.target.value)}/>
+            <input type='text' onChange = {(e)=>{setInput(e.target.value)
+                     fetchCity(input)}
+            
+            }/>
             
             <div className='mv2'>
-                <button onClick={(e)=>{
+                {/* <button onClick={(e)=>{
                     fetchCity(input);
-                }}>choose city</button>
+                }}>choose city</button> */}
                 {
                     keyList.map((item)=>{
                         return (
@@ -77,8 +63,6 @@ const fetchWeatherFive = (id) => {
                                     (e)=>{
                                         setKeyList([])
                                         setChosen({country:item.Country.LocalizedName, city:item.LocalizedName, key:item.Key})
-                                        // setChosen([{country:'test', city:'test', key:'test'}])
-                                        fetchWeather(item.Key);
                                         fetchWeatherFive(item.Key);
                                     }
                                 }
