@@ -57,10 +57,9 @@ const OneDay = ({keyC, keyF, city, country})  => {
 
         return (
         <div className='center mw5 mw6-ns hidden ba mv4 bg-lightest-blue'>
-                <p>{city}</p>
-                <p>{country}</p>
-                <p>{oneDay[0].Temperature.Metric.Value}</p>
-                <p>{oneDay[0].WeatherIcon}</p>
+                <p>{country}, {city} </p>
+                <p>Temperature: {oneDay[0].Temperature.Metric.Value} C</p>
+                <img src={imgSrc}/>
                 <p>{oneDay[0].WeatherPhrase}</p>   
                 
         </div>
@@ -76,7 +75,7 @@ const OneDay = ({keyC, keyF, city, country})  => {
         return (
             <div className='center mw5 mw-ns hidden ba mv4 bg-lightest-blue'>
                 <p>{chosen.country}, {chosen.city}</p>
-                <p>{oneDay[0].Temperature.Metric.Value}</p>
+                <p>Temperature: {oneDay[0].Temperature.Metric.Value} C</p>
                 <img src={imgSrc}/>
                 <p>{oneDay[0].WeatherText}</p>   
                 

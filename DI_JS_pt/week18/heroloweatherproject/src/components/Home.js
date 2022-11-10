@@ -15,6 +15,7 @@ const Home = (props) => {
         <div>
         <Navbar/>
         <ErrorBoundary><Search/></ErrorBoundary>
+        <ErrorBoundary><OneDay keyC={chosen.key}/></ErrorBoundary>
         <button className='mv2' onClick={()=>{
             let favorite = getFromLocalStorage('favorites')||[];
             favorite.push(chosen);
@@ -23,7 +24,6 @@ const Home = (props) => {
             // console.log(favorite)
             }}
             >Add to Favorite</button>
-        <ErrorBoundary><OneDay keyC={chosen.key}/></ErrorBoundary>
         <ErrorBoundary><FiveDays/></ErrorBoundary>
         
         

@@ -18,11 +18,11 @@ export const AppContext = createContext();
 function App() {
   
   const [input,setInput]=useState(''); //search for city
-  const [chosen, setChosen]=useState({country:'test', city:'test', key:'623'});
+  const [chosen, setChosen]=useState({country:'Israel', city:'Tel Aviv', key:'215854'});
   const [favKeys,setFav]=useState([]); //set favorite
   const [keyList,setKeyList]=useState([]) //list of cities from search
   // const [oneDay, setOneDay]=useState(OneDaysEx)
-  const [fiveDays, setFiveDay]=useState(FiveDaysEx.DailyForecasts)
+  const [fiveDays, setFiveDay]=useState([])
   console.log (`end of app ${chosen.key}`)
   console.log (`end of app fav ${favKeys[0]}`)
   return (

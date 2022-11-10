@@ -46,11 +46,11 @@ const fetchWeatherFive = (id) => {
     const {fiveDays, setFiveDay}=useContext(AppContext)
     const {chosen, setChosen} =useContext(AppContext)
     return (
-        <div className='mv2'>
-            <input type='text' onChange = {(e)=>{setInput(e.target.value)
+        <div className=' h4 bg-blue flex-row items-center justify-center'>
+            <input className="mv4 self-center-l" type='text' placeholer="Start typing city name" onChange = {(e)=>{setInput(e.target.value)
                      fetchCity(input)}
             
-            }/>
+            }  />
             
             <div className='mv2'>
                 {/* <button onClick={(e)=>{
