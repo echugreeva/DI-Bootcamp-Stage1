@@ -28,13 +28,31 @@ const LoginReg = (props)=> {
                         'Content-Type': 'application/json'
                     }
                 });
-                console.log(response)
-                navigate('/')
+                console.log(response);
+                navigate('/login');
             }catch (e){
                 setMsg(e.response.data.msg)
             }
         }else{
-
+            try{
+                const response = await axios.post('/login', {
+                    email, password
+                }, {
+                    withCredentials:true, 
+                    headers:{
+                        'Content-Type': 'application/json'
+                    }
+                });
+                console.log(response.data.token)
+                if(response.status==200){
+                    setAccessToken(response.data.token);
+                    setMsg('');
+                    navigate('/');
+                }
+                
+            }catch (e){
+                setMsg(e.response.data.msg)
+            }
         }
 
 }   
