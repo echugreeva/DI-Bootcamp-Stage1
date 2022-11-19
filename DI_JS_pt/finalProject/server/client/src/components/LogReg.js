@@ -20,7 +20,7 @@ const LogReg = (props)=> {
     const navigate = useNavigate();
 
     const handleClick = async()=> {
-        // if(props.title =='Register') {
+        if(props.title =='Register') {
             try{
                 const response = await axios.post('/register', {
                     email, password, fname, lname
@@ -35,27 +35,28 @@ const LogReg = (props)=> {
             }catch (e){
                 setMsg(e.response.data.msg)
             }
-        // }else{
-        //     try{
-        //         const response = await axios.post('/login', {
-        //             email, password
-        //         }, {
-        //             withCredentials:true, 
-        //             headers:{
-        //                 'Content-Type': 'application/json'
-        //             }
-        //         });
-        //         console.log(response.data.token)
-        //         if(response.status==200){
-        //             setAccessToken(response.data.token);
-        //             setMsg('');
-        //             navigate('/');
-        //         }
+        }else{
+            try{
+                const response = await axios.post('/login', {
+                    email, password
+                }, {
+                    withCredentials:true, 
+                    headers:{
+                        'Content-Type': 'application/json'
+                    }
+                });
+                // console.log(response.data.token)
+                if(response.status==200){
+                    // setAccessToken(response.data.token);
+                    // setMsg('');
+                    // navigate('/');
+                    console.log(`login & pass matched`)
+                }
                 
-        //     }catch (e){
-        //         setMsg(e.response.data.msg)
-        //     }
-        // }
+            }catch (e){
+                setMsg(e.response.data.msg)
+            }
+        }
 
 }   
 
