@@ -34,3 +34,15 @@ export const getTasks = (tlId)=> {
         .select('*')
         .where({tl_id: tlId})
     }
+
+export const leaderBoardData = (teamId)=>{
+        return db('tasks')
+        .join('task_list', 'task_list.tl_id', '=','tasks.tl_id')
+        .join('users', 'users.id','=', 'assignee_id')
+        .select('tasks.assignee_id', 'tasks.tl_id', 'users.username').sum ('tasks.completion_time')  
+        .where({team_id: teamId}, {status: 'done'})
+        .groupBy('tasks.assignee_id')
+        .groupBy('users.username')
+        .groupBy('tasks.tl_id')
+        
+    }

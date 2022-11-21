@@ -2,6 +2,8 @@ import {useState, createContext} from 'react';
 import {Routes, Route, useNavigate} from 'react-router-dom'
 import LogReg from './components/LogReg';
 import Team from './components/Team'
+import Welcome from './components/Welcome';
+import Navbar from './components/Navbar'
 // import Nav from './components/Nav';
 // import Users from './components/Users';
 // import Home from './components/Home';
@@ -18,8 +20,9 @@ function App() {
      <AppContext.Provider value={{userId, teamId, tLId}}>
       <div className="App">
       {/* <Nav/> */}
+     <Navbar/>
       <Routes>
-
+        <Route path='/' element={<Welcome/>}/>
         <Route path='/login' element={<LogReg title={'Login'}/>}/>
         <Route path='/register' element={<LogReg title={'Register'}/>}/>
         <Route path='/team' element={<Team/>}/>

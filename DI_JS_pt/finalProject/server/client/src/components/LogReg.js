@@ -67,7 +67,7 @@ return(
                 <h3>{props.title}</h3>
             </div>
             <Box component={'form'} sx={{m:1}} noValidate autoComplete={'off'}>
-                <TextField
+                {/* <TextField
                     sx={{m:1}}
                     id='fname'
                     label = 'Enter First Name'
@@ -80,7 +80,7 @@ return(
                     label = 'Enter Last Name'
                     variant = 'outlined'
                     onChange={(e)=>{setLName(e.target.value)}}
-                />
+                /> */}
 
                 <TextField
                 sx={{m:1}}

@@ -1,4 +1,4 @@
-import {register, login, team, getTasks} from '../modules/Users.js';
+import {register, login, team, getTasks,leaderBoardData} from '../modules/Users.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { json } from 'sequelize';
@@ -64,6 +64,18 @@ export const _register = async(req, res) => {
   export const _getTasks = (req, res) => {
     getTasks(req.params.tid)
     .then(data=>{
+      res.json(data)
+    })
+    .catch(e => {
+      console.log(e);
+      res.status(404).json({msg:'not found'})
+  })
+  }
+
+  export const _leaderBoardData = (req, res) => {
+    leaderBoardData(req.params.teamid)
+    .then(data=>{
+      console.log(data)
       res.json(data)
     })
     .catch(e => {

@@ -68,7 +68,13 @@ app.listen(process.env.PORT||8080,()=>{
 //     .update({assignee_id: userId})
 //     .returning('*')
 // }
-// updateAssignee('2', '1')
+// updateAssignee('1', '1')
+// .then(res=>console.log(res))
+// updateAssignee('2', '2')
+// .then(res=>console.log(res))
+// updateAssignee('3', '3')
+// .then(res=>console.log(res))
+// updateAssignee('4', '4')
 // .then(res=>console.log(res))
 
 //  let updateStatus = (taskId, newStatus)=>{
@@ -77,17 +83,27 @@ app.listen(process.env.PORT||8080,()=>{
 //     .update({status: newStatus})
 //     .returning('*')
 // }
-// updateStatus('2','done')
+// updateStatus('1','done')
+// .then(res=>console.log(res))
+// updateStatus('3','done')
+// .then(res=>console.log(res))
+// updateStatus('4','done')
+// .then(res=>console.log(res))
+// updateStatus('5','done')
 // .then(res=>console.log(res))
 
 // let leaderBoardData = (teamId)=>{
 //     return db('tasks')
 //     .join('task_list', 'task_list.tl_id', '=','tasks.tl_id')
 //     .join('users', 'users.id','=', 'assignee_id')
-//     .select('tasks.assignee_id', 'tasks.tl_id', 'tasks.completion_time','task_list.team_id', 'users.email')
+//     .select('tasks.assignee_id', 'tasks.tl_id', 'users.username').sum ('tasks.completion_time')  
 //     .where({team_id: teamId}, {status: 'done'})
+//     .groupBy('tasks.assignee_id')
+//     .groupBy('users.email')
+//     .groupBy('tasks.tl_id')
     
 // }
 
 // leaderBoardData('1')
 // .then(res=>console.log(res))
+
