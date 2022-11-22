@@ -3,7 +3,7 @@ import { AppContext } from '../App';
 import Task from './Task'
 
 const TaskList = (props) => {
-    const {tLId}=useContext(AppContext)
+    const {tLId,teamId}=useContext(AppContext)
     const [tasks, setTasks] = useState([]);
     useEffect(()=>{
         fetch (`/tasks/${tLId}`)
@@ -16,6 +16,27 @@ const TaskList = (props) => {
         .then(data=>
             setTasks(data)
             // console.log(data)
+            )
+        .catch(e=>{console.log(e)})
+    },[])
+
+    const [assi, setAssi] = useState();
+
+    useEffect(()=>{
+        fetch (`/teams/${teamId}`)
+        .then(res=>{
+            if(res.status == 200) {
+                return res.json()
+            }
+        }
+            )
+        .then(res=>{
+            // setAssi(res)
+            console.log(res);
+            setAssi(res);
+            // console.log(members)
+        }
+           
             )
         .catch(e=>{console.log(e)})
     },[])
@@ -33,7 +54,7 @@ const TaskList = (props) => {
                 tasks.map((item, i)=>{
                     return (
                         <>
-                        <Task key={i} data={item}/>
+                        <Task key={i} data={item} members={assi}/>
                         <p>{item.description}</p>
                         </>
                         
