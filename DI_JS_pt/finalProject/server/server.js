@@ -107,3 +107,25 @@ app.listen(process.env.PORT||8080,()=>{
 // leaderBoardData('1')
 // .then(res=>console.log(res))
 
+// export const updateTaskStatus = (taskId, taskStatus) => {
+//     return db('tasks')
+//     .where({task_id: taskId})
+//     .update({
+//         status: taskStatus})
+//     .returning('*')
+  
+//   }
+
+//   updateTaskStatus(7, 'in process')
+//   .then(res=>console.log(res))
+export const updateAssignee = (taskId, assigneeId) => {
+    return db('tasks')
+    .where({task_id: taskId})
+    .update({
+        assignee_id: assigneeId})
+    .returning('*')
+  
+  }
+
+  updateAssignee(7, 4)
+    .then(res=>console.log(res))
