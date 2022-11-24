@@ -23,7 +23,7 @@ const LogReg = (props)=> {
         if(props.title =='Register') {
             try{
                 const response = await axios.post('/register', {
-                    email, password, fname, lname
+                    email, password
                 }, {
                     withCredentials:true, 
                     headers:{

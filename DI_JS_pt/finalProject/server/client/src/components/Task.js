@@ -1,12 +1,56 @@
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material"
-
+import {useState} from 'react'
+import axios from 'axios';
 
 
 
 const Task  = (props)=> {
-    console.log(props.members)
+    const [taskS, setStatus] = useState(props.data.status || '');
+    const [assignee, setAssignee] = useState(props.data.assignee_id ||'');
+    const [msg, setMsg] = useState('');
+    // console.log(props.members)
 
+    let handleStatus = async(event)=> {
+        let taskId = props.data.task_id
 
+        let taskStatus = event.target.value;
+        try{
+            const response = await axios.post('/task/status', {
+                taskId, taskStatus
+            }, {
+                withCredentials:true, 
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            });
+            console.log(response);
+        }catch (e){
+            setMsg(e.response.data.msg)
+        }
+        setStatus(event.target.value);
+          
+    }
+
+    let handleAssignee = async(event)=> {
+        let taskId = props.data.task_id;
+        let assigneeId = event.target.value;
+        try{
+            const response = await axios.post('/task/assignee', {
+                taskId, assigneeId
+            }, {
+                withCredentials:true, 
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            });
+            console.log(response);
+        }catch (e){
+            setMsg(e.response.data.msg)
+        }
+        setAssignee(event.target.value);
+
+          
+    }
 
 
     return (
@@ -15,21 +59,21 @@ const Task  = (props)=> {
         <p>Due date: {props.data.duedate}</p>
         <p>Assignee: {props.data.assignee_id}</p>
         <FormControl medium='true'>
-            <InputLabel id="assignee">Status</InputLabel>
+            <InputLabel id="assignee">Assignee</InputLabel>
             <Select
                 // defaultValue={props.data.assignee_id || 'nobody'}
                 labelId="assignee"
                 id="assignee"
-                value={props.data.assignee_id||''}
+                value={assignee}
                 label="assignee"
-                // onChange={handleChange}
+                onChange={handleAssignee}
             >
-                <MenuItem value={props.data.assignee_id || ''}>{props.data.assignee_id}</MenuItem>
+                {/* <MenuItem value={props.data.assignee_id || ''}>{props.data.assignee_id}</MenuItem> */}
                
                 { 
                     props.members.map((item,i)=>{
                         return (
-                            <MenuItem key = {i} value={item.email}>{item.email}</MenuItem>
+                            <MenuItem key = {i} value={item.id}>{item.id}</MenuItem>
                         )
                         
                     })
@@ -45,9 +89,9 @@ const Task  = (props)=> {
             <Select
                 labelId="select-label"
                 id="select"
-                value={props.data.status}
+                value={taskS}
                 label="taskStatus"
-                // onChange={handleChange}
+                onChange={handleStatus}
             >
                 {/* <MenuItem value={props.data.status}>{props.data.status}</MenuItem> */}
                 <MenuItem value={'to do'}>To Do</MenuItem>

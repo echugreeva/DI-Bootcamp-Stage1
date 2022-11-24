@@ -118,14 +118,14 @@ app.listen(process.env.PORT||8080,()=>{
 
 //   updateTaskStatus(7, 'in process')
 //   .then(res=>console.log(res))
-export const updateAssignee = (taskId, assigneeId) => {
-    return db('tasks')
-    .where({task_id: taskId})
-    .update({
-        assignee_id: assigneeId})
-    .returning('*')
+// export const updateAssignee = (taskId, assigneeId) => {
+//     return db('tasks')
+//     .where({task_id: taskId})
+//     .update({
+//         assignee_id: assigneeId})
+//     .returning('*')
   
-  }
+//   }
 
-  updateAssignee(7, 4)
-    .then(res=>console.log(res))
+//   updateAssignee(7, 4)
+//     .then(res=>console.log(res))
