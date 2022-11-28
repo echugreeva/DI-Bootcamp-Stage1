@@ -41,9 +41,9 @@ const TaskList = (props) => {
         .catch(e=>{console.log(e)})
     },[])
     
-    if(tasks.length < 1) {
+    if(!tasks) {
         return (
-            <div>hello</div>
+            <div>checking tasks</div>
         )
     } else {
         return (

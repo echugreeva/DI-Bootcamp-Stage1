@@ -1,4 +1,4 @@
-import {register, login, team, getTasks,leaderBoardData, updateTaskStatus, updateAssignee } from '../modules/Users.js';
+import {register, login, team, getTasks,leaderBoardData, updateTaskStatus, updateAssignee, getMyTeams, getTeamLists} from '../modules/Users.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { json } from 'sequelize';
@@ -101,6 +101,28 @@ export const _register = async(req, res) => {
     updateAssignee(req.body.taskId, req.body.assigneeId)
     .then(data=>{
       console.log(data)
+      res.json(data)
+    })
+    .catch(e => {
+      console.log(e);
+      res.status(404).json({msg:'not found'})
+  })
+  }
+
+  export const _getMyTeams = (req, res) => {
+    getMyTeams(req.params.uid)
+    .then(data=>{
+      res.json(data)
+    })
+    .catch(e => {
+      console.log(e);
+      res.status(404).json({msg:'not found'})
+  })
+  }
+
+  export const _getTeamLists = (req, res) => {
+    getTeamLists(req.params.tid)
+    .then(data=>{
       res.json(data)
     })
     .catch(e => {

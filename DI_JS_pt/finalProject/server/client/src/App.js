@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 // import Users from './components/Users';
 // import Home from './components/Home';
 // import {Auth} from './auth/Auth'
+import MyCabinet from './components/Cabinet/MyCabinet';
 
 export const AppContext = createContext();
 
@@ -26,6 +27,7 @@ function App() {
         <Route path='/login' element={<LogReg title={'Login'}/>}/>
         <Route path='/register' element={<LogReg title={'Register'}/>}/>
         <Route path='/team' element={<Team/>}/>
+        <Route path='/mycabinet' element={<MyCabinet/>}/>
        
       </Routes>
       </div>

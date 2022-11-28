@@ -64,3 +64,18 @@ export const leaderBoardData = (teamId)=>{
         .returning('*')
       
       }
+
+
+    export const getMyTeams = (userId)=> {
+        return db('teams')
+        .select('*')
+        .where({users: userId})
+    }
+
+    
+
+    export const getTeamLists = (teamId)=> {
+        return db('task_list')
+        .select('*')
+        .where({team_id: teamId})
+    }

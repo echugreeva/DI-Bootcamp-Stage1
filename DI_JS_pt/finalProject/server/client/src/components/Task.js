@@ -61,14 +61,14 @@ const Task  = (props)=> {
         <FormControl medium='true'>
             <InputLabel id="assignee">Assignee</InputLabel>
             <Select
-                // defaultValue={props.data.assignee_id || 'nobody'}
+                
                 labelId="assignee"
                 id="assignee"
                 value={assignee}
                 label="assignee"
                 onChange={handleAssignee}
             >
-                {/* <MenuItem value={props.data.assignee_id || ''}>{props.data.assignee_id}</MenuItem> */}
+                
                
                 { 
                     props.members.map((item,i)=>{
@@ -93,7 +93,7 @@ const Task  = (props)=> {
                 label="taskStatus"
                 onChange={handleStatus}
             >
-                {/* <MenuItem value={props.data.status}>{props.data.status}</MenuItem> */}
+        
                 <MenuItem value={'to do'}>To Do</MenuItem>
                 <MenuItem value={'in process'}>In process</MenuItem>
                 <MenuItem value={'done'}>Done</MenuItem>
