@@ -6,37 +6,40 @@ import Button from '@mui/material/Button';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { FormControl, InputLabel, Select, MenuItem } from "@mui/material"
+import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
+import {Task} from '../Task'
  
 const NewTaskList = (props)=>{
+    console.log(props.myTeams)
+    const [dDate, setDate] = useState(new Date())
     // const [numTasks, addNum] = useState(1);
-    const today = new Date();
     const addTask = () => {
         return (<NewTask/>)
     }
     return (
         <Box component={'form'} sx={{m:1}} noValidate autoComplete={'off'}>
+            <InputLabel id="teamId">List Name</InputLabel>
             <TextField
                 sx={{m:1}}
                 id='listName'
-                label = 'listName'
+                label = 'List Name'
                 variant = 'outlined'
                 // onChange={(e)=>{setEmail(e.target.value)}}
                 />
         <FormControl medium='true'>
-            <InputLabel id="assignee">Assignee</InputLabel>
+            <InputLabel id="teamId">Team</InputLabel>
             <Select
-                labelId="assignee"
-                id="assignee"
-                value={props.myTeams[0]||''}
-                label="assignee"
+                labelId="teamId"
+                id="teamId"
+                value={props.myTeams[0].team_id||''}
+                label="teamId"
                 // onChange={handleAssignee}
             >
                
                 { 
                     props.myTeams.map((item,i)=>{
                         return (
-                            <MenuItem key = {i} value={item.id}>{item.id}</MenuItem>
+                            <MenuItem key = {i} value={item.team_id}>{item.team_id}</MenuItem>
                         )
                         
                     })
@@ -44,11 +47,14 @@ const NewTaskList = (props)=>{
     
             </Select>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
+            
                 <DatePicker
-                        label="Date desktop"
+                        label="Due date"
                         inputFormat="MM/DD/YYYY"
-                        value={today}
-                        // onChange={handleChange}
+                        value={dDate}
+                        onChange={(newValue) => {
+                            setDate(newValue);
+                          }}
                         renderInput={
                             (params) => <TextField {...params} />}
                 />
@@ -58,6 +64,7 @@ const NewTaskList = (props)=>{
             
         </FormControl>
         <NewTask/>
+        {/* <Task data={}/> */}
         <Button variant = 'contained'>Publish</Button>
         </Box>
     )

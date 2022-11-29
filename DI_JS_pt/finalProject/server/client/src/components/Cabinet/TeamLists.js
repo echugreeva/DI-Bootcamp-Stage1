@@ -5,6 +5,7 @@ import NewTaskList from "./NewTaskList"
 
 
 const TeamLists = (props)=> {
+    console.log(props.myTeams)
     const [tl, setTL] = useState([])
     useEffect(()=>{
         fetch (`/teamlists/${props.teamId}`)

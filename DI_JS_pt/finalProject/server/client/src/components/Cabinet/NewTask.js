@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -7,7 +8,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material"
 
 const NewTask = (props)=> {
-    const today = new Date();
+    const [dDateTask, setDateTask] = useState(new Date())
     return (
         <div>
             <Box component={'form'} sx={{m:1}} noValidate autoComplete={'off'}>
@@ -20,8 +21,8 @@ const NewTask = (props)=> {
                 />
                 <TextField
                 sx={{m:1}}
-                id='description'
-                label = 'description'
+                id='completion_time'
+                label = 'completion_time'
                 variant = 'outlined'
                 type='number'
                 // onChange={(e)=>{setEmail(e.target.value)}}
@@ -30,8 +31,10 @@ const NewTask = (props)=> {
                     <DatePicker
                             label="Date desktop"
                             inputFormat="MM/DD/YYYY"
-                            value={today}
-                            // onChange={handleChange}
+                            value={dDateTask}
+                            onChange={(newValue) => {
+                                setDateTask(newValue);
+                              }}
                             renderInput={
                                 (params) => <TextField {...params} />}
                     />
@@ -42,7 +45,7 @@ const NewTask = (props)=> {
             </Box>
             
             
-            <Button variant = 'contained'>Add More</Button>
+            
         </div>
     )
 }
