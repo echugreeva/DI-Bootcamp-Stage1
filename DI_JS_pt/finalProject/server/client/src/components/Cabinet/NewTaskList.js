@@ -13,9 +13,7 @@ const NewTaskList = (props)=>{
     console.log(props.myTeams)
     const [dDate, setDate] = useState(new Date())
     // const [numTasks, addNum] = useState(1);
-    const addTask = () => {
-        return (<NewTask/>)
-    }
+
     return (
         <Box component={'form'} sx={{m:1}} noValidate autoComplete={'off'}>
             <InputLabel id="teamId">List Name</InputLabel>
