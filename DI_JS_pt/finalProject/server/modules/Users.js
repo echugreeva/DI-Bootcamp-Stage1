@@ -79,3 +79,18 @@ export const leaderBoardData = (teamId)=>{
         .select('*')
         .where({team_id: teamId})
     }
+
+    export const addTaskList = (taskList) => {
+        return db('task_list')
+        .insert(taskList)
+        .returning('*')
+      
+      }
+    
+     export const addTasks = (taskList) => {
+        return db('tasks')
+        .insert(taskList)
+        .returning('*')
+      
+      }
+    

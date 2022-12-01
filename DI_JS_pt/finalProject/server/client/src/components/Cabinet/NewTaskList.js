@@ -8,10 +8,32 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import {Task} from '../Task'
+import axios from 'axios'
  
 const NewTaskList = (props)=>{
     console.log(props.myTeams)
-    const [dDate, setDate] = useState(new Date())
+    const [duedate, setDate] = useState(new Date())
+    const [team_id, setPickedTeam] = useState(props.myTeams[0].team_id||'')
+    const [list_name, setName] = useState('')
+    const [list_id, setListId] = useState('')
+    const addTaskList = async() => {
+        try{
+            const response = await axios.post(`/addlist/`, {
+                team_id, list_name, duedate
+            }, {
+                withCredentials:true, 
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            });
+            console.log(response);
+            setListId(response.data[0].tl_id)
+            
+        }catch (e){
+            console.log(e.response.data.msg)
+        }
+        console.log(list_id)
+    }
     // const [numTasks, addNum] = useState(1);
 
     return (
@@ -22,7 +44,8 @@ const NewTaskList = (props)=>{
                 id='listName'
                 label = 'List Name'
                 variant = 'outlined'
-                // onChange={(e)=>{setEmail(e.target.value)}}
+                onChange={(e)=>{setName(e.target.value)}}
+                value={list_name}
                 />
         <FormControl medium='true'>
             <InputLabel id="teamId">Team</InputLabel>
@@ -31,7 +54,7 @@ const NewTaskList = (props)=>{
                 id="teamId"
                 value={props.myTeams[0].team_id||''}
                 label="teamId"
-                // onChange={handleAssignee}
+                onChange={(e)=>{setPickedTeam(e.target.value)}}
             >
                
                 { 
@@ -49,7 +72,7 @@ const NewTaskList = (props)=>{
                 <DatePicker
                         label="Due date"
                         inputFormat="MM/DD/YYYY"
-                        value={dDate}
+                        value={duedate}
                         onChange={(newValue) => {
                             setDate(newValue);
                           }}
@@ -58,12 +81,11 @@ const NewTaskList = (props)=>{
                 />
             </LocalizationProvider>
             
-            <Button variant = 'contained' onClick={addTask}>Add Task</Button>
+            <Button variant = 'contained' onClick={addTaskList}>Start adding tasks</Button>
             
         </FormControl>
-        <NewTask/>
-        {/* <Task data={}/> */}
-        <Button variant = 'contained'>Publish</Button>
+        <NewTask tl_id={list_id}/>
+        {/* <Button variant = 'contained'>Publish</Button> */}
         </Box>
     )
 }
