@@ -1,9 +1,10 @@
 
 
 import React from "react";
-import { BarChart, Bar,  XAxis, YAxis, Tooltip} from "recharts";
+// import { BarChart, Bar,  XAxis, YAxis, Tooltip} from "recharts";
 import {useState, useEffect,useContext} from 'react'
 import { AppContext } from '../App';
+import { Chart } from "react-google-charts";
 
 const data = [
     { assignee_id: 1, tl_id: 1, username: 'A', sum: '2' },
@@ -30,23 +31,58 @@ const LeaderBoard = (props) => {
             
             console.log(data)
             setLeaderboard(data)
+
             
             // leaderboard.map((i)=>Number(i.sum))
-             leaderboard.sort((a,b)=>Number(a.sum) - Number(b.sum))
-            console.log(leaderboard)
+            
         })
         .catch(e=>{console.log(e)})
     },[])
+        if (leaderboard) {leaderboard.sort((a,b)=>Number(b.sum) - Number(a.sum))
+            console.log(leaderboard)}
 
-  return (
-    <BarChart width={350} height={140} data={data}>
-     
-      <YAxis dataKey="sum" />
-      <XAxis dataKey="username" />
-      <Tooltip/>
-      <Bar dataKey="sum" fill="#8884d8" />
+    const options = {
+        title: "Leaderboard",
+        width: 600,
+        height: 400,
+        bar: { groupWidth: "95%" },
+        legend: { position: "none" },
+        hAxis: { title: "score", },
+        vAxis: { title: "username"},
+      };
+    let dataToShow = [['username', 'score']];
+
+    let refactoredData = leaderboard.map((item)=> {
+        return(
+            [item.username, Number(item.sum)]
+        )
+    })
+    console.log(refactoredData)
     
-    </BarChart>
+    dataToShow.push(...refactoredData)
+    // dataToShow = {...dataToShow}
+    console.log(dataToShow)
+    
+  return (
+
+    <Chart
+      chartType="BarChart"
+      width="100%"
+      height="400px"
+     data={dataToShow}
+    //   columns={dataToShow[0]}
+    //   rows={dataToShow[1]}
+      options={options}
+    />
+    // <BarChart width={350} height={140} data={data}>
+     
+    //   <YAxis dataKey="sum" />
+    //   <XAxis dataKey="username" />
+    //   <Tooltip/>
+    //   <Bar dataKey="sum" fill="#8884d8" />
+    
+    // </BarChart>
+
   );
 }
 

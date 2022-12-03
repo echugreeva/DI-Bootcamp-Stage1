@@ -2,7 +2,10 @@
 import { useEffect, useState } from "react"
 import TaskList from "../TaskList"
 import NewTaskList from "./NewTaskList"
-
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const TeamLists = (props)=> {
     console.log(props.myTeams)
@@ -39,8 +42,11 @@ const TeamLists = (props)=> {
                             <div key={i}>
                                 {item.list_name}
                                 {item.duedate}
-                                <button>see tasks</button>
+                            
+                                
                                 <TaskList/>
+                                
+                                
 
                             </div>
                         )

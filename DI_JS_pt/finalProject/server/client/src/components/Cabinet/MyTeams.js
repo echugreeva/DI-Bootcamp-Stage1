@@ -37,7 +37,9 @@ const MyTeams = (props)=> {
                         return (
                             <div key={i}>
                                 {item.name}
-                                <button>go to team board</button>
+                                <button onClick={()=>{
+                                    
+                                }}>go to team board</button>
                                 <TeamLists teamId={item.team_id} myTeams={myTeams}/>
                             </div>
                         )

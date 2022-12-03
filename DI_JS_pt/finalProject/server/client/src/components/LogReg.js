@@ -49,7 +49,7 @@ const LogReg = (props)=> {
                 if(response.status==200){
                     // setAccessToken(response.data.token);
                     // setMsg('');
-                    // navigate('/');
+                    navigate('/mycabinet');
                     console.log(`login & pass matched`)
                 }
                 
