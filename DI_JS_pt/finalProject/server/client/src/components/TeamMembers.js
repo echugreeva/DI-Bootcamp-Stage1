@@ -1,5 +1,13 @@
 import {useState, useEffect,useContext} from 'react'
 import { AppContext } from '../App';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid'
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import { Avatar } from '@mui/material';
+import ListItemText from '@mui/material/ListItemText';
+import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
 
 const TeamMembers = (props) => {
     const {teamId}=useContext(AppContext)
@@ -21,22 +29,37 @@ const TeamMembers = (props) => {
     
     if(members.length < 1) {
         return (
-            <div>hello</div>
+            <div>loading</div>
         )
     } else {
         return (
 
-            <>
+            <Grid item xs={12} md={6}>
+                <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
+                    Your team:
+                </Typography>
+                <List>
             {
                 
                 members.map((i)=>{
-                    return <p key={i.id}>{i.email}</p>
+                    return <ListItem key={i.id}>
+                            <ListItemAvatar>
+                                <Avatar>
+                                    <SentimentVerySatisfiedIcon />
+                                </Avatar>
+                            </ListItemAvatar>
+                            <ListItemText>
+                                {i.email}
+                            </ListItemText>
+                        </ListItem>
                 })
             }
-            </>
+                </List>
+            </Grid>
         )
     }
     
 }
 
 export default TeamMembers
+

@@ -1,6 +1,8 @@
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material"
 import {useState} from 'react'
 import axios from 'axios';
+import TableCell from '@mui/material/TableCell';
+import TableRow from '@mui/material/TableRow';
 
 
 
@@ -9,6 +11,7 @@ const Task  = (props)=> {
     const [assignee, setAssignee] = useState(props.data.assignee_id ||'');
     const [msg, setMsg] = useState('');
     // console.log(props.members)
+    console.log(props.data)
 
     let handleStatus = async(event)=> {
         let taskId = props.data.task_id
@@ -54,10 +57,9 @@ const Task  = (props)=> {
 
 
     return (
-    <div>
-        <p>{props.data.desciption}</p>
-        <p>Due date: {props.data.duedate}</p>
-        <p>Assignee: {props.data.assignee_id}</p>
+    <TableRow>
+        <TableCell>{props.data.description}</TableCell>
+        <TableCell>
         <FormControl medium='true'>
             <InputLabel id="assignee">Assignee</InputLabel>
             <Select
@@ -82,26 +84,28 @@ const Task  = (props)=> {
             </Select>
         </FormControl>
 
-        <p>Status: {props.data.status}</p>
+        </TableCell>
+        <TableCell>
+            <FormControl  medium='true'>
+                <InputLabel id="taskStatus">Status</InputLabel>
+                <Select
+                    labelId="select-label"
+                    id="select"
+                    value={taskS}
+                    label="taskStatus"
+                    onChange={handleStatus}
+                >
+            
+                    <MenuItem value={'to do'}>To Do</MenuItem>
+                    <MenuItem value={'in process'}>In process</MenuItem>
+                    <MenuItem value={'done'}>Done</MenuItem>
+                </Select>
+            </FormControl>
+        </TableCell>
 
-        <FormControl  medium='true'>
-            <InputLabel id="taskStatus">Status</InputLabel>
-            <Select
-                labelId="select-label"
-                id="select"
-                value={taskS}
-                label="taskStatus"
-                onChange={handleStatus}
-            >
-        
-                <MenuItem value={'to do'}>To Do</MenuItem>
-                <MenuItem value={'in process'}>In process</MenuItem>
-                <MenuItem value={'done'}>Done</MenuItem>
-            </Select>
-        </FormControl>
-
-        <p>Time to complete: {props.data.completion_time}</p>
-    </div>
+        <TableCell>{props.data.completion_time}</TableCell>
+        <TableCell>{props.data.duedate}</TableCell>
+    </TableRow>
     )
 }
 

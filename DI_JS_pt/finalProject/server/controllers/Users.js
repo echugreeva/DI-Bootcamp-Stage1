@@ -1,4 +1,4 @@
-import {register, login, team, getTasks,leaderBoardData, updateTaskStatus, updateAssignee, getMyTeams, getTeamLists, addTaskList, addTasks} from '../modules/Users.js';
+import {register, login, team, getTasks,leaderBoardData, updateTaskStatus, updateAssignee, getMyTeams, getTeamLists, addTaskList, addTasks, addTeam, addUserToTeam, userExistInTeam} from '../modules/Users.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { json } from 'sequelize';
@@ -172,3 +172,56 @@ export const _register = async(req, res) => {
   })
     
   }
+
+  
+
+
+  export const _addTeam = async(req, res) => {
+    
+    addTeam(req.body.userId, req.body.name)
+    .then(data=>{
+      res.json(data)
+    })
+    .catch(e => {
+      console.log(e);
+      res.status(404).json({msg:'not found'})
+  })
+    
+  }
+
+  export const _addUserToTeam = async(req, res) => {
+   
+    login(req.body.input)
+    
+      .then((data) =>{
+        json(data);
+        console.log( data[0].id);
+        let userId=data[0].id
+        console.log( req.body.team_id);
+        userExistInTeam(userId, req.body.team_id)
+          .then((result)=> {
+             json(result);
+            if(result == []){
+              console.log('user already in this team')
+              res.status(404).json({msg:'user already in this team'})
+              
+            } else {
+              addUserToTeam(req.body.admin_id, req.body.team_id, req.body.team_name, userId)
+                  .then(data=>{
+                  res.json(data)
+                  console.log(data)
+                })
+            }
+            
+          })
+        
+    })
+    .catch(e => {
+      console.log(e);
+      res.status(404).json({msg:'email not found, to add user they need to be registered in the app'})
+  })
+    
+    
+  }
+
+  

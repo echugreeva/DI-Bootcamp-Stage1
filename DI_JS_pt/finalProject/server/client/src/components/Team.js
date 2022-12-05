@@ -7,9 +7,10 @@ const Team = (props)=> {
     return (
         <div>
             <TeamMembers/>
+            <LeaderBoard/> 
             <TaskList/>
             {/* <PieChart/> */}
-            <LeaderBoard/>
+             
           
         </div>
     )

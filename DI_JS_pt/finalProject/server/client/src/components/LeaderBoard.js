@@ -54,7 +54,7 @@ const LeaderBoard = (props) => {
 
     let refactoredData = leaderboard.map((item)=> {
         return(
-            [item.username, Number(item.sum)]
+            [item.email, Number(item.sum)]
         )
     })
     console.log(refactoredData)

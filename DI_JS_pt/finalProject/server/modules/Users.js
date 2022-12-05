@@ -39,10 +39,10 @@ export const leaderBoardData = (teamId)=>{
         return db('tasks')
         .join('task_list', 'task_list.tl_id', '=','tasks.tl_id')
         .join('users', 'users.id','=', 'assignee_id')
-        .select('tasks.assignee_id', 'tasks.tl_id', 'users.username').sum ('tasks.completion_time')  
+        .select('tasks.assignee_id', 'tasks.tl_id', 'users.email').sum ('tasks.completion_time')  
         .where({team_id: teamId}, {status: 'done'})
         .groupBy('tasks.assignee_id')
-        .groupBy('users.username')
+        .groupBy('users.email')
         .groupBy('tasks.tl_id')
         
     }
@@ -94,3 +94,23 @@ export const leaderBoardData = (teamId)=>{
       
       }
     
+      export const addTeam = (id, name) => {
+        return db('teams')
+        .insert({admin_id: id,users: id,name: name})
+        .returning('*')
+      
+      }
+
+      export const addUserToTeam = (admin_id, team_id, team_name, user_id) => {
+        return db('teams')
+        .insert({admin_id: admin_id,users: user_id,name: team_name, team_id:team_id})
+        .returning('*')
+      
+      }
+    
+      export const userExistInTeam = (userId, teamId) => {
+        return db('teams')
+        .select("*")
+        .where({users: userId})
+        .andWhere({team_id: teamId})
+    }

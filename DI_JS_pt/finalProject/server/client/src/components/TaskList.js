@@ -1,6 +1,13 @@
 import {useState, useEffect,useContext} from 'react'
 import { AppContext } from '../App';
 import Task from './Task'
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper'
 
 const TaskList = (props) => {
     const {tLId,teamId}=useContext(AppContext)
@@ -20,7 +27,7 @@ const TaskList = (props) => {
         .catch(e=>{console.log(e)})
     },[])
 
-    const [assi, setAssi] = useState();
+    const [assi, setAssi] = useState([]);
 
     useEffect(()=>{
         fetch (`/teams/${teamId}`)
@@ -41,29 +48,42 @@ const TaskList = (props) => {
         .catch(e=>{console.log(e)})
     },[])
     
-    if(!tasks) {
+    if(tasks.length<1) {
         return (
             <div>checking tasks</div>
         )
     } else {
         return (
 
-            <>
-            {
+            <Table>
+                <TableHead>
+                    <TableRow>
+                        <TableCell>Description</TableCell>
+                        <TableCell>Assignee</TableCell>
+                        <TableCell>Status</TableCell>
+                        <TableCell>Time To Complete</TableCell>
+                        <TableCell>Due Date</TableCell>
+                    </TableRow>
+
+                </TableHead>
+                <TableBody>
+                {
                 
                 tasks.map((item, i)=>{
                     return (
-                        <>
-                        <Task key={i} data={item} members={assi}/>
-                        <p>{item.description}</p>
-                        </>
+                       
+                            <Task key={i} data={item} members={assi}/>
+                 
+                       
                         
                     )
                     
                     
                 })
             }
-            </>
+                </TableBody>
+            
+            </Table>
         )
     }
     
