@@ -5,17 +5,17 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-// import { AppContext } from '../App';
+ import { AppContext } from '../App';
 
 
 const LogReg = (props)=> {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [fname, setFName]= useState('');
-    const [lname, setLName]= useState('');
+    // const [fname, setFName]= useState('');
+    // const [lname, setLName]= useState('');
     const [msg, setMsg]= useState('');
 
-    // const {setAccessToken} = useContext(AppContext);
+    const {setAccessToken} = useContext(AppContext);
 
     const navigate = useNavigate();
 
@@ -31,7 +31,7 @@ const LogReg = (props)=> {
                     }
                 });
                 console.log(response);
-                // navigate('/login');
+                navigate('/login');
             }catch (e){
                 setMsg(e.response.data.msg)
             }
@@ -45,16 +45,18 @@ const LogReg = (props)=> {
                         'Content-Type': 'application/json'
                     }
                 });
-                // console.log(response.data.token)
-                if(response.status==200){
-                    // setAccessToken(response.data.token);
-                    // setMsg('');
+                 console.log(response)
+                if(response.status===200){
+                    console.log(response)
+                    setAccessToken(response.data.token);
+                    setMsg('');
                     navigate('/mycabinet');
                     console.log(`login & pass matched`)
                 }
                 
             }catch (e){
-                setMsg(e.response.data.msg)
+                // setMsg(e.response.data.msg)
+                console.log(e)
             }
         }
 

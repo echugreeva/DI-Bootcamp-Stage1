@@ -3,7 +3,10 @@ import {useState, useEffect, useContext} from 'react';
 import { AppContext } from '../../App';
 import TeamLists from './TeamLists';
 
+
+
 const MyTeams = (props)=> {
+    
     const [myTeams, setTeams] = useState([]);
     const {userId} = useContext(AppContext)
     useEffect(()=>{
@@ -21,7 +24,7 @@ const MyTeams = (props)=> {
         .catch(e=>{console.log(e)})
     },[])
    
-    if (myTeams.length < 1) {
+    if (myTeams== []) {
         return (
             <>
                 <div>You are not a part of any team yet</div>

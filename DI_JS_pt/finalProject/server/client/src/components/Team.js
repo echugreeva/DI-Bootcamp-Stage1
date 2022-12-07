@@ -4,6 +4,7 @@ import LeaderBoard from "./LeaderBoard"
 import PieChart from './PieChart'
 
 const Team = (props)=> {
+    
     return (
         <div>
             <TeamMembers/>

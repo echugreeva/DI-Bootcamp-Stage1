@@ -7,18 +7,18 @@ import Navbar from './components/Navbar'
 // import Nav from './components/Nav';
 // import Users from './components/Users';
 // import Home from './components/Home';
-// import {Auth} from './auth/Auth'
+import {Auth} from './components/auth/Auth'
 import MyCabinet from './components/Cabinet/MyCabinet';
 
 export const AppContext = createContext();
 
 function App() {
-  const [userId, setId]= useState('1')
-  const [teamId, setTeam]= useState('1')
-  const [tLId, setTL]= useState('1')
-  // const [accessToken, setAccessToken] = useState('');
+  const [userId, setId]= useState('')
+  const [teamId, setTeam]= useState('')
+  const [tLId, setTL]= useState('')
+  const [accessToken, setAccessToken] = useState('');
   return (
-     <AppContext.Provider value={{userId, teamId, tLId}}>
+     <AppContext.Provider value={{setId, userId,  setTeam,  teamId, setTL, tLId, accessToken, setAccessToken}}>
       <div className="App">
       {/* <Nav/> */}
      <Navbar/>
@@ -26,8 +26,8 @@ function App() {
         <Route path='/' element={<Welcome/>}/>
         <Route path='/login' element={<LogReg title={'Login'}/>}/>
         <Route path='/register' element={<LogReg title={'Register'}/>}/>
-        <Route path='/team' element={<Team/>}/>
-        <Route path='/mycabinet' element={<MyCabinet/>}/>
+        <Route path='/team' element={<Auth><Team/></Auth>}/>
+        <Route path='/mycabinet' element={<Auth><MyCabinet/></Auth>}/>
        
       </Routes>
       </div>
