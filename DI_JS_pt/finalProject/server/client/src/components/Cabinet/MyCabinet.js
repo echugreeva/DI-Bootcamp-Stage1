@@ -17,11 +17,14 @@ const MyCabinet = (props) =>{
             console.log(decode);
             setToken(decode);
             const expire = decode.exp;
-            console.log(token)
-            if(expire * 1000 < new Date().getTime()){
+            setId(decode.userId)
+            if(expire * 10000 < new Date().getTime()){
                 navigate('../login');
             }
-            setId(token.userId)
+            if (userId<0){
+                setId(decode.userId)
+            }
+            
         
         }
         catch (e) {
@@ -30,6 +33,7 @@ const MyCabinet = (props) =>{
         
     },[])
     console.log(userId)
+    
     return (
         <>
         <AddTeam/>

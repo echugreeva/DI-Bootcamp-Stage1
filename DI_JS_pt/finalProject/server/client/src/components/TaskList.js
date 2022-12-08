@@ -1,4 +1,4 @@
-import {useState, useEffect,useContext} from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { AppContext } from '../App';
 import Task from './Task'
 import Table from '@mui/material/Table';
@@ -10,83 +10,83 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper'
 
 const TaskList = (props) => {
-    const {tLId,teamId}=useContext(AppContext)
-    const [tasks, setTasks] = useState([]);
-    useEffect(()=>{
-        fetch (`/tasks/${tLId}`)
-        .then(res=>{
-            if(res.status == 200) {
-                return res.json()
-            }
+  const { teamId } = useContext(AppContext)
+  const [tasks, setTasks] = useState([]);
+  useEffect(() => {
+    if (props.tlId > 0) {
+      fetch(`/tasks/${props.tlId}`)
+        .then(res => {
+          if (res.status == 200) {
+            return res.json()
+          }
         }
-            )
-        .then(data=>
-            setTasks(data)
-            // console.log(data)
-            )
-        .catch(e=>{console.log(e)})
-    },[])
-
-    const [assi, setAssi] = useState([]);
-
-    useEffect(()=>{
-        fetch (`/teams/${teamId}`)
-        .then(res=>{
-            if(res.status == 200) {
-                return res.json()
-            }
-        }
-            )
-        .then(res=>{
-            // setAssi(res)
-            console.log(res);
-            setAssi(res);
-            // console.log(members)
-        }
-           
-            )
-        .catch(e=>{console.log(e)})
-    },[])
-    
-    if(tasks.length<1) {
-        return (
-            <div>checking tasks</div>
         )
-    } else {
-        return (
+        .then(data => {
+          setTasks(data)
+          console.log(data)
+        }
 
-            <Table>
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Description</TableCell>
-                        <TableCell>Assignee</TableCell>
-                        <TableCell>Status</TableCell>
-                        <TableCell>Time To Complete</TableCell>
-                        <TableCell>Due Date</TableCell>
-                    </TableRow>
-
-                </TableHead>
-                <TableBody>
-                {
-                
-                tasks.map((item, i)=>{
-                    return (
-                       
-                            <Task key={i} data={item} members={assi}/>
-                 
-                       
-                        
-                    )
-                    
-                    
-                })
-            }
-                </TableBody>
-            
-            </Table>
         )
+        .catch(e => { console.log(e) })
     }
-    
+
+  }, [props.tlId])
+
+  const [assi, setAssi] = useState([]);
+
+  useEffect(() => {
+    if (teamId > 1) {
+      fetch(`/teams/${teamId}`)
+        .then(res => {
+          if (res.status == 200) {
+            return res.json()
+          }
+        }
+        )
+        .then(res => {
+          // setAssi(res)
+          console.log(res);
+          setAssi(res);
+          // console.log(members)
+        }
+
+        )
+        .catch(e => { console.log(e) })
+    }
+
+  }, [teamId])
+
+  if (tasks == []) {
+    return (
+      <div>checking tasks</div>
+    )
+  } else {
+    return (
+
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Description</TableCell>
+            <TableCell>Assignee</TableCell>
+            <TableCell>Status</TableCell>
+            <TableCell>Time To Complete</TableCell>
+            <TableCell>Due Date</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {
+            tasks.map((item, i) => {
+              return (
+                <Task key={i} data={item} members={assi} />
+              )
+            })
+          }
+        </TableBody>
+
+      </Table>
+    )
+  }
+
 }
 
 export default TaskList

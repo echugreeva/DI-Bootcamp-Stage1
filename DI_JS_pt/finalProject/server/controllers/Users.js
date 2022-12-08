@@ -1,11 +1,12 @@
 import {register, login, team, getTasks,leaderBoardData, updateTaskStatus, updateAssignee, getMyTeams, getTeamLists, addTaskList, addTasks, addTeam, addUserToTeam, userExistInTeam} from '../modules/Users.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { json } from 'sequelize';
+// import { json } from 'sequelize';
 
-
+//use try and catch inside async await, cause db is disconnected
 
 export const _register = async(req, res) => {
+  
     console.log(req.body);
     const salt = await bcrypt.genSalt();
     const hashPassword = await bcrypt.hash(req.body.password, salt);
@@ -23,22 +24,40 @@ export const _register = async(req, res) => {
   }
 
 
-  export const _login = (req, res) => {
+  export const _login = async (req, res) => {
     // console.log(req.body);
+    let email;
+    let userId;
     login(req.body.email)
-    .then((data) =>{
-        json(data);
+    .then((data) => {
         console.log(data[0])
+        email = data[0].email;
+        userId = data[0].id;
+        
     //   console.log("data deom db login" + data.length)
-        const match = async () => await bcrypt.compare(req.body.password, data[0].password);
+        const match = async () =>  await bcrypt.compare(req.body.password, data[0].password);
         match()
         .then(data=>{
-            json(data)
+            // data.json()
             console.log(data)
-            if(!data) {return res.status(400).json({msg:'wrong password'})}else {
-                res.status(200).json({msg:'login success'})
-            };
+            if(!data) {
+              return res.status(400).json({msg:'wrong password'})} 
+
         })
+
+        const accessToken = jwt.sign({userId, email}, process.env.ACCESS_TOKEN_SECRET,
+               {expiresIn:'600s'})
+              
+        console.log(accessToken)
+
+        res.cookie('accessToken', accessToken, {
+            httpOnly:true,
+            maxAge: 60*10000
+        });
+
+
+        res.json({token: accessToken})
+        
         
         // if(!correctPass) return res.status(400).json({msg:'wrong password'});
         

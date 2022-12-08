@@ -2,27 +2,31 @@
 import {useState, useEffect, useContext} from 'react';
 import { AppContext } from '../../App';
 import TeamLists from './TeamLists';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const MyTeams = (props)=> {
-    
+    const navigate = useNavigate();
     const [myTeams, setTeams] = useState([]);
-    const {userId} = useContext(AppContext)
+    const {userId, setTeam,  teamId, setTL, tLId} = useContext(AppContext)
     useEffect(()=>{
-        fetch (`/myteams/${userId}`)
-        .then(res=>{
+        if (userId > 0){
+            fetch (`/myteams/${userId}`)
+                .then(res=>{
             if(res.status == 200) {
                 return res.json()
-            }
-        }
+                }
+                 }
             )
-        .then(data=>
+            .then(data=>
             setTeams(data)
             // console.log(data)
             )
         .catch(e=>{console.log(e)})
-    },[])
+        }
+        
+    },[userId])
    
     if (myTeams== []) {
         return (
@@ -41,7 +45,8 @@ const MyTeams = (props)=> {
                             <div key={i}>
                                 {item.name}
                                 <button onClick={()=>{
-                                    
+                                    setTeam(item.team_id)
+                                    navigate('../team')
                                 }}>go to team board</button>
                                 <TeamLists teamId={item.team_id} myTeams={myTeams}/>
                             </div>

@@ -11,20 +11,22 @@ const TeamLists = (props)=> {
     console.log(props.myTeams)
     const [tl, setTL] = useState([])
     useEffect(()=>{
-        fetch (`/teamlists/${props.teamId}`)
-        .then(res=>{
-            if(res.status == 200) {
-                return res.json()
+        if(props.teamId>0){
+            fetch (`/teamlists/${props.teamId}`)
+            .then(res=>{
+                if(res.status == 200) {
+                    return res.json()
+                }
             }
+                )
+            .then(data=>
+                setTL(data)
+                // console.log(data)
+                )
+            .catch(e=>{console.log(e)})
         }
-            )
-        .then(data=>
-            setTL(data)
-            // console.log(data)
-            )
-        .catch(e=>{console.log(e)})
-    },[]
-    )
+        
+    },[props.teamId])
     if (!tl) {
         return (
             <>
@@ -40,11 +42,11 @@ const TeamLists = (props)=> {
                     tl.map((item, i)=> {
                         return (
                             <div key={i}>
-                                {item.list_name}
+                                {item.list_name} 
                                 {item.duedate}
                             
                                 
-                                <TaskList/>
+                                <TaskList tlId={item.tl_id}/>
                                 
                                 
 

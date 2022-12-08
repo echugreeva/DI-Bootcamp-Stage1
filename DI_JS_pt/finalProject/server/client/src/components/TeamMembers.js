@@ -16,7 +16,8 @@ const TeamMembers = (props) => {
 
     
     useEffect(()=>{
-        fetch (`/teams/${teamId}`)
+        if(teamId>0){
+            fetch (`/teams/${teamId}`)
         .then(res=>{
             if(res.status == 200) {
                 return res.json()
@@ -28,7 +29,9 @@ const TeamMembers = (props) => {
             // console.log(data)
             )
         .catch(e=>{console.log(e)})
-    },[])
+        }
+        
+    },[teamId])
     
     if(members.length < 1) {
         return (
