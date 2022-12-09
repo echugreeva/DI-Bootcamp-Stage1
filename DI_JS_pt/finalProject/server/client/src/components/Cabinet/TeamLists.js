@@ -27,7 +27,7 @@ const TeamLists = (props)=> {
         }
         
     },[props.teamId])
-    if (!tl) {
+    if (tl<1) {
         return (
             <>
                 <div>this team has no task lists</div>

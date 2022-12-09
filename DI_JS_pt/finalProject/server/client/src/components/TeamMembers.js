@@ -33,7 +33,7 @@ const TeamMembers = (props) => {
         
     },[teamId])
     
-    if(members.length < 1) {
+    if(members == []) {
         return (
             <div>loading</div>
         )

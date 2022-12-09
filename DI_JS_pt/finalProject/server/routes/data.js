@@ -1,5 +1,5 @@
 import express from "express";
-import { _register, _login, _team, _getTasks, _leaderBoardData, _updateTaskStatus, _updateAssignee,_getMyTeams,_getTeamLists, _addTaskList, _addTasks,_addTeam, _addUserToTeam} from "../controllers/Users.js";
+import { _register, _login, _team, _getTasks, _leaderBoardData, _updateTaskStatus, _updateAssignee,_getMyTeams,_getTeamLists, _addTaskList, _addTasks,_addTeam, _addUserToTeam,_currentList} from "../controllers/Users.js";
 import { VerifyToken } from "../middlewares/VerifyToken.js";
 
 
@@ -21,6 +21,7 @@ router.post('/adduserteam/',_addUserToTeam);
 router.get('/token', VerifyToken, (req, res)=>{
     res.sendStatus(200)
 })
+router.get('/currentlist/:tid',_currentList)
 // router.get('/admin',VerifyToken, getUsers);
 // router.delete('/logout', logout),
 // router.get('/token', VerifyToken, (req, res)=>{
