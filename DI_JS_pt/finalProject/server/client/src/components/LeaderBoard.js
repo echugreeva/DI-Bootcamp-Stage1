@@ -38,6 +38,7 @@ const LeaderBoard = (props) => {
         })
         .catch(e=>{console.log(e)})
     },[])
+    //add condition to update leaderboard when task status changes to done
         if (leaderboard) {leaderboard.sort((a,b)=>Number(b.sum) - Number(a.sum))
             console.log(leaderboard)}
 

@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post('/register', _register);
 router.post('/login', _login);
-router.get('/teams/:uid', _team);
+router.get('/teams/:tid', _team);
 router.get('/tasks/:tid', _getTasks);
 router.get('/leaderboard/:teamid', _leaderBoardData);
 router.post('/task/status', _updateTaskStatus);

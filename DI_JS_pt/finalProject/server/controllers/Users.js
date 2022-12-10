@@ -71,8 +71,9 @@ export const _login = async (req, res) => {
 }
 
 export const _team = (req, res) => {
-  team(req.params.uid)
+  team(req.params.tid)
     .then(data => {
+      console.log(data)
       res.json(data)
     })
     .catch(e => {

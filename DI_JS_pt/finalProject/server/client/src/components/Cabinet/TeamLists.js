@@ -6,56 +6,62 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Button from '@mui/material/Button'
 
-const TeamLists = (props)=> {
+const TeamLists = (props) => {
     console.log(props.myTeams)
     const [tl, setTL] = useState([])
-    useEffect(()=>{
-        if(props.teamId>0){
-            fetch (`/teamlists/${props.teamId}`)
-            .then(res=>{
-                if(res.status == 200) {
-                    return res.json()
+    useEffect(() => {
+        if (props.teamId > 0) {
+            fetch(`/teamlists/${props.teamId}`)
+                .then(res => {
+                    if (res.status == 200) {
+                        return res.json()
+                    }
                 }
-            }
                 )
-            .then(data=>
-                setTL(data)
-                // console.log(data)
+                .then(data =>
+                    setTL(data)
+                    // console.log(data)
                 )
-            .catch(e=>{console.log(e)})
+                .catch(e => { console.log(e) })
         }
-        
-    },[props.teamId])
-    if (tl<1) {
+
+    }, [props.teamId])
+    if (tl < 1) {
         return (
             <>
                 <div>this team has no task lists</div>
-                <button>add new list</button>
+                <Button>add new list</Button>
             </>
-            
+
         )
-    }else {
+    } else {
         return (
             <div>
                 {
-                    tl.map((item, i)=> {
+                    tl.map((item, i) => {
                         return (
-                            <div key={i}>
-                                {item.list_name} 
-                                {item.duedate}
-                            
-                                
-                                <TaskList tlId={item.tl_id}/>
-                                
-                                
+                            <Accordion>
+                                <AccordionSummary key={i}
+                                    expandIcon={<ExpandMoreIcon />}
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header">
+                                    <p>List name: {item.list_name}</p> 
+                                    <p>Due date:  {item.duedate}</p>
 
-                            </div>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <TaskList tlId={item.tl_id} />
+                                </AccordionDetails>
+                            </Accordion>
+
+
                         )
                     })
                 }
-                <button>add new list</button>
-                <NewTaskList myTeams={props.myTeams}/>
+                <Button>add new list</Button>
+                <NewTaskList myTeams={props.myTeams} />
             </div>
         )
     }

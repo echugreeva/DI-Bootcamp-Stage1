@@ -4,6 +4,11 @@ import LeaderBoard from "./LeaderBoard"
 import PieChart from './PieChart'
 import {useEffect, useContext} from 'react'
 import { AppContext } from "../App"
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+
 
 const Team = (props)=> {
     const {teamId, tLId, setTL }=useContext(AppContext)
@@ -32,14 +37,19 @@ const Team = (props)=> {
     
 
     return (
-        <div>
-            <TeamMembers/>
-            <LeaderBoard/> 
-            <TaskList tlId={tLId}/>
+        <Container maxWidth="sm">
+            <Grid container spacing={1}>
+                <Grid item xs={6}><TeamMembers/></Grid>
+                <Grid item xs={6}><LeaderBoard/></Grid>
+                <Grid item xs={10}><TaskList tlId={tLId}/></Grid>
+            </Grid>
+            
+            
+            
             {/* <PieChart/> */}
              
           
-        </div>
+        </Container>
     )
 }
 

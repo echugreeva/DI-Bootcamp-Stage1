@@ -11,7 +11,28 @@ import Paper from '@mui/material/Paper'
 
 const TaskList = (props) => {
   const { teamId } = useContext(AppContext)
+  const [members, setMemebers] = useState([]);
   const [tasks, setTasks] = useState([]);
+  useEffect(() => {
+    if (teamId > 0) {
+      fetch(`/teams/${teamId}`)
+      .then(res => {
+        if (res.status == 200) {
+          return res.json()
+        }
+      }
+      )
+      .then(data => {
+        setMemebers(data)
+        console.log(data)
+      }
+
+      )
+        .catch(e => { console.log(e) })
+    }
+
+  }, []);
+  
   useEffect(() => {
     if (props.tlId > 0) {
       fetch(`/tasks/${props.tlId}`)
@@ -32,30 +53,9 @@ const TaskList = (props) => {
 
   }, [props.tlId])
 
-  const [assi, setAssi] = useState([]);
+  
 
-  useEffect(() => {
-    if (teamId > 1) {
-      fetch(`/teams/${teamId}`)
-        .then(res => {
-          if (res.status == 200) {
-            return res.json()
-          }
-        }
-        )
-        .then(res => {
-          // setAssi(res)
-          console.log(res);
-          setAssi(res);
-          // console.log(members)
-        }
-
-        )
-        .catch(e => { console.log(e) })
-    }
-
-  }, [teamId])
-
+  
   if (tasks == []) {
     return (
       <div>checking tasks</div>
@@ -77,7 +77,7 @@ const TaskList = (props) => {
           {
             tasks.map((item, i) => {
               return (
-                <Task key={i} data={item} members={assi} />
+                <Task key={i} data={item} members={members}/>
               )
             })
           }

@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { AppContext } from '../../App';
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
-
+import Card from '@mui/material/Card'
 import axios from 'axios'
  
 const NewUserToTeam = ({admin_id,team_id,team_name})=>{
@@ -30,7 +30,7 @@ const NewUserToTeam = ({admin_id,team_id,team_name})=>{
    
 
     return (
-        <Box component={'form'} sx={{m:1}} noValidate autoComplete={'off'}>
+        <Card component={'form'} sx={{m:1}} noValidate autoComplete={'off'}>
             <InputLabel id="userEmail">Add team members by email</InputLabel>
             <TextField
                 sx={{m:1}}
@@ -46,7 +46,7 @@ const NewUserToTeam = ({admin_id,team_id,team_name})=>{
             <Button variant = 'contained' onClick={addUser}>Add</Button>
             
        
-        </Box>
+        </Card>
     )
 }
 

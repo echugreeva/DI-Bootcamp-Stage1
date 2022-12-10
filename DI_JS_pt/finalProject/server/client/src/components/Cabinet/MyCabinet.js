@@ -21,7 +21,7 @@ const MyCabinet = (props) =>{
             if(expire * 10000 < new Date().getTime()){
                 navigate('../login');
             }
-            if (userId<0){
+            if (userId < 1){
                 setId(decode.userId)
             }
             

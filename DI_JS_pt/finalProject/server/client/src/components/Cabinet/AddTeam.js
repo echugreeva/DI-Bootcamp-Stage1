@@ -10,11 +10,20 @@ import { AppContext } from '../../App';
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import AddUserToTeam from './AddUserToTeam'
 import axios from 'axios'
+import Paper from '@mui/material/Paper'
+import Card from '@mui/material/Card'
  
 const NewTeam = (props)=>{
     const {userId} = useContext(AppContext);
     const [team_id, setTeamId] = useState('');
     const [name, setTeamName] = useState('');
+    const [addUserShown, setShown]= useState(false);
+
+    const handleClick = event => {
+        
+        setShown(current => !current);
+    
+      };
 
     const addTeam = async() => {
         try{
@@ -38,7 +47,7 @@ const NewTeam = (props)=>{
     console.log(name);
 
     return (
-        <Box component={'form'} sx={{m:1}} noValidate autoComplete={'off'}>
+        <Card component={'form'} sx={{m:1}} noValidate autoComplete={'off'}>
             <InputLabel id="teamId">Team Name</InputLabel>
             <TextField
                 sx={{m:1}}
@@ -51,10 +60,16 @@ const NewTeam = (props)=>{
         
             
             
-            <Button variant = 'contained' onClick={addTeam}>Add users</Button>
-            <AddUserToTeam team_id={team_id} team_name={name} admin_id={userId}/>
+            <Button variant = 'contained' onClick={()=>{
+                addTeam()
+                handleClick()
+                }}>Add users</Button>
+            {
+               addUserShown&& <AddUserToTeam team_id={team_id} team_name={name} admin_id={userId}/>
+            }
+            
        
-        </Box>
+        </Card>
     )
 }
 

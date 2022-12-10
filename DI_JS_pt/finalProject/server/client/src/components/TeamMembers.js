@@ -11,10 +11,7 @@ import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfi
 
 const TeamMembers = (props) => {
     const {teamId}=useContext(AppContext)
-    const [members, setMembers] = useState([]);
-
-
-    
+    const [members, setMembers] = useState([]);    
     useEffect(()=>{
         if(teamId>0){
             fetch (`/teams/${teamId}`)
