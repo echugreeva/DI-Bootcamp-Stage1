@@ -13,8 +13,8 @@ import axios from 'axios'
 const NewTaskList = (props)=>{
     // console.log(props.myTeams)
     const [duedate, setDate] = useState(new Date())
-    // const [team_id, setPickedTeam] = useState(props.myTeams[0].team_id||'')
-    const [team_id, setPickedTeam] = useState('')
+    const [team_id, setPickedTeam] = useState(props.myTeams[0].team_id||'')
+    // const [team_id, setPickedTeam] = useState('')
     const [list_name, setName] = useState('')
     const [list_id, setListId] = useState('')
     const addTaskList = async() => {
@@ -55,7 +55,7 @@ const NewTaskList = (props)=>{
             <Select
                 labelId="teamId"
                 id="teamId"
-                value={props.myTeams[0].team_id||''}
+                value={team_id}
                 label="teamId"
                 onChange={(e)=>{setPickedTeam(e.target.value)}}
             >

@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import db from './connections/elephant_db.js'
 import router from './routes/data.js'
 
+
 dotenv.config();
 const app = express();
 
@@ -130,3 +131,18 @@ app.listen(process.env.PORT||8080,()=>{
 //   updateAssignee(7, 4)
 //     .then(res=>console.log(res))
 
+// export const members = (tlid) => {
+//     return db('teams')
+//     .join('task_list', 'teams.team_id', '=','task_list.team_id' )
+//     .select("teams.users")
+//     .where('task_list.tl_id','=', tlid)
+// }
+
+// export const taskIds = (tlid) => {
+//   return db('tasks')
+//   .select("task_id")
+//   .where('tl_id','=', tlid)
+// }
+  
+// members(19).then(res=>console.log(res))
+// taskIds(19).then(res=>console.log(res))

@@ -128,3 +128,16 @@ export const leaderBoardData = (teamId, currListId)=>{
       
       
   }
+
+  export const members = (tlid) => {
+    return db('teams')
+    .join('task_list', 'teams.team_id', '=','task_list.team_id' )
+    .select("teams.users")
+    .where('task_list.tl_id','=', tlid)
+}
+
+export const taskIds = (tlid) => {
+  return db('tasks')
+  .select("task_id")
+  .where('tl_id','=', tlid)
+}

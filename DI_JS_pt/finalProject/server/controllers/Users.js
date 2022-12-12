@@ -1,4 +1,4 @@
-import { register, login, team, getTasks, leaderBoardData, updateTaskStatus, updateAssignee, getMyTeams, getTeamLists, addTaskList, addTasks, addTeam, addUserToTeam, userExistInTeam, currentList } from '../modules/Users.js';
+import { register, login, team, getTasks, leaderBoardData, updateTaskStatus, updateAssignee, getMyTeams, getTeamLists, addTaskList, addTasks, addTeam, addUserToTeam, userExistInTeam, currentList, members, taskIds } from '../modules/Users.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 // import { json } from 'sequelize';
@@ -260,6 +260,31 @@ export const _currentList = (req, res) => {
   currentList(req.params.tid, today)
     .then(data => {
       // console.log(data)
+      res.json(data)
+    })
+    .catch(e => {
+      console.log(e);
+      res.status(404).json({ msg: 'not found' })
+    })
+}
+
+export const _members = (req, res) => {
+  
+  members(req.params.tlid)
+    .then(data => {
+      console.log(data)
+      res.json(data)
+    })
+    .catch(e => {
+      console.log(e);
+      res.status(404).json({ msg: 'not found' })
+    })
+}
+export const _taskIds = (req, res) => {
+  
+  taskIds(req.params.tlid)
+    .then(data => {
+      console.log(data)
       res.json(data)
     })
     .catch(e => {

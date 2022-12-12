@@ -1,5 +1,5 @@
 import express from "express";
-import { _register, _login, _team, _getTasks, _leaderBoardData, _updateTaskStatus, _updateAssignee,_getMyTeams,_getTeamLists, _addTaskList, _addTasks,_addTeam, _addUserToTeam,_currentList} from "../controllers/Users.js";
+import { _register, _login, _team, _getTasks, _leaderBoardData, _updateTaskStatus, _updateAssignee,_getMyTeams,_getTeamLists, _addTaskList, _addTasks,_addTeam, _addUserToTeam,_currentList,_members, _taskIds} from "../controllers/Users.js";
 import { VerifyToken } from "../middlewares/VerifyToken.js";
 
 
@@ -8,6 +8,7 @@ const router = express.Router();
 router.post('/register', _register);
 router.post('/login', _login);
 router.get('/teams/:tid', _team);
+router.get('/teams/:tlid', _team);
 router.get('/tasks/:tid', _getTasks);
 router.get('/leaderboard/:teamid', _leaderBoardData);
 router.post('/task/status', _updateTaskStatus);
@@ -22,6 +23,8 @@ router.get('/token', VerifyToken, (req, res)=>{
     res.sendStatus(200)
 })
 router.get('/currentlist/:tid',_currentList)
+router.get('/getmembers/:tlid', _members);
+router.get('/gettaskIds/:tlid', _taskIds);
 // router.get('/admin',VerifyToken, getUsers);
 // router.delete('/logout', logout),
 // router.get('/token', VerifyToken, (req, res)=>{
