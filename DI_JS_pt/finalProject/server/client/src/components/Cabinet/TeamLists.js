@@ -60,8 +60,7 @@ const TeamLists = (props) => {
                         )
                     })
                 }
-                <Button>add new list</Button>
-                <NewTaskList myTeams={props.myTeams} />
+                 {/* <NewTaskList myTeams={props.myTeams} /> */}
             </div>
         )
     }

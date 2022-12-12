@@ -9,6 +9,7 @@ import axios from 'axios'
  
 const NewUserToTeam = ({admin_id,team_id,team_name})=>{
     const [input, setInput]=useState('')
+    const [msg, setMsg]=useState('')
     const addUser = async() => {
         console.log(admin_id,team_id,team_name, input)
         try{
@@ -25,12 +26,21 @@ const NewUserToTeam = ({admin_id,team_id,team_name})=>{
             
         }catch (e){
             console.log(e.response.data.msg)
+            setMsg(e.response.data.msg)
         }
     }
    
 
     return (
-        <Card component={'form'} sx={{m:1}} noValidate autoComplete={'off'}>
+        <Box component={'form'} 
+        sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+            noValidate 
+            autoComplete={'off'}>
             <InputLabel id="userEmail">Add team members by email</InputLabel>
             <TextField
                 sx={{m:1}}
@@ -44,9 +54,10 @@ const NewUserToTeam = ({admin_id,team_id,team_name})=>{
             
             
             <Button variant = 'contained' onClick={addUser}>Add</Button>
+            <p>{msg}</p>
             
        
-        </Card>
+        </Box>
     )
 }
 

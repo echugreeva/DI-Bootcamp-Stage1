@@ -11,9 +11,10 @@ import {Task} from '../Task'
 import axios from 'axios'
  
 const NewTaskList = (props)=>{
-    console.log(props.myTeams)
+    // console.log(props.myTeams)
     const [duedate, setDate] = useState(new Date())
-    const [team_id, setPickedTeam] = useState(props.myTeams[0].team_id||'')
+    // const [team_id, setPickedTeam] = useState(props.myTeams[0].team_id||'')
+    const [team_id, setPickedTeam] = useState('')
     const [list_name, setName] = useState('')
     const [list_id, setListId] = useState('')
     const addTaskList = async() => {
@@ -38,6 +39,8 @@ const NewTaskList = (props)=>{
 
     return (
         <Box component={'form'} sx={{m:1}} noValidate autoComplete={'off'}>
+            <h1>Add new task list</h1>
+            
             <InputLabel id="teamId">List Name</InputLabel>
             <TextField
                 sx={{m:1}}

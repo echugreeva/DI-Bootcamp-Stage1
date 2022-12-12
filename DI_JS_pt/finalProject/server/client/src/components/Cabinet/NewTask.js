@@ -49,7 +49,7 @@ const NewTask = (props)=> {
     const handleRemoveClick = index => {
         const list = [...inputList];
         list.splice(index, 1);
-        // setInputList(list);
+        setInputList(list);
       };
 
       const addTasks = async() => {
@@ -113,7 +113,7 @@ const NewTask = (props)=> {
                         </LocalizationProvider>
                         <div>
                         {inputList.length !== 1 && <Button variant = 'contained' onClick={handleRemoveClick}>Remove</Button>}
-                        {inputList.length - 1 === i && <Button variant = 'contained' onClick={handleAddClick}>Add</Button>}
+                        {inputList.length - 1 === i && <Button variant = 'contained' onClick={handleAddClick}>Add Task</Button>}
                         </div>
                         </>
                     )
@@ -121,7 +121,7 @@ const NewTask = (props)=> {
             }
             
             </Box>
-            <Button variant = 'contained' onClick={addTasks}>Publish</Button>
+            <Button variant = 'contained' onClick={addTasks}>Publish List</Button>
             {/* <Box component={'form'} sx={{m:1}} noValidate autoComplete={'off'}>
                 <TextField
                 sx={{m:1}}

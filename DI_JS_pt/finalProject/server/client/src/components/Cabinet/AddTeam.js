@@ -18,36 +18,52 @@ const NewTeam = (props)=>{
     const [team_id, setTeamId] = useState('');
     const [name, setTeamName] = useState('');
     const [addUserShown, setShown]= useState(false);
+    const [msg, setMsg]=useState('')
 
     const handleClick = event => {
         
-        setShown(current => !current);
+        setShown(true);
     
       };
 
     const addTeam = async() => {
-        try{
-            const response = await axios.post(`/addteam/`, {
-                userId, name
-            }, {
-                withCredentials:true, 
-                headers:{
-                    'Content-Type': 'application/json'
-                }
-            });
-            console.log(response);
-            setTeamId(response.data[0].team_id)
-            
-        }catch (e){
-            console.log(e.response.data.msg)
+        if (name) {
+            try{
+                const response = await axios.post(`/addteam/`, {
+                    userId, name
+                }, {
+                    withCredentials:true, 
+                    headers:{
+                        'Content-Type': 'application/json'
+                    }
+                });
+                console.log(response);
+                setTeamId(response.data[0].team_id)
+                
+            }catch (e){
+                console.log(e.response.data.msg)
+            }
+        } else {
+            setMsg('please add team name first')
         }
+        
         
     }
     console.log(team_id);
     console.log(name);
 
     return (
-        <Card component={'form'} sx={{m:1}} noValidate autoComplete={'off'}>
+        <Box 
+        component={'form'} 
+        noValidate 
+        autoComplete={'off'}
+        sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
             <InputLabel id="teamId">Team Name</InputLabel>
             <TextField
                 sx={{m:1}}
@@ -59,17 +75,20 @@ const NewTeam = (props)=>{
                 />
         
             
+            {
+                <Button variant = 'contained' onClick={()=>{
+    
+                    addTeam()
+                    handleClick()
+                    }}>Add users</Button>
+            }
             
-            <Button variant = 'contained' onClick={()=>{
-                addTeam()
-                handleClick()
-                }}>Add users</Button>
             {
                addUserShown&& <AddUserToTeam team_id={team_id} team_name={name} admin_id={userId}/>
             }
             
        
-        </Card>
+        </Box>
     )
 }
 
