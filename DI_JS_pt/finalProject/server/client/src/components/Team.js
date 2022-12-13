@@ -2,17 +2,25 @@ import TeamMembers from "./TeamMembers"
 import TaskList from "./TaskList"
 import LeaderBoard from "./LeaderBoard"
 import PieChart from './PieChart'
-import { useEffect, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useState, useEffect, useContext, createContext } from 'react'
+import jwt_decode from 'jwt-decode';
 import { AppContext } from "../App"
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import ErrorBoundary from "./ErrorBoundary"
+export const TeamContext = createContext();
+
 
 
 const Team = (props) => {
-    const { teamId, tLId, setTL } = useContext(AppContext)
+    
+    const [lBlistener, setListener] = useState(0)
+    const [token, setToken] = useState({});
+    const { accessToken, setId, userId,setTeam, teamId, setTL, tLId} = useContext(AppContext);
+    const navigate = useNavigate();
     ///fetch current list pass id to Tasklist prop tlId
     useEffect(() => {
         if (teamId > 0) {
@@ -33,11 +41,32 @@ const Team = (props) => {
         }
 
     }, [teamId])
+    useEffect(() => {
+        try {
+            const decode = jwt_decode(accessToken)
+            console.log(decode);
+            setToken(decode);
+            const expire = decode.exp;
+            setId(decode.userId)
+            if (expire * 10000 < new Date().getTime()) {
+                navigate('../login');
+            }
+            if (userId < 1) {
+                setId(decode.userId)
+            }
 
+
+        }
+        catch (e) {
+            navigate('../login');
+        }
+
+    }, [])
     console.log(tLId)
 
 
     return (
+        <TeamContext.Provider value={{lBlistener, setListener}}>
         <Container>
             <Grid container spacing={1}>
                
@@ -52,6 +81,7 @@ const Team = (props) => {
 
 
         </Container>
+        </TeamContext.Provider>
     )
 }
 

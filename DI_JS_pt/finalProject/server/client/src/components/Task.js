@@ -1,9 +1,10 @@
-import { FormControl, InputLabel, Select, MenuItem } from "@mui/material"
+import { FormControl, InputLabel, Select, MenuItem, Typography } from "@mui/material"
 import axios from 'axios';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import { useState, useEffect, useContext } from 'react'
 import { AppContext } from '../App';
+import { TeamContext } from "./Team";
 
 
 
@@ -11,7 +12,7 @@ const Task  = (props)=> {
     const [taskS, setStatus] = useState(props.data.status || '');
     const [assignee, setAssignee] = useState(props.data.assignee_id ||'');
     const [msg, setMsg] = useState('');
-    
+    const {lBlistener,setListener }=useContext(TeamContext)
     // console.log(props.members)
     console.log(props.data)
 
@@ -35,6 +36,9 @@ const Task  = (props)=> {
             setMsg(e.response.data.msg)
         }
         setStatus(event.target.value);
+        if(taskStatus == 'done') {
+            setListener(lBlistener+1)
+        }
           
     }
 
@@ -107,9 +111,9 @@ const Task  = (props)=> {
                             onChange={handleStatus}
                         >
                     
-                            <MenuItem value={'to do'}>To Do</MenuItem>
-                            <MenuItem value={'in process'}>In process</MenuItem>
-                            <MenuItem value={'done'}>Done</MenuItem>
+                            <MenuItem color='primary' value={'to do'}><Typography color='error'>To Do</Typography></MenuItem>
+                            <MenuItem value={'in process'}><Typography color='primary'>In process</Typography></MenuItem>
+                            <MenuItem value={'done'}><Typography color='#00796b'></Typography>Done</MenuItem>
                         </Select>
                     </FormControl>
                 </TableCell>

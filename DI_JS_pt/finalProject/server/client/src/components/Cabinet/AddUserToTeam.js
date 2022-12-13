@@ -4,8 +4,8 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { AppContext } from '../../App';
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
-import Card from '@mui/material/Card'
 import axios from 'axios'
+import { Typography } from '@mui/material';
  
 const NewUserToTeam = ({admin_id,team_id,team_name})=>{
     const [input, setInput]=useState('')
@@ -32,16 +32,18 @@ const NewUserToTeam = ({admin_id,team_id,team_name})=>{
    
 
     return (
+
         <Box component={'form'} 
         sx={{
-            marginTop: 8,
+            marginTop: 2,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
           }}
             noValidate 
             autoComplete={'off'}>
-            <InputLabel id="userEmail">Add team members by email</InputLabel>
+                <Typography variant="h6" component="h1">Add team members by email</Typography>
+            {/* <InputLabel id="userEmail"></InputLabel> */}
             <TextField
                 sx={{m:1}}
                 id='userEmail'

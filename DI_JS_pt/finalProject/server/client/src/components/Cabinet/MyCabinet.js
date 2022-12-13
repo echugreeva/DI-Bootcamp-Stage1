@@ -78,7 +78,7 @@ const MyCabinet = (props) => {
 
     }, [userId])
 
-    const handleChange = (event, newValue) => {
+    const handleTabChange = (event, newValue) => {
         setValue(newValue);
     };
 
@@ -92,7 +92,7 @@ const MyCabinet = (props) => {
             setId(decode.userId)
             if (expire * 10000 < new Date().getTime()) {
                 navigate('../login');
-            }
+            } 
             if (userId < 1) {
                 setId(decode.userId)
             }
@@ -120,14 +120,14 @@ const MyCabinet = (props) => {
 
         <Box sx={{ width: '100%' }}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                <Tabs value={value} onChange={handleTabChange} aria-label="basic tabs example">
                     <Tab label="My teams" {...a11yProps(0)} />
                     <Tab label="Add Task List" {...a11yProps(1)} />
                     <Tab label="Add Team" {...a11yProps(2)} />
                 </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
-                <ErrorBoundary><MyTeams myTeams={myTeams} /></ErrorBoundary>
+                <ErrorBoundary><MyTeams myTeams={myTeams} handleTabChange = {handleTabChange}/></ErrorBoundary>
             </TabPanel>
             <TabPanel value={value} index={1}>
                 <ErrorBoundary><NewTaskList myTeams={myTeams} /></ErrorBoundary>

@@ -7,6 +7,11 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material"
 import axios from 'axios'
+import { Typography } from '@mui/material';
+import Grid from '@mui/material/Grid'
+import GridItem from '@mui/material/Grid'
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 const NewTask = (props) => {
     let today = new Date()
@@ -116,13 +121,25 @@ const NewTask = (props) => {
     }
 
 return (
-    <div>
-        <h2>Add your tasks</h2>
-        <Box component={'form'} sx={{ m: 1 }} noValidate autoComplete={'off'}>
+    <Grid container
+    direction="column"
+    justifyContent="center"
+    alignItems="center" 
+    sx={{ m: 2 }}>
+        
+        <Typography variant="h5" component="h1">Add your tasks</Typography>
+        
             {
                 inputList.map((item, i) => {
                     return (
-                        <>
+                        <Box component={'form'}  noValidate autoComplete={'off'}
+                        sx={{
+                            marginTop: 1,
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            textAlign:'right'
+                          }}>
                             <TextField
                                 sx={{ m: 1 }}
                                 id='description'
@@ -148,6 +165,7 @@ return (
                                     name='dueDate'
                                     inputFormat="MM/DD/YYYY"
                                     value={item.duedate}
+                                    sx={{ m: 2 }}
                                     onChange={(newValue) => {
                                         // setDateTask(newValue);
                                         handleDateInput(newValue, i)
@@ -157,54 +175,21 @@ return (
                                         (params) => <TextField {...params} />}
                                 />
                             </LocalizationProvider>
-                            <div>
-                                {inputList.length !== 1 && <Button variant='contained' onClick={handleRemoveClick}>Remove</Button>}
-                                {inputList.length - 1 === i && <Button variant='contained' onClick={handleAddClick}>Add Task</Button>}
-                            </div>
-                        </>
+                            
+                                
+                                {inputList.length - 1 === i && <Button sx={{ m: 2 }}variant='contained' onClick={handleAddClick}><AddCircleOutlineIcon size='small'></AddCircleOutlineIcon></Button>}
+                                {inputList.length !== 1 && <Button sx={{ m: 2 }}variant='contained' color='warning' onClick={handleRemoveClick}><DeleteForeverIcon></DeleteForeverIcon></Button>}
+                            
+                        </Box>
                     )
                 })
             }
 
-        </Box>
-        <Button variant='contained' onClick={addTasks}>Publish List</Button>
-        <Button variant='contained' onClick={assignRandomAssignee}>Randomize task assignees</Button>
-        {/* <Box component={'form'} sx={{m:1}} noValidate autoComplete={'off'}>
-                <TextField
-                sx={{m:1}}
-                id='description'
-                label = 'description'
-                variant = 'outlined'
-                // onChange={(e)=>{setEmail(e.target.value)}}
-                />
-                <TextField
-                sx={{m:1}}
-                id='completion_time'
-                label = 'completion_time'
-                variant = 'outlined'
-                type='number'
-                // onChange={(e)=>{setEmail(e.target.value)}}
-                />
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker
-                            label="dueDate"
-                            inputFormat="MM/DD/YYYY"
-                            value={dDateTask}
-                            onChange={(newValue) => {
-                                setDateTask(newValue);
-                              }}
-                            renderInput={
-                                (params) => <TextField {...params} />}
-                    />
-                </LocalizationProvider>
-               
-                <Button variant = 'contained'>Delete</Button>
-                <Button variant = 'contained'>Add</Button>
-            </Box> */}
-
-
-
-    </div>
+       
+        <Button sx={{ m: 1 }}variant='contained' onClick={addTasks}>Publish List</Button>
+        <Button sx={{ m: 1 }} variant='contained' onClick={assignRandomAssignee}>Randomize task assignees</Button>
+        
+    </Grid>
 )
 }
 

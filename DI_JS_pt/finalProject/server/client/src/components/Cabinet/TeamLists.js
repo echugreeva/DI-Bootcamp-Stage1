@@ -28,11 +28,14 @@ const TeamLists = (props) => {
         }
 
     }, [props.teamId])
+
     if (tl < 1) {
         return (
             <>
                 <div>this team has no task lists</div>
-                <Button>add new list</Button>
+                <Button onClick={()=> {
+                    
+                }}>add new list</Button>
             </>
 
         )
@@ -52,7 +55,7 @@ const TeamLists = (props) => {
 
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                    <TaskList tlId={item.tl_id} />
+                                    {/* <TaskList tlId={item.tl_id} /> */}
                                 </AccordionDetails>
                             </Accordion>
 

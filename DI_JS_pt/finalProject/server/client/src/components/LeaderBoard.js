@@ -4,7 +4,11 @@ import React from "react";
 // import { BarChart, Bar,  XAxis, YAxis, Tooltip} from "recharts";
 import {useState, useEffect,useContext} from 'react'
 import { AppContext } from '../App';
+import { TeamContext } from "./Team";
 import { Chart } from "react-google-charts";
+import { Typography } from "@mui/material";
+import Box from '@mui/material/Box';
+
 
 const data = [
     { assignee_id: 1, tl_id: 1, username: 'A', sum: '2' },
@@ -17,6 +21,7 @@ const data = [
 
 const LeaderBoard = (props) => {
     const {teamId}=useContext(AppContext)
+    const {lBlistener}=useContext(TeamContext)
     const [leaderboard, setLeaderboard] = useState([]);
 
     useEffect(()=>{
@@ -38,6 +43,26 @@ const LeaderBoard = (props) => {
         })
         .catch(e=>{console.log(e)})
     },[])
+
+    useEffect(()=>{
+        fetch (`/leaderboard/${teamId}`)
+        .then(res=>{
+            if(res.status == 200) {
+                return res.json()
+            }
+        }
+            )
+        .then(data=>{
+            
+            console.log(data)
+            setLeaderboard(data)
+
+            
+            // leaderboard.map((i)=>Number(i.sum))
+            
+        })
+        .catch(e=>{console.log(e)})
+    },[lBlistener])
     //add condition to update leaderboard when task status changes to done
         if (leaderboard) {leaderboard.sort((a,b)=>Number(b.sum) - Number(a.sum))
             console.log(leaderboard)}
@@ -65,24 +90,19 @@ const LeaderBoard = (props) => {
     console.log(dataToShow)
     
   return (
-
-    <Chart
-      chartType="BarChart"
-      width="100%"
-      height="400px"
-     data={dataToShow}
-    //   columns={dataToShow[0]}
-    //   rows={dataToShow[1]}
-      options={options}
-    />
-    // <BarChart width={350} height={140} data={data}>
-     
-    //   <YAxis dataKey="sum" />
-    //   <XAxis dataKey="username" />
-    //   <Tooltip/>
-    //   <Bar dataKey="sum" fill="#8884d8" />
     
-    // </BarChart>
+    <Chart
+    
+    chartType="BarChart"
+    width="100%"
+    height="400px"
+    color='red'
+    data={dataToShow}
+  //   columns={dataToShow[0]}
+  //   rows={dataToShow[1]}
+    options={options}/>
+   
+    
 
   );
 }

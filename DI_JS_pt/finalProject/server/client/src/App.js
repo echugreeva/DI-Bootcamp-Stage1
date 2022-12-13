@@ -9,6 +9,8 @@ import Navbar from './components/Navbar'
 // import Home from './components/Home';
 import {Auth} from './components/auth/Auth'
 import MyCabinet from './components/Cabinet/MyCabinet';
+import { ThemeProvider } from '@mui/material';
+import Theme from './Theme'
 
 export const AppContext = createContext();
 
@@ -19,6 +21,7 @@ function App() {
   const [accessToken, setAccessToken] = useState('');
   return (
      <AppContext.Provider value={{setId, userId,  setTeam,  teamId, setTL, tLId, accessToken, setAccessToken}}>
+      <ThemeProvider theme={Theme}>
       <div className="App">
       {/* <Nav/> */}
      <Navbar/>
@@ -31,6 +34,7 @@ function App() {
        
       </Routes>
       </div>
+      </ThemeProvider>
      </AppContext.Provider>
   );
 }

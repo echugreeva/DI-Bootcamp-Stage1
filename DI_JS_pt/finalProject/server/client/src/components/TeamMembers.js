@@ -38,7 +38,7 @@ const TeamMembers = (props) => {
         return (
 
             <Grid item xs={12} md={6}>
-                <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
+                <Typography sx={{ mt: 4, mb: 2 }} variant="h5" component="div">
                     Your team:
                 </Typography>
                 <List>

@@ -15,6 +15,7 @@ import NewTaskList from './NewTaskList';
 import AddTeam from './AddTeam'
 import Container from '@mui/material/Container';
 import ErrorBoundary from '../ErrorBoundary'
+import { Typography } from '@mui/material';
 
 const MyTeams = (props) => {
     const navigate = useNavigate();
@@ -40,45 +41,77 @@ const MyTeams = (props) => {
 
     if (props.myTeams == []) {
         return (
-            <>
-                <div>You are not a part of any team yet</div>
-                <button>add a team</button>
-            </>
+            <Container
+                container
+                direction="column"
+                justifyContent="center"
+                alignItems="center"
+                sx={{ m: 2 }}>
+                <Typography>You are not a part of any team yet</Typography>
+                <Button>add a team</Button>
+            </Container>
 
         )
     } else {
         return (
-            <Container  >
-                <List>
-                    {
-                        props.myTeams.map((item, i) => {
-                            return (
-                                <ListItem key={i}> 
+            <Container
+                container
+                direction="column"
+                justifyContent="center"
+                alignItems="center"
+                sx={{ m: 2 }} >
+                <Box
+                     sx={{
+                        marginTop: 1,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        textAlign:'right'
+                      }}>
+                    <List>
+                        {
+                            props.myTeams.map((item, i) => {
+                                return (
+                                    <ListItem key={i}
+                                    sx={{
+                                        marginTop: 1,
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                        
+                                      }}>
+                                        
+                                            <Typography variant="h5" component="h2" sx={{ m: 1 }}>Team name: {item.name}</Typography>
 
-                                    Team name:
-                                    {item.name}
-                                    <Button onClick={() => {
-                                        setTeam(item.team_id)
-                                        navigate('../team')
-                                    }}>go to team board</Button>
+                                            <Button sx={{ m: 1 }}variant="contained" onClick={() => {
+                                                setTeam(item.team_id)
+                                                navigate('../team')
+                                            }}>go to team board</Button>
 
-
-                                    <TeamLists teamId={item.team_id} myTeams={props.myTeams} />
-
+                                            <Typography variant="h6" component="h3">Team lists:</Typography>
+                                            <TeamLists teamId={item.team_id} myTeams={props.myTeams} />
 
 
 
 
-                                </ListItem>
-                            )
-                                    
-                        })
-                        
-                    }
-                    
-                </List>
-                
-                
+
+
+                                        
+
+
+                                    </ListItem>
+                                )
+
+                            })
+
+                        }
+
+                    </List>
+
+
+                </Box>
+
+
             </Container>
 
         )

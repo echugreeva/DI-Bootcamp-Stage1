@@ -12,6 +12,9 @@ import AddUserToTeam from './AddUserToTeam'
 import axios from 'axios'
 import Paper from '@mui/material/Paper'
 import Card from '@mui/material/Card'
+import { Typography } from '@mui/material';
+import Grid from '@mui/material/Grid'
+import GridItem from '@mui/material/Grid'
  
 const NewTeam = (props)=>{
     const {userId} = useContext(AppContext);
@@ -53,18 +56,23 @@ const NewTeam = (props)=>{
     console.log(name);
 
     return (
-        <Box 
+        <Grid  container
+        direction="column"
+        justifyContent="center"
+        alignItems="center" >
+             <Typography variant="h5" component="h1">Add new team</Typography>
+            <Box 
         component={'form'} 
         noValidate 
         autoComplete={'off'}
         sx={{
-            marginTop: 8,
+            marginTop: 1,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
           }}
         >
-            <InputLabel id="teamId">Team Name</InputLabel>
+            {/* <InputLabel id="teamId">Team Name</InputLabel> */}
             <TextField
                 sx={{m:1}}
                 id='teamName'
@@ -89,6 +97,9 @@ const NewTeam = (props)=>{
             
        
         </Box>
+
+        </Grid>
+        
     )
 }
 
