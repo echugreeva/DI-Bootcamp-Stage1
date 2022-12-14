@@ -4,6 +4,7 @@ import LogReg from './components/LogReg';
 import Team from './components/Team'
 import Welcome from './components/Welcome';
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 // import Nav from './components/Nav';
 // import Users from './components/Users';
 // import Home from './components/Home';
@@ -33,6 +34,7 @@ function App() {
         <Route path='/mycabinet' element={<Auth><MyCabinet/></Auth>}/>
        
       </Routes>
+      <Footer/>
       </div>
       </ThemeProvider>
      </AppContext.Provider>

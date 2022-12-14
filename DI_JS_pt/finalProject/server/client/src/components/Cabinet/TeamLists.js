@@ -7,6 +7,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button'
+import { Typography } from '@mui/material';
 
 const TeamLists = (props) => {
     console.log(props.myTeams)
@@ -33,8 +34,8 @@ const TeamLists = (props) => {
         return (
             <>
                 <div>this team has no task lists</div>
-                <Button onClick={()=> {
-                    
+                <Button onClick={(e)=> {
+                    props.handleTabChange(e,1)
                 }}>add new list</Button>
             </>
 
@@ -50,8 +51,8 @@ const TeamLists = (props) => {
                                     expandIcon={<ExpandMoreIcon />}
                                     aria-controls="panel1a-content"
                                     id="panel1a-header">
-                                    <p>List name: {item.list_name}</p> 
-                                    <p>Due date:  {item.duedate}</p>
+                                    <Typography variant="p" component="p" sx={{ m: 1 }}>List name: {item.list_name} </Typography>
+                                    <Typography variant="p" component="p" sx={{ m: 1 }}>Due date: {item.duedate.substr(0,10)} </Typography>
 
                                 </AccordionSummary>
                                 <AccordionDetails>

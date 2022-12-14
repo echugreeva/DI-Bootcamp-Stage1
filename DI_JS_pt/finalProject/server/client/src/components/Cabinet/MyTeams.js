@@ -19,8 +19,10 @@ import { Typography } from '@mui/material';
 
 const MyTeams = (props) => {
     const navigate = useNavigate();
-    // const [myTeams, setTeams] = useState([]);
+
+    
     const { userId, setTeam, teamId, setTL, tLId } = useContext(AppContext)
+    
     // useEffect(() => {
     //     if (userId > 0) {
     //         fetch(`/myteams/${userId}`)
@@ -89,7 +91,7 @@ const MyTeams = (props) => {
                                             }}>go to team board</Button>
 
                                             <Typography variant="h6" component="h3">Team lists:</Typography>
-                                            <TeamLists teamId={item.team_id} myTeams={props.myTeams} />
+                                            <TeamLists teamId={item.team_id} myTeams={props.myTeams} handleTabChange = {props.handleTabChange}/>
 
 
 

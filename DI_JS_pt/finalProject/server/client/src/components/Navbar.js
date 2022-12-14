@@ -7,7 +7,6 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import AdbIcon from '@mui/icons-material/Adb'
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -15,7 +14,7 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import ImageListItem from '@mui/material/ImageListItem'
+import logoimg from '../logoimg.png'
 
 // import axios from 'axios';
 // import {useContext} from 'react'
@@ -46,8 +45,9 @@ const Navbar = (props) => {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Button component={Link} to='/'><RuleIcon color="secondary" sx={{ fontSize: 40 }}></RuleIcon></Button>
-
+                    <Button component={Link} to='/'><img src={logoimg} style={{height:'3em'}}/></Button>
+                  
+                 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
@@ -81,12 +81,16 @@ const Navbar = (props) => {
                             <MenuItem> <Link to='/register'>Register</Link></MenuItem>
                         </Menu>
                     </Box>
-                    <Stack spacing={2} direction="row" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                    <Button component={Link} variant="contained"size="medium" to='/mycabinet'>My Cabinet</Button>
-                <Button variant="outlined" color='secondary' size="medium" component={Link} to='/login'>Login</Button>
-                <Button variant="contained" color='secondary' size="medium" component={Link} to='/register'>Register</Button>
-                     
-                    </Stack>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'space-between' }}>
+                        <Stack spacing={1} direction="row" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                            <Button component={Link} variant="contained" size="medium" to='/mycabinet'>My Cabinet</Button>
+                        </Stack>
+                        <Stack spacing={1} direction="row" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', flexDirection: 'row' }, justifyContent: 'flex-end' }}>
+                            <Button variant="outlined" color='secondary' size="medium" component={Link} to='/login'>Login</Button>
+                            <Button variant="contained" color='secondary' size="medium" component={Link} to='/register'>Register</Button>
+                        </Stack>
+                    </Box>
+
 
                 </Toolbar>
 
@@ -105,3 +109,6 @@ const Navbar = (props) => {
 }
 
 export default Navbar
+
+//    {/* <img src={logoimg} style={{height:'3em'}}/> */}
+{/* <RuleIcon color="success" sx={{ fontSize: 40 }}></RuleIcon> */}

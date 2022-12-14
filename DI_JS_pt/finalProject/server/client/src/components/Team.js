@@ -2,7 +2,7 @@ import TeamMembers from "./TeamMembers"
 import TaskList from "./TaskList"
 import LeaderBoard from "./LeaderBoard"
 import PieChart from './PieChart'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate , Link} from 'react-router-dom'
 import { useState, useEffect, useContext, createContext } from 'react'
 import jwt_decode from 'jwt-decode';
 import { AppContext } from "../App"
@@ -64,7 +64,14 @@ const Team = (props) => {
     }, [])
     console.log(tLId)
 
-
+    if(!tLId){
+        return (
+            <>
+            <p>This team has no active lists</p>
+            <Link to='/mycabinet'>Back to my cabinet</Link>
+            </>
+        )
+    }
     return (
         <TeamContext.Provider value={{lBlistener, setListener}}>
         <Container>

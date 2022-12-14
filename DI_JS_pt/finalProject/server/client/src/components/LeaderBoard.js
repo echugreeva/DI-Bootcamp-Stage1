@@ -1,7 +1,6 @@
 
 
 import React from "react";
-// import { BarChart, Bar,  XAxis, YAxis, Tooltip} from "recharts";
 import {useState, useEffect,useContext} from 'react'
 import { AppContext } from '../App';
 import { TeamContext } from "./Team";
@@ -69,7 +68,7 @@ const LeaderBoard = (props) => {
 
     const options = {
         title: "Leaderboard",
-        width: 600,
+        width: 'auto',
         height: 400,
         bar: { groupWidth: "95%" },
         legend: { position: "none" },
@@ -90,17 +89,20 @@ const LeaderBoard = (props) => {
     console.log(dataToShow)
     
   return (
+    <Box sx={{boxShadow: 2, marginTop:8 }}>
+        <Chart
+            
+            chartType="BarChart"
+            // width="100%"
+            // height="400px"
+            color='red'
+            data={dataToShow}
+        //   columns={dataToShow[0]}
+        //   rows={dataToShow[1]}
+            options={options}/>
+    </Box>
     
-    <Chart
     
-    chartType="BarChart"
-    width="100%"
-    height="400px"
-    color='red'
-    data={dataToShow}
-  //   columns={dataToShow[0]}
-  //   rows={dataToShow[1]}
-    options={options}/>
    
     
 

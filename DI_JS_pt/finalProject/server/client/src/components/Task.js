@@ -113,13 +113,13 @@ const Task  = (props)=> {
                     
                             <MenuItem color='primary' value={'to do'}><Typography color='error'>To Do</Typography></MenuItem>
                             <MenuItem value={'in process'}><Typography color='primary'>In process</Typography></MenuItem>
-                            <MenuItem value={'done'}><Typography color='#00796b'></Typography>Done</MenuItem>
+                            <MenuItem value={'done'}><Typography sx={{color:'#00796b', fontWeight:'bold'}} >Done</Typography></MenuItem>
                         </Select>
                     </FormControl>
                 </TableCell>
         
                 <TableCell>{props.data.completion_time}</TableCell>
-                <TableCell>{props.data.duedate}</TableCell>
+                <TableCell>{props.data.duedate.substr(0,10)}</TableCell>
             </TableRow>
             )
     }
