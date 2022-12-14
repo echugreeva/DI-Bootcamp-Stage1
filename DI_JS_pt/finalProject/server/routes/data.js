@@ -5,8 +5,8 @@ import { VerifyToken } from "../middlewares/VerifyToken.js";
 
 const router = express.Router();
 
-router.post('/register', _register);
-router.post('/login', _login);
+// router.post('/register', _register);
+// router.post('/login', _login);
 router.get('/teams/:tid', _team);
 router.get('/teams/:tlid', _team);
 router.get('/tasks/:tid', _getTasks);
@@ -19,9 +19,9 @@ router.post('/addlist/', _addTaskList);
 router.post('/addtasks/:tlid', _addTasks);
 router.post('/addteam/', _addTeam);
 router.post('/adduserteam/',_addUserToTeam);
-router.get('/token', VerifyToken, (req, res)=>{
-    res.sendStatus(200)
-})
+// router.get('/token', VerifyToken, (req, res)=>{
+//     res.sendStatus(200)
+// })
 router.get('/currentlist/:tid',_currentList)
 router.get('/getmembers/:tlid', _members);
 router.get('/gettaskIds/:tlid', _taskIds);

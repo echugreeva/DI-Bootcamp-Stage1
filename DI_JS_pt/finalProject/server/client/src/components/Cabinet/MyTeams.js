@@ -22,24 +22,6 @@ const MyTeams = (props) => {
 
     
     const { userId, setTeam, teamId, setTL, tLId } = useContext(AppContext)
-    
-    // useEffect(() => {
-    //     if (userId > 0) {
-    //         fetch(`/myteams/${userId}`)
-    //             .then(res => {
-    //                 if (res.status == 200) {
-    //                     return res.json()
-    //                 }
-    //             }
-    //             )
-    //             .then(data =>
-    //                 setTeams(data)
-    //                 // console.log(data)
-    //             )
-    //             .catch(e => { console.log(e) })
-    //     }
-
-    // }, [userId])
 
     if (props.myTeams == []) {
         return (
@@ -50,7 +32,9 @@ const MyTeams = (props) => {
                 alignItems="center"
                 sx={{ m: 2 }}>
                 <Typography>You are not a part of any team yet</Typography>
-                <Button>add a team</Button>
+                <Button onClick={(e)=>{
+                    props.handleTabChange(e,2)
+                }}>add a team</Button>
             </Container>
 
         )

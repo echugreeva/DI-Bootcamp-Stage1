@@ -11,26 +11,26 @@ import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfi
 
 const TeamMembers = (props) => {
     const {teamId}=useContext(AppContext)
-    const [members, setMembers] = useState([]);    
-    useEffect(()=>{
-        if(teamId>0){
-            fetch (`/teams/${teamId}`)
-        .then(res=>{
-            if(res.status == 200) {
-                return res.json()
-            }
-        }
-            )
-        .then(data=>
-            setMembers(data)
-            // console.log(data)
-            )
-        .catch(e=>{console.log(e)})
-        }
+    // const [members, setMembers] = useState([]);    
+    // useEffect(()=>{
+    //     if(teamId>0){
+    //         fetch (`/teams/${teamId}`)
+    //     .then(res=>{
+    //         if(res.status == 200) {
+    //             return res.json()
+    //         }
+    //     }
+    //         )
+    //     .then(data=>
+    //         setMembers(data)
+    //         // console.log(data)
+    //         )
+    //     .catch(e=>{console.log(e)})
+    //     }
         
-    },[teamId])
+    // },[teamId])
     
-    if(members == []) {
+    if(props.members == []) {
         return (
             <div>loading</div>
         )
@@ -44,11 +44,11 @@ const TeamMembers = (props) => {
                 <List>
             {
                 
-                members.map((i)=>{
+                props.members.map((i)=>{
                     return <ListItem key={i.id}>
                             <ListItemAvatar>
                                 <Avatar>
-                                    <SentimentVerySatisfiedIcon />
+                                    <SentimentVerySatisfiedIcon color='secondary' />
                                 </Avatar>
                             </ListItemAvatar>
                             <ListItemText>
@@ -66,3 +66,4 @@ const TeamMembers = (props) => {
 
 export default TeamMembers
 
+//.slice(0, i.email.length - index'@')

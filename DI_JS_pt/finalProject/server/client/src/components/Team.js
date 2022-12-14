@@ -19,7 +19,9 @@ const Team = (props) => {
     
     const [lBlistener, setListener] = useState(0)
     const [token, setToken] = useState({});
-    const { accessToken, setId, userId,setTeam, teamId, setTL, tLId} = useContext(AppContext);
+    const { accessToken, setId, userId,setTeam, teamId} = useContext(AppContext);
+    const [tLIdLoc, setTLLoc]=useState('')
+    const [members, setMembers] = useState([]);
     const navigate = useNavigate();
     ///fetch current list pass id to Tasklist prop tlId
     useEffect(() => {
@@ -32,7 +34,7 @@ const Team = (props) => {
                 }
                 )
                 .then(data => {
-                    setTL(data[0].tl_id)
+                    setTLLoc(data[0].tl_id)
                     console.log(data)
                 }
 
@@ -41,6 +43,23 @@ const Team = (props) => {
         }
 
     }, [teamId])
+    useEffect(()=>{
+        if(teamId>0){
+            fetch (`/teams/${teamId}`)
+        .then(res=>{
+            if(res.status == 200) {
+                return res.json()
+            }
+        }
+            )
+        .then(data=>
+            setMembers(data)
+            // console.log(data)
+            )
+        .catch(e=>{console.log(e)})
+        }
+        
+    },[teamId])
     useEffect(() => {
         try {
             const decode = jwt_decode(accessToken)
@@ -62,9 +81,9 @@ const Team = (props) => {
         }
 
     }, [])
-    console.log(tLId)
+    console.log(tLIdLoc)
 
-    if(!tLId){
+    if(!tLIdLoc){
         return (
             <>
             <p>This team has no active lists</p>
@@ -73,13 +92,13 @@ const Team = (props) => {
         )
     }
     return (
-        <TeamContext.Provider value={{lBlistener, setListener}}>
+        <TeamContext.Provider value={{lBlistener, setListener,members, setMembers}}>
         <Container>
             <Grid container spacing={1}>
                
-                <Grid item xs={4}><ErrorBoundary><TeamMembers /></ErrorBoundary></Grid>
-                <Grid item xs={8}><ErrorBoundary><LeaderBoard /></ErrorBoundary></Grid>
-                <Grid item xs={12}><ErrorBoundary><TaskList tlId={tLId}/></ErrorBoundary></Grid>
+                <Grid item xs={12} md={4}><ErrorBoundary><TeamMembers members={members}/></ErrorBoundary></Grid>
+                <Grid item xs={12} md={8}><ErrorBoundary><LeaderBoard /></ErrorBoundary></Grid>
+                <Grid item xs={12}><ErrorBoundary><TaskList tlId={tLIdLoc} members={members}/></ErrorBoundary></Grid>
             </Grid>
 
 

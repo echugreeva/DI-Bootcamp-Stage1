@@ -107,17 +107,7 @@ const MyCabinet = (props) => {
     console.log(userId)
 
     return (
-        // <Container>
-        //     <Grid container spacing={1}>
-        //         <Grid item xs={12}><ErrorBoundary><MyTeams /></ErrorBoundary></Grid>
-        //         {/* <Grid item xs={12}><ErrorBoundary><AddTeam /></ErrorBoundary></Grid> */}
-        //     </Grid>
-
-
-
-        // </Container>
-
-
+       
         <Box sx={{ width: '100%' }}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <Tabs value={value} onChange={handleTabChange} aria-label="basic tabs example">

@@ -12,11 +12,13 @@ import Grid from '@mui/material/Grid'
 import GridItem from '@mui/material/Grid'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
 
 const NewTask = (props) => {
     let today = new Date()
     const [inputList, setInputList] = useState([{ description: '', completion_time: '', duedate: today }])
-    const [assignees, setAssignees] = useState([]);
+    // const [assignees, setAssignees] = useState([]);
     const [taskIds, setIds] = useState([]);
     const [msg, setMsg] = useState([]);
 
@@ -177,8 +179,8 @@ return (
                             </LocalizationProvider>
                             
                                 
-                                {inputList.length - 1 === i && <Button sx={{ m: 2 }}variant='contained' onClick={handleAddClick}><AddCircleOutlineIcon size='small'></AddCircleOutlineIcon></Button>}
-                                {inputList.length !== 1 && <Button sx={{ m: 2 }}variant='contained' color='warning' onClick={handleRemoveClick}><DeleteForeverIcon></DeleteForeverIcon></Button>}
+                                {inputList.length - 1 === i && <Fab  size='small' sx={{ m: 2 }}variant='contained' color='primary' onClick={handleAddClick}><AddIcon ></AddIcon></Fab>}
+                                {inputList.length !== 1 && <Fab size='small' sx={{ m: 2 }}variant='contained' color='warning' onClick={handleRemoveClick}><DeleteForeverIcon></DeleteForeverIcon></Fab>}
                             
                         </Box>
                     )
@@ -186,8 +188,9 @@ return (
             }
 
        
-        <Button sx={{ m: 1 }}variant='contained' onClick={addTasks}>Publish List</Button>
-        <Button sx={{ m: 1 }} variant='contained' onClick={assignRandomAssignee}>Randomize task assignees</Button>
+        <Button sx={{ m: 1 }}variant='contained' color='success' onClick={addTasks}>Publish List</Button>
+        <Typography variant="p" component="p">Want destiny to decide who works on which task? Use randomiser</Typography>
+        <Button sx={{ m: 1 }} variant='contained' color='secondary' onClick={assignRandomAssignee}>Randomize task assignees</Button>
         
     </Grid>
 )

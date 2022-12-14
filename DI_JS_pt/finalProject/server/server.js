@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 // import jwt from 'jsonwebtoken'
 import db from './connections/elephant_db.js'
 import router from './routes/data.js'
-
+import userRouter from './routes/userRouter.js'
 
 dotenv.config();
 const app = express();
@@ -16,6 +16,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(router);
+app.use(userRouter);
 
 app.listen(process.env.PORT||8080,()=>{
     console.log(`run on ${process.env.PORT||8080}`)

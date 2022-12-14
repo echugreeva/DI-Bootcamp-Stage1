@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate,useLocation} from 'react-router-dom';
 import { useState } from 'react'
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
@@ -23,6 +23,9 @@ import logoimg from '../logoimg.png'
 const Navbar = (props) => {
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);
+    const location = useLocation();
+    console.log(location.pathname);
+    //if location.pathname x return logout not login/reg
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);

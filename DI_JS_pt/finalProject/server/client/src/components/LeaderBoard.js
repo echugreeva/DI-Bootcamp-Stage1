@@ -19,7 +19,7 @@ const data = [
 ;
 
 const LeaderBoard = (props) => {
-    const {teamId}=useContext(AppContext)
+    const {teamId,tLId}=useContext(AppContext)
     const {lBlistener}=useContext(TeamContext)
     const [leaderboard, setLeaderboard] = useState([]);
 
@@ -61,13 +61,13 @@ const LeaderBoard = (props) => {
             
         })
         .catch(e=>{console.log(e)})
-    },[lBlistener])
+    },[lBlistener, tLId])
     //add condition to update leaderboard when task status changes to done
         if (leaderboard) {leaderboard.sort((a,b)=>Number(b.sum) - Number(a.sum))
             console.log(leaderboard)}
 
     const options = {
-        title: "Leaderboard",
+        // title: "Leaderboard",
         width: 'auto',
         height: 400,
         bar: { groupWidth: "95%" },
@@ -89,17 +89,20 @@ const LeaderBoard = (props) => {
     console.log(dataToShow)
     
   return (
-    <Box sx={{boxShadow: 2, marginTop:8 }}>
-        <Chart
-            
-            chartType="BarChart"
-            // width="100%"
-            // height="400px"
-            color='red'
-            data={dataToShow}
-        //   columns={dataToShow[0]}
-        //   rows={dataToShow[1]}
-            options={options}/>
+    <Box >
+        <Typography sx={{ mt: 4, mb: 2 }} variant="h5">Team champion:</Typography>
+        <Box sx={{boxShadow: 2, marginTop:2 }}>
+            <Chart
+                
+                chartType="BarChart"
+                // width="100%"
+                // height="400px"
+                data={dataToShow}
+            //   columns={dataToShow[0]}
+            //   rows={dataToShow[1]}
+                options={options}/>
+        </Box>
+        
     </Box>
     
     
