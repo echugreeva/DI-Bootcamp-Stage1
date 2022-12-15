@@ -8,12 +8,6 @@ export const register = (user) => {
   
   }
 
-//user passes req.body object
-// {
-//     id: uid,
-//     email: dufyu,
-//     passwords: fgjfy,
-// } etc
 
 export const login = (email) => {
     return db('users')

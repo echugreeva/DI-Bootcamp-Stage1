@@ -83,7 +83,7 @@ export const _team = (req, res) => {
 }
 
 export const _getTasks = (req, res) => {
-  getTasks(req.params.tid)
+  getTasks(req.params.tlid)
     .then(data => {
       res.json(data)
     })
@@ -298,3 +298,14 @@ export const _leaderBoardData = (req, res) => {
         res.status(404).json({ msg: 'not found' })
       })
   }
+
+  export const logout  = (req,res)=> {
+    
+    const accessToken = req.cookies.accessToken;
+    console.log(accessToken);
+    if(!accessToken) return res.status(204).json({msg:'cleared'});
+    res.clearCookie('accessToken');
+    console.log(req.cookies.accessToken)
+    return res.status(200).json({msg:'cleared'})
+
+}

@@ -12,6 +12,7 @@ import { Typography } from '@mui/material';
 const TeamLists = (props) => {
     console.log(props.myTeams)
     const [tl, setTL] = useState([])
+    const [load, setLoad] = useState(false)
     useEffect(() => {
         if (props.teamId > 0) {
             fetch(`/teamlists/${props.teamId}`)
@@ -29,6 +30,13 @@ const TeamLists = (props) => {
         }
 
     }, [props.teamId])
+
+    const handleTasksLoad = (e) => {
+
+        setLoad(current => !current);
+        console.log(load)
+
+    };
 
     if (tl.length < 1) {
         return (
@@ -55,8 +63,9 @@ const TeamLists = (props) => {
                                     <Typography variant="p" component="p" sx={{ m: 1 }}>Due date: {item.duedate.substr(0,10)} </Typography>
 
                                 </AccordionSummary>
-                                <AccordionDetails>
-                                    {/* <TaskList tlId={item.tl_id} /> */}
+                                <AccordionDetails onClick={()=>{handleTasksLoad()}}
+                                >
+                                    {load&&<TaskList tlId={item.tl_id} />}
                                 </AccordionDetails>
                             </Accordion>
 
