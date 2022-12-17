@@ -19,8 +19,8 @@ const data = [
 ;
 
 const LeaderBoard = (props) => {
-    const {teamId,tLId}=useContext(AppContext)
-    const {lBlistener}=useContext(TeamContext)
+    const {teamId,tLId,lBlistener}=useContext(AppContext)
+
     const [leaderboard, setLeaderboard] = useState([]);
 
     useEffect(()=>{

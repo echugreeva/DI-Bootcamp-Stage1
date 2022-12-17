@@ -17,10 +17,10 @@ export const TeamContext = createContext();
 
 const Team = (props) => {
     
-    const [lBlistener, setListener] = useState(0)
+    // const [lBlistener, setListener] = useState(0)
     const [token, setToken] = useState({});
-    const { accessToken, setId, userId,setTeam, teamId} = useContext(AppContext);
-    const [tLIdLoc, setTLLoc]=useState('')
+    const { accessToken, setId, userId,setTeam, teamId, lBlistener, setListener} = useContext(AppContext);
+    const [tLIdLoc, setTLLoc]=useState(0)
     const [members, setMembers] = useState([]);
     const navigate = useNavigate();
     ///fetch current list pass id to Tasklist prop tlId
@@ -83,7 +83,7 @@ const Team = (props) => {
     }, [])
     console.log(tLIdLoc)
 
-    if(!tLIdLoc){
+    if(tLIdLoc<1){
         return (
             <>
             <p>This team has no active lists</p>
@@ -92,7 +92,7 @@ const Team = (props) => {
         )
     }
     return (
-        <TeamContext.Provider value={{lBlistener, setListener,members, setMembers}}>
+        <TeamContext.Provider value={{members, setMembers}}>
         <Container>
             <Grid container spacing={1}>
                

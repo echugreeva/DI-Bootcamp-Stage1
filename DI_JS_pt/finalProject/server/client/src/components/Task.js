@@ -12,7 +12,7 @@ const Task  = (props)=> {
     const [taskS, setStatus] = useState(props.data.status || '');
     const [assignee, setAssignee] = useState(props.data.assignee_id ||'');
     const [msg, setMsg] = useState('');
-    const {lBlistener,setListener }=useContext(TeamContext)
+    const {lBlistener,setListener }=useContext(AppContext)
     // console.log(props.members)
     console.log(props.data)
 

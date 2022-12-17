@@ -55,17 +55,19 @@ const TeamLists = (props) => {
                     tl.map((item, i) => {
                         return (
                             <Accordion>
-                                <AccordionSummary key={i}
+                                <AccordionSummary key={i} 
                                     expandIcon={<ExpandMoreIcon />}
                                     aria-controls="panel1a-content"
-                                    id="panel1a-header">
+                                    id="panel1a-header"
+                                    onClick={()=>{handleTasksLoad()}}
+                                    >
                                     <Typography variant="p" component="p" sx={{ m: 1 }}>List name: {item.list_name} </Typography>
                                     <Typography variant="p" component="p" sx={{ m: 1 }}>Due date: {item.duedate.substr(0,10)} </Typography>
 
                                 </AccordionSummary>
-                                <AccordionDetails onClick={()=>{handleTasksLoad()}}
+                                <AccordionDetails 
                                 >
-                                    {load&&<TaskList tlId={item.tl_id} />}
+                                    {/* {load&&<TaskList tlId={item.tl_id} />} */}
                                 </AccordionDetails>
                             </Accordion>
 
@@ -73,7 +75,7 @@ const TeamLists = (props) => {
                         )
                     })
                 }
-                 {/* <NewTaskList myTeams={props.myTeams} /> */}
+    
             </div>
         )
     }

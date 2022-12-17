@@ -23,7 +23,7 @@ const NewUserToTeam = ({admin_id,team_id,team_name})=>{
             });
             console.log(response);
             setInput('');
-            
+            setMsg(`user was successfully added`)
         }catch (e){
             console.log(e.response.data.msg)
             setMsg(e.response.data.msg)

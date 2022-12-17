@@ -59,7 +59,7 @@ const LogReg = (props)=> {
                 }
                 
             }catch (e){
-                // setMsg(e.response.data.msg)
+                setMsg(e.response.data.msg)
                 console.log(e)
             }
         }
@@ -91,15 +91,9 @@ return(
                 onChange={(e)=>{setPassword(e.target.value)}}
                 />
                 <Button variant = 'contained' size="medium" onClick={handleClick} sx={{m:1}}>{props.title}</Button>
-          
+                <Typography>{msg}</Typography>
             </GridItem>
             
-           
-           
-            
-            <div>
-                <p>{msg}</p>
-            </div>
         </Grid>
     )
 

@@ -54,7 +54,7 @@ const Navbar = (props) => {
             })
             console.log(response)
             if(response.status == 200 || 204){
-                setAccessToken(null);
+                setAccessToken('');
                 navigate('/login');
             }
 
@@ -179,8 +179,7 @@ const Navbar = (props) => {
                             
                             <Stack spacing={1} direction="row" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', flexDirection: 'row' }, justifyContent: 'flex-end' }}>
                                 <Button variant="outlined" color='secondary' size="medium" component={Link} to='/login'>Login</Button>
-                                <Button variant="contained" color='secondary' size="medium" compnent={Link} to='/register'>Register</Button>
-                                
+                                <Button variant="contained" color='secondary' size="medium" component={Link} to='/register'>Register</Button>
                             </Stack>
                         </Box>
     

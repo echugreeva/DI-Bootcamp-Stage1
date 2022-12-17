@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState, createContext } from 'react';
 import MyTeams from './MyTeams'
 import AddTeam from './AddTeam'
 import jwt_decode from 'jwt-decode';
@@ -15,7 +15,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import NewTaskList from './NewTaskList';
-
+export const CabinetContext = createContext();
 
 
 
@@ -54,8 +54,9 @@ function a11yProps(index) {
 
 
 const MyCabinet = (props) => {
+    const [firstTeamlistener, setListener] = useState(0)
     const [token, setToken] = useState({});
-    const { accessToken, setId, userId,setTeam, teamId, setTL, tLId } = useContext(AppContext);
+    const { accessToken, setId, userId, setTeam, teamId, setTL, tLId } = useContext(AppContext);
     const navigate = useNavigate();
     const [value, setValue] = React.useState(0);
     const [myTeams, setTeams] = useState([]);
@@ -69,14 +70,16 @@ const MyCabinet = (props) => {
                     }
                 }
                 )
-                .then(data =>
+                .then(data =>{
                     setTeams(data)
-                    // console.log(data)
+                    console.log(data)
+                }
+                    
                 )
                 .catch(e => { console.log(e) })
         }
 
-    }, [userId])
+    }, [userId,firstTeamlistener])
 
     const handleTabChange = (event, newValue) => {
         setValue(newValue);
@@ -107,6 +110,7 @@ const MyCabinet = (props) => {
     console.log(userId)
 
     return (
+        <CabinetContext.Provider value={{firstTeamlistener, setListener}}>
        
         <Box sx={{ width: '100%' }}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -126,6 +130,7 @@ const MyCabinet = (props) => {
                 <ErrorBoundary><AddTeam /></ErrorBoundary>
             </TabPanel>
         </Box>
+        </CabinetContext.Provider>
 
     )
 }

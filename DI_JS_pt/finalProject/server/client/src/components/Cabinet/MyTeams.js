@@ -23,7 +23,7 @@ const MyTeams = (props) => {
     
     const { userId, setTeam, teamId, setTL, tLId } = useContext(AppContext)
 
-    if (props.myTeams == []) {
+    if (props.myTeams.length<1) {
         return (
             <Container
                 container

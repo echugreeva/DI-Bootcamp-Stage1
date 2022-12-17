@@ -15,6 +15,7 @@ import Card from '@mui/material/Card'
 import { Typography } from '@mui/material';
 import Grid from '@mui/material/Grid'
 import GridItem from '@mui/material/Grid'
+import { CabinetContext } from './MyCabinet';
  
 const NewTeam = (props)=>{
     const {userId} = useContext(AppContext);
@@ -22,6 +23,7 @@ const NewTeam = (props)=>{
     const [name, setTeamName] = useState('');
     const [addUserShown, setShown]= useState(false);
     const [msg, setMsg]=useState('')
+    const {firstTeamlistener, setListener}=useContext(CabinetContext)
 
     const handleClick = event => {
         
@@ -42,18 +44,21 @@ const NewTeam = (props)=>{
                 });
                 console.log(response);
                 setTeamId(response.data[0].team_id)
+                setListener(firstTeamlistener+1)
                 
             }catch (e){
                 console.log(e.response.data.msg)
+                setMsg(e.response.data.msg)
             }
         } else {
-            setMsg('please add team name first')
+            setMsg('team name cannot be empty')
         }
         
         
     }
     console.log(team_id);
     console.log(name);
+   
 
     return (
         <Grid  container
@@ -90,6 +95,7 @@ const NewTeam = (props)=>{
                     handleClick()
                     }}>Add users</Button>
             }
+            <Typography>{msg}</Typography>
             
             {
                addUserShown&& <AddUserToTeam team_id={team_id} team_name={name} admin_id={userId}/>
@@ -97,6 +103,7 @@ const NewTeam = (props)=>{
             
        
         </Box>
+        
 
         </Grid>
         

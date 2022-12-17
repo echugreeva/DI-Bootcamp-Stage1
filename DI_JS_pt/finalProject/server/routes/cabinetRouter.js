@@ -1,5 +1,5 @@
 import express from "express";
-import { _register, _login, _team, _getTasks, _leaderBoardData, _updateTaskStatus, _updateAssignee,_getMyTeams,_getTeamLists, _addTaskList, _addTasks,_addTeam, _addUserToTeam,_currentList,_members, _taskIds} from "../controllers/Users.js";
+import {  _getMyTeams, _getTeamLists,_addTaskList, _addTasks,_addTeam, _addUserToTeam,_members, _taskIds} from "../controllers/Cabinet.js";
 import { VerifyToken } from "../middlewares/VerifyToken.js";
 
 
@@ -31,4 +31,4 @@ cabinetRouter.get('/gettaskIds/:tlid', _taskIds);
 
 
 
-export default router
+export default cabinetRouter
