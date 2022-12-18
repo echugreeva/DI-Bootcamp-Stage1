@@ -1,14 +1,14 @@
 import React from "react";
-import heroimage from '../media/portrait2.jpg'
+import heroimage from '../media/port2square.jpg'
 import { ArrowRightIcon } from "@heroicons/react/solid";
 
 export default function About() {
   return (
     <section id="about">
-      <div className="container-fluid mx-auto flex px-10 py-20 md:flex-row flex-col items-center">
+      <div className="container mx-auto flex px-10 py-20 md:flex-row flex-col items-center">
       <div className="lg:max-w-lg lg:w-full md:w-1/3 w-5/6 mx-10">
           <img
-            className="object-cover object-top w-100 h-auto rounded"
+            className="rounded-lg object-cover h-70 m-0" 
             alt="hero"
             src={heroimage}
           />
@@ -19,7 +19,7 @@ export default function About() {
           </h1>
           <h2></h2>
           <p className="mb-8 leading-relaxed">
-          Your future fullstack developer experienced in JavaScript based programming with a background in web creation,
+          A fullstack developer experienced in JavaScript based programming with a background in web creation,
           ed tech & cyber security industries. Passionate about user experience and making an impact.
   
           </p>

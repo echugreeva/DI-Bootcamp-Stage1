@@ -30,41 +30,13 @@ export default function Contact() {
   return (
     <section id="contact" className="relative bg-gray-800">
       <div className="container  px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
-        <div className="lg:w-2/3 md:w-1/2 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-start justify-start relative">
-          <div className="bg-gray-900 relative flex flex-wrap py-6 rounded shadow-md">
-            <div className="lg:w-1/2 px-6">
-              <h2 className="title-font font-semibold text-white tracking-widest text-xs">
-                ADDRESS
-              </h2>
-              <p className="mt-1">
-                Tel Aviv, Israel
-              </p>
-            </div>
-            <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
-              <h2 className="title-font font-semibold text-white tracking-widest text-xs">
-                EMAIL
-              </h2>
-              <a className="text-indigo-400 leading-relaxed">
-                e.chugreeva@gmail.com
-              </a>
-              <h2 className="title-font font-semibold text-white tracking-widest text-xs mt-4">
-                PHONE
-              </h2>
-              <p className="leading-relaxed">+972586900234</p>
-              
-              <a className="title-font font-semibold text-white tracking-widest text-xs mt-4" href="https://github.com/echugreeva/DI-Bootcamp-Stage1/tree/master/DI_JS_pt" target="_blank"><BsGithub className="w-7 h-7 m-3"/></a>
-              
-              <a className="title-font font-semibold text-white tracking-widest text-xs mt-4" href="https://www.linkedin.com/in/elena-chugreeva-45b282103/" target="_blank"><BsLinkedin className="w-7 h-7 m-3"/></a>
-            </div>
-          </div>
-        </div>
         <form
           netlify
           name="test"
           onSubmit={handleSubmit}
-          className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+          className="lg:w-1/2 sm:w-100 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0 mx-10">
           <h2 className="text-white sm:text-4xl text-3xl mb-1 font-medium title-font">
-            Hire Me
+            Hire Me!
           </h2>
           <p className="leading-relaxed mb-5">
             Write me about your project
@@ -112,6 +84,38 @@ export default function Contact() {
             Submit
           </button>
         </form>
+
+        <div className="lg:w-1/2 md:w-1/2 sm: w-100 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-center justify-start relative">
+
+          <div className="relative flex flex-wrap py-6 rounded shadow-md">
+            <div className=" px-6 mt-4 lg:mt-0">
+              <h2 className="title-font font-semibold text-white tracking-widest text-s mt-4">
+                ADDRESS
+              </h2>
+              <p className="mt-1">
+                Tel Aviv, Israel
+              </p>
+              <h2 className="title-font font-semibold text-white tracking-widest text-s mt-4">
+                EMAIL
+              </h2>
+              <p className="text-indigo-400 leading-relaxed mt-1">
+                e.chugreeva@gmail.com
+              </p>
+              <h2 className="title-font font-semibold text-white tracking-widest text-s mt-4">
+                PHONE
+              </h2>
+              <p className="leading-relaxed">+972586900234</p>
+              <div className="flex flex-wrap">
+                <a className="title-font font-semibold text-white tracking-widest text-s mt-4 inline-flex" href="https://github.com/echugreeva/DI-Bootcamp-Stage1/tree/master/DI_JS_pt" target="_blank"><BsGithub className="w-7 h-7 " /></a>
+
+                <a className="title-font font-semibold text-white tracking-widest text-s mt-4" href="https://www.linkedin.com/in/elena-chugreeva-45b282103/" target="_blank"><BsLinkedin className="w-7 h-7 ml-4" /></a>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );

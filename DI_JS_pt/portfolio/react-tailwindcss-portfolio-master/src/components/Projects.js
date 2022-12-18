@@ -15,16 +15,17 @@ export default function Projects() {
             These are the projects I worked on lately
           </p>
         </div>
+        
         <div className="flex flex-wrap -m-4">
           {projects.map((project) => (
             <div key={project.image}
-              className="sm:w-1/2 w-100 p-4">
+              className="sm:w-1/2 w-100 p-4 min">
               <div className="flex justify-center">
                 <div className="rounded-lg shadow-lg bg-white max-w-sm h-400">
                   
                     <img className="rounded-t-lg object-cover h-48 w-96 object-top	" src={project.image} alt={project.title} />
                   
-                  <div className="p-6">
+                  <div className="p-5">
                     <h4 className="text-gray-900 text-xl font-medium mb-2">{project.title}</h4>
                     <h5 className="text-gray-900 text-xl font-medium mb-2">{project.subtitle}</h5>
                     <p className="text-gray-700 text-base mb-4">
@@ -43,6 +44,8 @@ export default function Projects() {
 
           ))}
         </div>
+        
+        
       </div>
     </section>
   );

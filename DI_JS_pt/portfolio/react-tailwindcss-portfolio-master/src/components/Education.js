@@ -3,6 +3,7 @@ import { TerminalIcon, UsersIcon } from "@heroicons/react/solid";
 import { education, languages } from "../data";
 import {FaGraduationCap} from "react-icons/fa";
 import {ImLibrary}from "react-icons/im"
+import {FaLanguage} from "react-icons/fa"
 
 export default function Education() {
   return (
@@ -26,7 +27,7 @@ export default function Education() {
           Languages
         </h4>
         <ul className="flex flex-wrap justify-center items-center">
-        {languages.map((lang) => (<li className="flex flex-wrap m-4">{lang}</li>))}
+        {languages.map((lang) => (<li className="flex flex-wrap m-4"><FaLanguage className="mx-2 inline-block w-3 h-3"/>{lang}</li>))}
         </ul>
        
       </div>
