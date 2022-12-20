@@ -6,7 +6,7 @@ export const projects = [
       "Task management tool with focus on short repetitive tasks for teams with gamification",
     image: "./taskapp.png",
     link: "https://teamwork-task-management.herokuapp.com",
-    gitHubLink: "https://github.com/echugreeva/DI-Bootcamp-Stage1"
+    gitHubLink: "https://github.com/echugreeva/DI-Bootcamp-Stage1/tree/toCheck/DI_JS_pt/finalProject/server"
   },
   {
     title: "Weather App ",
@@ -14,8 +14,8 @@ export const projects = [
     description:
       "App displays weather forecast on user input of a location, with option to store favourite locations on a separate page.",
     image: "./weatherapp.png",
-    link: "https://github.com/echugreeva/DI-Bootcamp-Stage1",
-    gitHubLink: "https://github.com/echugreeva/DI-Bootcamp-Stage1"
+    link: "https://github.com/echugreeva/DI-Bootcamp-Stage1/tree/toCheck/DI_JS_pt/week18/heroloweatherproject",
+    gitHubLink: "https://github.com/echugreeva/DI-Bootcamp-Stage1/tree/toCheck/DI_JS_pt/week18/heroloweatherproject"
   },
   {
     title: "Google ads scripts",

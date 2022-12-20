@@ -1,15 +1,15 @@
-// import { CodeIcon } from "@heroicons/react/solid";
+
 import React from "react";
 import { projects } from "../data";
-import {BsCodeSlash} from 'react-icons/bs'
+import {HiCode} from 'react-icons/hi'
 
 export default function Projects() {
   return (
-    //bg-indigo-900  section
+    
     <section id="projects" className="text-gray-400 body-font">
       <div className="container px-5 py-10 mx-auto text-center lg:px-40">
         <div className="flex flex-col w-full mb-10">
-          <BsCodeSlash className="mx-auto inline-block  w-9 h-9 mb-4" />
+          <HiCode className="mx-auto inline-block  w-12 h-12 mb-4" />
           <h1 className="sm:text-4xl text-3xl font-medium title-font mb-2 text-white">
             Apps I've Built
           </h1>

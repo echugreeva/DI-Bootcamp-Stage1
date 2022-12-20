@@ -1,9 +1,8 @@
 import React from "react";
-// import { TerminalIcon, UsersIcon } from "@heroicons/react/solid";
 import { education, languages } from "../data";
-import {FaGraduationCap} from "react-icons/fa";
-import {ImLibrary}from "react-icons/im"
-import {FaLanguage} from "react-icons/fa"
+import { FaGraduationCap } from "react-icons/fa";
+import { ImLibrary } from "react-icons/im"
+import { FaLanguage } from "react-icons/fa"
 
 export default function Education() {
   return (
@@ -16,20 +15,20 @@ export default function Education() {
         <ul className="flex flex-wrap m-4">
           {education.map((education) => (
             <li className="p-4 md:w-1/2 w-full">
-              <ImLibrary className="mx-auto"/>
+              <ImLibrary className="mx-auto" />
               <span>{education}</span>
             </li>
           ))}
-         
-          
+
+
         </ul>
         <h4 className="sm:text-4xl text-3xl  text-white mb-8 mt-2">
           Languages
         </h4>
         <ul className="flex flex-wrap justify-center items-center">
-        {languages.map((lang) => (<li className="flex flex-wrap m-4"><FaLanguage className="mx-2 inline-block w-3 h-3"/>{lang}</li>))}
+          {languages.map((lang) => (<li className="flex flex-wrap m-4"><FaLanguage className="mx-2 inline-block w-3 h-3" />{lang}</li>))}
         </ul>
-       
+
       </div>
     </section>
   );
