@@ -12,18 +12,18 @@ const Home = (props) => {
     const {chosen, oneDay} = useContext(AppContext)
         
     return (
-        <div>
-        <Navbar/>
-        <ErrorBoundary><Search/></ErrorBoundary>
+        <div style={{minHeight:'100vh'}}>
+        
+        <ErrorBoundary><Search className='z-999'/></ErrorBoundary>
         <ErrorBoundary><OneDay keyC={chosen.key}/></ErrorBoundary>
-        <button className='mv2' onClick={()=>{
+        {/* <button className='f6 grow no-underline br-pill b--dark-green ba bw2 ph3 pv2 mb2 dib dark-green' onClick={()=>{
             let favorite = getFromLocalStorage('favorites')||[];
             favorite.push(chosen);
             console.log(chosen)
             addToLocalStorage('favorites', favorite)
             // console.log(favorite)
             }}
-            >Add to Favorite</button>
+            >Add to Favorite</button> */}
         <ErrorBoundary><FiveDays/></ErrorBoundary>
         
         

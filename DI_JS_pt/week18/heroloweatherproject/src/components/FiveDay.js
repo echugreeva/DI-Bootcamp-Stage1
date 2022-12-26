@@ -5,8 +5,28 @@ import FiveChange from './FiveChange.json'
 
 const FiveDays = (props)  => {
     const {fiveDays, setFiveDay, chosen} = useContext(AppContext)
-
+    const fetchWeatherFive = (id) => {
+        // fetch(
+        //     `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${id}?apikey=lBHawUgG9LRqS3TZNMPItFBx1VH87wIt&metric=true`
+        //   )
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //         console.log(data);
+        //         setFiveDay(data.DailyForecasts);
+        //     })
+        //     .catch((err) => {
+        //         console.log(err)
+        //     })
     
+    
+         setFiveDay(FiveDaysEx.DailyForecasts)
+    
+    }
+    
+    useEffect(()=>{
+       
+        fetchWeatherFive(chosen.key)
+    })
 
    if (!chosen.key){
        return (
@@ -17,7 +37,7 @@ const FiveDays = (props)  => {
 
     return (
         
-        <div className='flex justify-around'>
+        <div className='flex center w-75 flex-wrap justify-center'>
             {
                 fiveDays.map((item,i)=>{
                     // console.log(i)
@@ -31,7 +51,8 @@ const FiveDays = (props)  => {
 
     let imgSrc = `https://developer.accuweather.com/sites/default/files/${iconId}-s.png`
                     return (
-                         <div className='center mw5 mw4-ns hidden ba mv4 bg-lightest-blue' key={i}>
+                         <div className='w-25 h-25 pa2 ma2 hidden ba br3 b--light-purple shadow-3 mv4 bg-lightest-green' key={i}>
+                            <>{chosen.country}, {chosen.city},</>
                             <p>Date: {date}</p>
                             <p>Temperature: {item.Temperature.Minimum.Value} C - {item.Temperature.Maximum.Value} C</p>
                             <img src={imgSrc}/>

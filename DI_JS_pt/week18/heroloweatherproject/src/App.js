@@ -4,6 +4,7 @@ import FiveDaysEx from './components/FiveDaysWeatherEx.json'
 import OneDaysEx from './components/OneDayWeatherEx'
 //  import AutocompleteEx from './components/AutoCompleteEx'
 import './App.css';
+import Navbar from './components/Navbar';
 import ErrorBoundary from './components/ErrorBoundary';
 import Favorite from './components/Favorite';
 // import Navbar from './components/Navbar'
@@ -33,7 +34,8 @@ function App() {
       fiveDays, setFiveDay,
       favKeys,setFav }
       }>
-      <div className="App">
+      <div className="App"  style={{backgroundImage: "url('https://images.pexels.com/photos/12486830/pexels-photo-12486830.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", minHeight:"100vh"}}>
+        <Navbar/>
         <Routes>
           <Route exact path="/" element={<ErrorBoundary><Home/></ErrorBoundary>} />
           <Route exact path="/favorites" element={<ErrorBoundary><div><Favorite/></div></ErrorBoundary>} />

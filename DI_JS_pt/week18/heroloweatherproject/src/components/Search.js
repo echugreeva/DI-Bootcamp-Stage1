@@ -7,18 +7,18 @@ import FiveDaysEx from './FiveDaysWeatherEx.json'
 const Search = (props)=>{
     const fetchCity = (input) => {
     
-        fetch(
-            `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=lBHawUgG9LRqS3TZNMPItFBx1VH87wIt&q=${input}`
-          )
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-                setKeyList(data||[]);
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-        //  setKeyList(AutocompleteEx)
+        // fetch(
+        //     `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=lBHawUgG9LRqS3TZNMPItFBx1VH87wIt&q=${input}`
+        //   )
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //         console.log(data);
+        //         setKeyList(data||[]);
+        //     })
+        //     .catch((err) => {
+        //         console.log(err)
+        //     })
+         setKeyList(AutocompleteEx)
 
     }
 
@@ -46,24 +46,28 @@ const fetchWeatherFive = (id) => {
     const {fiveDays, setFiveDay}=useContext(AppContext)
     const {chosen, setChosen} =useContext(AppContext)
     return (
-        <div className=' h4 bg-blue flex-row items-center justify-center'>
-            <input className="mv4 self-center-l" type='text' placeholer="Start typing city name" onChange = {(e)=>{setInput(e.target.value)
-                     fetchCity(input)}
+        <div className=' h4 flex-column items-center justify-center h-100'>
+            <input className="mv4 self-center ba br3 b--light-purple shadow-3 pa2" type='text' placeholder="Start typing city name" 
+            onChange = {(e)=>{
+                     fetchCity(e.target.value)}
             
-            }  />
+            }  
+    //         {(e)=>{setInput(e.target.value)
+    //             fetchCity(input)}
+       
+    //    }  
+            />
             
-            <div className='mv2'>
-                {/* <button onClick={(e)=>{
-                    fetchCity(input);
-                }}>choose city</button> */}
+            <div className='mv2 w-20 center bg-white br3 '>
+        
                 {
                     keyList.map((item)=>{
                         return (
-                                <p onClick={
+                                <p className='pa1' onClick={
                                     (e)=>{
                                         setKeyList([])
                                         setChosen({country:item.Country.LocalizedName, city:item.LocalizedName, key:item.Key})
-                                        fetchWeatherFive(item.Key);
+                                        // fetchWeatherFive(item.Key);
                                     }
                                 }
                                 key={item.Key}> {item.LocalizedName}, {item.Country.LocalizedName} </p>    
