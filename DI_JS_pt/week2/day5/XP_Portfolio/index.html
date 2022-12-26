@@ -8,7 +8,7 @@
     <title>Lena Chu Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="./vapor.css">
+    <link rel="stylesheet" href="./morph.css">
     <link rel="stylesheet" href="./main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,11 +52,12 @@
                 dolorum error ipsa cum nihil quis cupiditate rem numquam? Exercitationem officia nostrum sint ut aut
                 nulla numquam dolor eveniet beatae.</p>
             <button class="btn w-10 mx-auto">Learn more</button>
+            <!-- should link to portfolio -->
         </div>
 
     </header>
-    <div class="container col-8 py-5 d-flex justify-content-around bg-secondary bg-gradient">
-        <div class="col-3"><img class="img-thumbnail rounded-circle" src="./media/portraitsquare.png"
+    <div class="container col-8 py-5 d-flex justify-content-around bg-secondary bg-gradient mt-5">
+        <div class="col-3"><img class="img-thumbnail rounded-circle" src="./media/portrait3.jpg"
                 alt="portrait of Lena"></div>
         <div class="col-6">
             <h2 class="text-info">About me</h2>
@@ -66,9 +67,11 @@
                 illo incidunt odio!</p>
         </div>
     </div>
-    <div class="container col-8 text-center py-5">
+    <div class="container col-8 text-center py-5"> 
+        <!-- put in carousel 3 project in screen with animation on scroll -->
         <h2>Portfolio</h2>
-        <div class="container d-flex flex-wrap justify-content-between">
+        <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
+            <div class="container d-flex flex-wrap justify-content-between">
             <div class="card col-md-3 col-sm-6 m-3">
                 <img src="./media/project1.png" class="card-img-top img-thumbnail" alt="...">
                 <div class="card-body">
@@ -130,30 +133,34 @@
                 </div>
             </div>
         </div>
+        </div>
+>
+
+        
 
     </div>
-    <div class="container mx-auto">
-        <h2 class="text-center">Skills</h2>
-        <div class="container row justify-content-around">
-            <div class="card col-4">
-                <h4><span><i class="fa fa-lg fa-solid fa-terminal"></i></span>Hard skills <span><i class="fa fa-lg fa-solid fa-chart-simple"></i></span></h4>
+    <div class="container mx-auto my-5">
+        <h2 class="text-center my-3">Skills</h2>
+        <div class="container row justify-content-center">
+            <div class="card col-4 p-5 mx-2">
+                <h4><span><i class="fa fa-md fa-solid fa-terminal"></i></span> Hard skills <span><i class="fa fa-md fa-solid fa-chart-simple"></i></span></h4>
                 <ul>   
-                    <li>Frontend (HTML, CSS, Javascript) <span class="badge rounded-pill bg-primary">90%</span</li>
-                    <li>Databases (SQL) <span class="badge rounded-pill bg-primary">80%</span</li>
-                    <li>Backend (Node JS) <span class="badge rounded-pill bg-primary">80%</span</li>
-                    <li>Libraries (React, Redux, Bootstrap) <span class="badge rounded-pill bg-primary">100%</span</li>
-                    <li>Git, Github<span class="badge rounded-pill bg-primary">75%</span</li>
-                    <li>APIs<span class="badge rounded-pill bg-primary">80%</span</li>
+                    <li class="py-2">Frontend (HTML, CSS, Javascript) <span class="badge rounded-pill bg-primary">90%</span</li>
+                    <li class="py-2">Databases (SQL) <span class="badge rounded-pill bg-primary">80%</span</li>
+                    <li class="py-2">Backend (Node JS) <span class="badge rounded-pill bg-primary">80%</span</li>
+                    <li class="py-2">Libraries (React, Redux, Bootstrap) <span class="badge rounded-pill bg-primary">100%</span</li>
+                    <li class="py-2">Git, Github<span class="badge rounded-pill bg-primary">75%</span</li>
+                    <li class="py-2">APIs<span class="badge rounded-pill bg-primary">80%</span</li>
 
                 </ul>
             </div>
-            <div class="card col-4 p-5">
-                <h4><span><i class="fa fa-lg fa-solid fa-user-group"></i></span>Soft skills<span><i class="fa fa-lg fa-solid fa-martini-glass-citrus"></i></span></h4>
+            <div class="card col-4 p-5  mx-2">
+                <h4><span><i class="fa fa-md fa-solid fa-user-group"></i></span> Soft skills <span><i class="fa fa-md fa-solid fa-martini-glass-citrus"></i></span></h4>
                 <ul> 
-                    <li>Collaboration <span class="badge rounded-pill bg-primary">100%</span></li>
-                    <li>Problem-solver <span class="badge rounded-pill bg-primary">100%</span></li>
-                    <li>Strategic thinking <span class="badge rounded-pill bg-primary">100%</span></li>
-                    <li>Communication <span class="badge rounded-pill bg-primary">100%</span></li>
+                    <li class="py-2">Collaboration <span class="badge rounded-pill bg-primary">100%</span></li>
+                    <li class="py-2"> Problem-solver <span class="badge rounded-pill bg-primary">100%</span></li>
+                    <li class="py-2">Strategic thinking <span class="badge rounded-pill bg-primary">100%</span></li>
+                    <li class="py-2">Communication <span class="badge rounded-pill bg-primary">100%</span></li>
                 </ul>
             </div>
         </div>
@@ -161,7 +168,8 @@
     </div>
 
     </div>
-    <div class="container mx-auto">
+    <div class="container mx-auto mt-5">
+        <!-- add background image with transition fm marketing to code -->
         <h2 class="text-center">Experience</h2>
         <ul class="timeline col-4 mx-auto my-5 text-white">
             <li class="timeline-item bg-info bg-gradient rounded ml-3 p-4 my-2 shadow">
@@ -202,25 +210,27 @@
         </ul>
 
     </div>
-    <section class="education">
-        <h2>Education & languages</h2>
-        <div>
-            <h3>Education</h3>
-            <ul>
-                <li>Developers Institute, Full-stack Javascript Bootcamp, 2022</li>
-                <li>Russian State University of Humanities, International Economics BA, 2007-2012 </li>
-            </ul>
-        </div>
-        <div>
-            <h3>Languages</h3>
-            <ul>
-                <li>English</li>
-                <li>Hebrew</li>
-                <li>Russian</li>
-            </ul>
-        </div>
+    <section class="education container mx-auto mt-5">
+        <h2 class="text-center">Education & languages</h2>
+        <div class="container row justify-content-around">
+            <div class="col-5 p-5">
+                <h3 class="text-center">Education</h3>
+                <ul>
+                    <li>Developers Institute, Full-stack Javascript Bootcamp, 2022</li>
+                    <li>Russian State University of Humanities, International Economics BA, 2007-2012 </li>
+                </ul>
+            </div>
+            <div class="col-5 p-5">
+                <h3 class="text-center" >Languages</h3>
+                <ul class="mr-4">
+                    <li><img src="./media/gb.svg" class="px-2">English</li>
+                    <li><img src="./media/il.svg" class="px-2">Hebrew</li>
+                    <li><img src="./media/ru.svg" class="px-2" >Russian</li>
+                </ul>
+            </div>
+        </div>   
     </section>
-    <footer class="container py-5 d-flex  justify-content-center bg-secondary bg-gradient">
+    <footer class="container-fluid py-5 d-flex  justify-content-center bg-secondary bg-gradient">
         <div class="col-4 d-flex flex-column justify-content-start">
             <h2>Get in touch</h2>
             <div class="my-3">

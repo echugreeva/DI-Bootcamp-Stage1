@@ -1,0 +1,7 @@
+.div {
+    display: inline-block;
+    margin: 2px;
+    background-color: aquamarine;
+    height: 100px;
+    width: 100px;
+}

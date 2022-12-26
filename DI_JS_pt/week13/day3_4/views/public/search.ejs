@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <%- include('../partials/head') %>
+  </head>
+  <body>
+    <%- include('../partials/header') %>
+    <form>
+        <input type="search" placeholder="start typing category" id="cat">
+        <input type="search" placeholder="start typing title" id="title">
+    </form>
+    
+    <h1>posts go here</h1>
+    <%
+    data.forEach((item) => {
+ %>
+     <a href="<%= item.link%>">
+        link
+     </a>
+     <div class="">
+       <%= item.pubDate%> 
+     </div>
+     <div class="">
+        <%= item.creator%>
+     </div>
+     <div class="">
+        Categories: <%= item.categories%>
+     </div>
+     <div class="">
+       <%= item.contentSnippet%>
+    </div>
+ <%
+   });
+ %>
+ 
+
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>

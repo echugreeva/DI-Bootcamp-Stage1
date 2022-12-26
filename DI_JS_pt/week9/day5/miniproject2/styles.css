@@ -1,0 +1,62 @@
+body {
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    
+}
+#card {
+    position: relative;
+    background-image: url('./pokedex.png');
+    background-repeat: no-repeat;
+    width: 60vw;
+    height: 100vh;
+}
+#card img {
+    width: 200px;
+    object-fit: contain;
+    position: absolute;
+    /* bottom: 2500%; */
+    left: 40%;
+}
+button {
+    width: 50px;
+    height: 20px;
+}
+
+#card p {
+    position: relative;
+    top: 70%;
+    left: 30%;
+}
+
+
+.round {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    left: 71%;
+    top: 70%;
+    z-index:5;
+    background-color: green;
+}
+
+.left {
+    background-color: blue;
+    position: absolute;
+    left: 30%;
+    top: 70%;
+   
+}
+
+.right {
+    background-color: pink;
+    position: absolute;
+    left: 35%;
+    top: 70%;
+    
+}

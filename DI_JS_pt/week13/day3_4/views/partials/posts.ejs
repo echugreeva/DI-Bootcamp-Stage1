@@ -1,0 +1,22 @@
+
+      <%
+      data.forEach((item) => {
+   %>
+       <a href="<%= item.link%>">
+          link
+       </a>
+       <div class="">
+         <%= item.pubDate%> 
+       </div>
+       <div class="">
+          <%= item.creator%>
+       </div>
+       <div class="">
+          Categories: <%= item.categories%>
+       </div>
+       <div class="">
+         <%= item.contentSnippet%>
+      </div>
+   <%
+     });
+   %>

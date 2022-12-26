@@ -3,13 +3,19 @@ body {
 }
 header {
     height: 65vh;
-    /* background-image: url(./media/herobgsmall.png); 
-    background-attachment: fixed;
+    background-image: 
+    /* linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.9) 100%), */ /* with morpth and portrait black&white*/
+    linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%),  /* with vapor and portrait 3*/
+    /* url(./media/desk.jpg); */
+    /* url(./media/neon.jpg);  */
+    /* url(./media/purplecode.jpg);    */
+    url(./media/femdev.jpg);   
+    /* url(./media/femdev2.jpg);  */
+    background-attachment: static;
     background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0.5;*/
 }
-
 .hero {
     opacity: 1;
 }
@@ -20,8 +26,8 @@ header {
 }
 
 ul {
-    list-style: none;
-}
+    list-style: square;
+} 
 
 ul.timeline:before {
     content: ' ';
@@ -51,4 +57,11 @@ ul.timeline:before {
 .badge {
     font-size: 0.6em;
     padding:2%;
+}
+
+.education img {
+    height: 1em;
+}
+.education ul {
+    list-style: none;
 }

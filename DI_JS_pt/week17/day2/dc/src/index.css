@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: -webkit-gradient(linear, right top, left top, from(rgb(112, 4, 94)), to(rgb(9, 178, 207)));
+  background: -webkit-linear-gradient(right, rgb(112, 4, 94) 0%, rgb(9, 178, 207) 100%);
+  background: -o-linear-gradient(right, rgb(112, 4, 94) 0%, rgb(9, 178, 207) 100%);
+  background: linear-gradient(to left, rgb(112, 4, 94) 0%, rgb(9, 178, 207) 100%);
+}
+
+.searchBox {
+  border-radius: 70px;
+  width: 50%;
+}
