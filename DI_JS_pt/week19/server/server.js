@@ -5,13 +5,16 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
 // import jwt from 'jsonwebtoken'
-import db from './config/database.js'
-import router from './routes/Users.js'
+import db from './config/database.js';
+import router from './routes/Users.js';
+import path from 'path';
 
 dotenv.config();
 const app = express();
+const __dirname = path.resolve();
 
-app.use(cors({credentials:true, origin:'http://localhost:3000'}));
+
+app.use(cors({credentials:true, origin:'https://login-reg-app-heroku.herokuapp.com'}));
 app.use(cookieParser());
 
 app.use(express.json());
@@ -23,37 +26,6 @@ app.use(router);
 app.listen(process.env.PORT||8080,()=>{
     console.log(`runon ${process.env.PORT||8080}`)
 })
-//creating token ==>
-// app.get('/signjwt', (req,res)=>{
-//     const token = jwt.sign(
-//         {username:'gooduser', email:'gooduser@mail.com'},
-//         process.env.ACCESS_TOKEN_SECRET,
-//         {expiresIn:'60s'}
-//     );
-//     console.log(token);
-//     res.cookie('token', token, {
-//         httpOnly:true,
-//         maxAge: 60 * 1000
-//     });
-//     res.json({mytoken:token})
-
-// })
-
-// app.get('/verifyjwt', (req,res)=>{
-//     const mytoken = req.cookies.token || req.headers['autherization'];
-//     console.log(mytoken);
-//     if (mytoken===null) res.json({msg:'unauthorized'})
-//     jwt.verify(mytoken,process.env.ACCESS_TOKEN_SECRET,(err,decoded)=>{
-//         if(err) {
-//             res.json({msg:'unauthorized error'})
-//         }
-//         const email = decoded.email;
-//         const user =decoded.username
-//         res.json({email,user})
-//     })
-//     res.json({msg:'ok', mytoken})
-
-// })
 
 
 try {
@@ -63,3 +35,9 @@ try {
 catch (e){
     console.log(e)
 }
+
+app.use(express.static(path.join(__dirname, "./client/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});

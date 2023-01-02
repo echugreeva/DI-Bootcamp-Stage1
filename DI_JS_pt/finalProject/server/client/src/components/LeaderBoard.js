@@ -9,12 +9,12 @@ import { Typography } from "@mui/material";
 import Box from '@mui/material/Box';
 
 
-const data = [
-    { assignee_id: 1, tl_id: 1, username: 'A', sum: '2' },
-    { assignee_id: 2, tl_id: 1, username: 'C', sum: '1' },
-    { assignee_id: 3, tl_id: 1, username: 'E', sum: '5' },
-    { assignee_id: 4, tl_id: 1, username: 'G', sum: '1' }
-    ]
+// const data = [
+//     { assignee_id: 1, tl_id: 1, username: 'A', sum: '2' },
+//     { assignee_id: 2, tl_id: 1, username: 'C', sum: '1' },
+//     { assignee_id: 3, tl_id: 1, username: 'E', sum: '5' },
+//     { assignee_id: 4, tl_id: 1, username: 'G', sum: '1' }
+//     ]
  
 ;
 
@@ -87,23 +87,30 @@ const LeaderBoard = (props) => {
     dataToShow.push(...refactoredData)
     // dataToShow = {...dataToShow}
     console.log(dataToShow)
-    
-  return (
-    <Box >
-        <Typography sx={{ mt: 4, mb: 2 }} variant="h5">Team champion:</Typography>
-        <Box sx={{boxShadow: 2, marginTop:2 }}>
-            <Chart
-                
-                chartType="BarChart"
-                // width="100%"
-                // height="400px"
-                data={dataToShow}
-            //   columns={dataToShow[0]}
-            //   rows={dataToShow[1]}
-                options={options}/>
-        </Box>
+    if (leaderboard.length<0) {
+        return (
+            <Typography sx={{ mt: 4, mb: 2 }} variant="h5">Once you have accomplished tasks, you'll see your team champion</Typography>
+        )
+    } else {
         
+    }
+  return (
+    
+    <Box >
+    <Typography sx={{ mt: 4, mb: 2 }} variant="h5">Team champion:</Typography>
+    <Box sx={{boxShadow: 2, marginTop:2 }}>
+        <Chart
+            
+            chartType="BarChart"
+            // width="100%"
+            // height="400px"
+            data={dataToShow}
+        //   columns={dataToShow[0]}
+        //   rows={dataToShow[1]}
+            options={options}/>
     </Box>
+    
+</Box>
     
     
    

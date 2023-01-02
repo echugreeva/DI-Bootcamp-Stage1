@@ -15,6 +15,7 @@ export const projects = [
       "App displays weather forecast on user input of a location, with option to store favourite locations on a separate page.",
     image: "./weatherapp.png",
     link: "https://github.com/echugreeva/DI-Bootcamp-Stage1",
+    gitHubLink: "https://github.com/echugreeva/DI-Bootcamp-Stage1"
   },
   {
     title: "Google ads scripts",
@@ -23,6 +24,7 @@ export const projects = [
       "Various scripts to fill the reporting & alert gaps for marketing team ",
     image: "./GA-Scripts.jpg",
     link: "https://github.com/echugreeva/DI-Bootcamp-Stage1",
+    gitHubLink: "https://github.com/echugreeva/DI-Bootcamp-Stage1"
   }
 ];
 

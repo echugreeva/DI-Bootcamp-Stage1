@@ -180,7 +180,7 @@ return (
                             
                                 
                                 {inputList.length - 1 === i && <Fab  size='small' sx={{ m: 2 }}variant='contained' color='primary' onClick={handleAddClick}><AddIcon ></AddIcon></Fab>}
-                                {inputList.length !== 1 && <Fab size='small' sx={{ m: 2 }}variant='contained' color='warning' onClick={handleRemoveClick}><DeleteForeverIcon></DeleteForeverIcon></Fab>}
+                                {inputList.length !== 1 && <Fab size='small' sx={{ m: 2 }}variant='contained' color='warning' onClick={()=>{handleRemoveClick(i)}}><DeleteForeverIcon></DeleteForeverIcon></Fab>}
                             
                         </Box>
                     )

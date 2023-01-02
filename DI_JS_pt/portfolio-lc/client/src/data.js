@@ -14,8 +14,9 @@ export const projects = [
     description:
       "App displays weather forecast on user input of a location, with option to store favourite locations on a separate page.",
     image: "./weatherapp.png",
-    link: "https://github.com/echugreeva/DI-Bootcamp-Stage1/tree/toCheck/DI_JS_pt/week18/heroloweatherproject",
-    gitHubLink: "https://github.com/echugreeva/DI-Bootcamp-Stage1/tree/toCheck/DI_JS_pt/week18/heroloweatherproject"
+    link: "https://63b2dda255a280000854b1d1--cool-liger-45b005.netlify.app/",
+   //https://weatherapp-de4c3.web.app/
+    gitHubLink: "https://github.com/echugreeva/weatherApp"
   },
   {
     title: "Google ads scripts",
@@ -23,8 +24,8 @@ export const projects = [
     description:
       "Various scripts to fill the reporting & alert gaps for marketing team ",
     image: "./GA-Scripts.jpg",
-    link: "https://github.com/echugreeva/DI-Bootcamp-Stage1",
-    gitHubLink: "https://github.com/echugreeva/DI-Bootcamp-Stage1"
+    link: "https://github.com/echugreeva/googleAds",
+    gitHubLink: "https://github.com/echugreeva/googleAds"
   }
 ];
 

@@ -1,6 +1,5 @@
 import React from "react";
 import heroimage from '../media/port2square.jpg'
-import { ArrowRightIcon } from "@heroicons/react/solid";
 
 export default function About() {
   return (
@@ -24,14 +23,14 @@ export default function About() {
   
           </p>
           <div className="flex justify-center">
-            <button class="ml-4 inline-flex bg-blue-500 hover:bg-blue-700 border-0 text-white  py-2 px-4 rounded focus:outline-non"><a
+            <button class=" inline-flex bg-pink-700 hover:bg-pink-900 border-0 text-white  py-2 px-4 rounded focus:outline-none  ring-2 ring-pink-600"><a
               href="#contact"
               >
               Hire  Me
             </a>
   
 </button>
-<button className="ml-4 inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-700 hover:text-white rounded">
+<button className="ml-4 inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-700 hover:text-white rounded ring-2 ring-indigo-600">
 <a
               href="#projects"
              >
