@@ -7,7 +7,7 @@ export default function Projects() {
   return (
     
     <section id="projects" className="text-gray-400 body-font">
-      <div className="container px-5 py-10 mx-auto text-center lg:px-40">
+      <div className="container px-5 lg:py-10 py-1 mx-auto text-center lg:px-60">
         <div className="flex flex-col w-full mb-10">
           <HiCode className="mx-auto inline-block  w-12 h-12 mb-4" />
           <h1 className="sm:text-4xl text-3xl font-medium title-font mb-2 text-white">
@@ -18,10 +18,10 @@ export default function Projects() {
           </p>
         </div>
         
-        <div className="flex flex-wrap -m-4">
+        <div className="flex flex-wrap lg:-m-4  ">
           {projects.map((project) => (
             <div key={project.image}
-              className="sm:w-1/2 w-100 p-4 min">
+              className="w-100 sm:w-1/2 py-4">
               <div className="flex justify-center min-h-full">
                 <div className="rounded-lg shadow-lg bg-white max-w-sm">
                   

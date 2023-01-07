@@ -29,7 +29,7 @@ export default function Timeline() {
                                         <p href="#!" className="font-medium text-pink-900 hover:text-pink-700 focus:text-pink-800 duration-300 transition ease-in-out text-sm">2022-present</p>
                                     </div>
                                     <p className="text-gray-700 mb-6">Fullstack developer</p>
-                                    <badge className="font-medium text-gray-700 mb-6 bg-indigo-300 px-3 py-1 rounded-full">Tel Aviv, Israel</badge>
+                                    <badge className="text-sm text-gray-700 mb-6 bg-indigo-200 px-3 py-1 rounded-full">Tel Aviv, Israel</badge>
 
                                 </div>
                             </div>
@@ -48,7 +48,7 @@ export default function Timeline() {
                                     </div>
                                     <p className="text-gray-700 mb-6">Senior PPC Manager</p>
                                     <p className="text-gray-700 mb-3"><span className="text-pink-700">Elementor</span></p>
-                                    <badge className="font-medium text-gray-700 mb-6 bg-indigo-300 px-3 py-1 rounded-full">Tel Aviv, Israel</badge>
+                                    <badge className="ftext-sm text-gray-700 mb-6 bg-indigo-200 px-3 py-1 rounded-full">Tel Aviv, Israel</badge>
 
                                 </div>
                             </div>
@@ -67,7 +67,7 @@ export default function Timeline() {
                                     </div>
                                     <p className="text-gray-700 mb-6">Senior SEM Manager</p>
                                     <p className="text-gray-700 mb-3"><span className="text-orange-700">Babbel</span></p>
-                                    <badge className="font-medium text-gray-700 mb-6 bg-indigo-300 px-3 py-1 rounded-full">Berlin, Germany</badge>
+                                    <badge className="text-sm text-gray-700 mb-6 bg-indigo-200 px-3 py-1 rounded-full">Berlin, Germany</badge>
 
                                 </div>
                             </div>
@@ -86,7 +86,7 @@ export default function Timeline() {
                                     </div>
                                     <p className="text-gray-700 mb-6">Digital marketing manager</p>
                                     <p className="text-gray-700 mb-3"><span className="text-green-700">Riskified</span>, <span className="text-blue-700">Perimeter81</span></p>
-                                    <badge className="font-medium text-gray-700 mb-6 bg-indigo-300 px-3 py-1 rounded-full">Tel Aviv, Israel</badge>
+                                    <badge className="text-sm text-gray-700 mb-6 bg-indigo-200 px-3 py-1 rounded-full">Tel Aviv, Israel</badge>
 
 
 

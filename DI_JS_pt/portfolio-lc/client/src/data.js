@@ -14,7 +14,7 @@ export const projects = [
     description:
       "App displays weather forecast on user input of a location, with option to store favourite locations on a separate page.",
     image: "./weatherapp.png",
-    link: "https://63b2dda255a280000854b1d1--cool-liger-45b005.netlify.app/",
+    link: "https://cool-liger-45b005.netlify.app/",
    //https://weatherapp-de4c3.web.app/
     gitHubLink: "https://github.com/echugreeva/weatherApp"
   },

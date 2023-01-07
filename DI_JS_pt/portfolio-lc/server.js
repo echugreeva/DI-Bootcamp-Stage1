@@ -10,8 +10,8 @@ const app = express();
 const router = express.Router();
 const __dirname = path.resolve();
 
-app.use(cors({credentials:true, origin:'http://localhost:3000'}));
-// app.use(cors({credentials:true, origin:'https://lenachu-portfolio.herokuapp.com/'}));
+// app.use(cors({credentials:true, origin:'http://localhost:3000'}));
+app.use(cors({credentials:true, origin:'https://lenachu-portfolio.herokuapp.com/'}));
 
 app.use(cookieParser());
 
@@ -24,8 +24,8 @@ app.listen(process.env.PORT||8080,()=>{
     console.log(`run on ${process.env.PORT||8080}`)
 })
 
-// app.use(express.static(path.join(__dirname, "./client/build")));
+app.use(express.static(path.join(__dirname, "./client/build")));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
