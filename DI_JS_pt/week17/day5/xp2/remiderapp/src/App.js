@@ -1,17 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
-
+import {useState} from 'react';
 import { connect } from 'react-redux'
 import { addReminder, delReminder, clear } from './redux/actions'
+import moment from 'moment';
+
+// const getFromNowDate = moment(new Date(dueDate)).fromNow();
+
+
 function App(props) {
-  let textInput = ''
+  //let textInput = '';
+   const [dueDate, setDate] = useState('')
+   const [textInput, setInput] = useState('')
+  // let dueDate = '';
+  
+
   return (
     <div className="App">
       <h1>Reminder App</h1>
       <input type='text'
-        onChange={(e) => { textInput = e.target.value }}></input>
+        onChange={(e) => { setInput(e.target.value) }}></input>
+      <input type='datetime-local'
+      onChange={(e) => {setDate(e.target.value) ;
+      console.log(e.target.value)}}
+      ></input>
       <button onClick={(e) => {
-        props.addReminder(textInput)
+        console.log(textInput, dueDate)
+        props.addReminder(textInput, dueDate)
         document.querySelector('input').value = ''
       }}>Add reminder</button>
       <ul>
@@ -20,7 +35,9 @@ function App(props) {
             return (
 
               <li key={i}>
-                {item}
+                {item[0]}
+                <p>due date:
+                {moment(new Date(item[1])).fromNow()} </p>
                 <button onClick={(e) => {
                   props.delReminder(i)
                 }} >x</button>
@@ -30,8 +47,8 @@ function App(props) {
           })
         }
       </ul>
-      <button  onClick={
-                  props.clear}>Clear all</button>
+      <button  onClick={(e)=>{props.clear()}
+                  }>Clear all</button>
 
     </div>
   );
@@ -47,7 +64,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addReminder: (txt) => dispatch(addReminder(txt)),
+    addReminder: (txt, dueDate) => dispatch(addReminder(txt,dueDate)),
     delReminder: (id) => dispatch(delReminder(id)),
     clear: () => dispatch(clear())
   }
