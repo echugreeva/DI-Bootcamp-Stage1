@@ -29,7 +29,7 @@ const Contact = () => {
             Hire Me!
           </h2>
           <p className="leading-relaxed mb-5">
-            Write me about your project
+            Tell me about your project
           </p>
           <div className="relative mb-4">
             <label className="leading-7 text-sm text-gray-400">Name</label>
@@ -50,22 +50,23 @@ const Contact = () => {
 
           <div className="relative flex flex-wrap py-6 ">
             <div className=" px-6 mt-4 lg:mt-0">
-              <h2 className="title-font font-semibold text-white tracking-widest text-s mt-4">
-                ADDRESS
-              </h2>
-              <p className="mt-1">
-                Tel Aviv, Israel
-              </p>
-              <h2 className="title-font font-semibold text-white tracking-widest text-s mt-4">
+              
+              <h2 className="title-font text-white tracking-widest text-s mt-4">
                 EMAIL
               </h2>
-              <p className="text-pink-500 leading-relaxed mt-1">
-                <a href="mailto:e.chugreeva@gmail.com " target="_blank"><img style={{width:"50%"}} src={emailimg}></img></a>
-              </p>
+              
+                <a href="mailto:e.chugreeva@gmail.com " target="_blank"><img className="sm:w-72 md:w-60 s:mt-2" src={emailimg}></img></a>
+              
               <h2 className="title-font font-semibold text-white tracking-widest text-s mt-4">
                 PHONE
               </h2>
-              <p className="leading-relaxed">+972586900234</p>
+              <p className="leading-relaxed font-semibold text-xl">+972586900234</p>
+              <h2 className="title-font  text-white tracking-widest text-s mt-4">
+                ADDRESS
+              </h2>
+              <p className="mt-1 font-semibold text-xl">
+                Tel Aviv, Israel
+              </p>
               <div className="flex flex-wrap">
                 <a className="title-font font-semibold text-white tracking-widest text-s mt-4 inline-flex" href="https://github.com/echugreeva/DI-Bootcamp-Stage1/tree/master/DI_JS_pt" target="_blank"><BsGithub className="hover:text-pink-500 w-7 h-7 " /></a>
 

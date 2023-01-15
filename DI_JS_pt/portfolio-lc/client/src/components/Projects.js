@@ -28,7 +28,7 @@ export default function Projects() {
                     <img className="rounded-t-lg object-cover h-48 w-96 object-top	" src={project.image} alt={project.title} />
                   
                   <div className="p-5 h-full">
-                    <h4 className="text-gray-900 text-xl font-medium mb-2">{project.title}</h4>
+                    <h4 className="text-gray-900  uppercase font-light mb-2">{project.title}</h4>
                     <h5 className="text-gray-900 text-xl font-medium mb-2">{project.subtitle}</h5>
                     <p className="text-gray-700 text-base mb-4">
                       {project.description}
