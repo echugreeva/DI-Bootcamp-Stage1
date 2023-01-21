@@ -1,4 +1,4 @@
-import { useEffect, useState} from 'react'
+import {useState} from 'react'
 import OneDay from "./OneDay"
 // import OneChange from './OneChange'
 import Navbar from './Navbar'
@@ -20,7 +20,9 @@ const Favorite = (props)=> {
         } else {
 
             return (
-                <div>
+                <div style={{minHeight:"100vh"}}>
+                <h2 className="center purple">Now in your picked locations</h2>
+                <div div className='flex center w-75 flex-wrap justify-center'>
                 
 
                 {
@@ -29,14 +31,14 @@ const Favorite = (props)=> {
                         
                                 return (
                                        
-                                    <div className="" key={i}>                   
+                                    <div className="center w-100 w-40-m w-33-ns h-25 pa2 hidden ba br3 b--light-purple shadow-3 mt4  " key={i}>                   
                                             <ErrorBoundary> <OneDay keyF={item.key} country ={item.country} city ={item.city} /> </ErrorBoundary>
                                         
-                                            {/* <button className='f6 grow no-underline br-pill b--dark-pink ba bw2 ph3 pv2 mb2 dib dark-pink' onClick = {()=>{
+                                            <button className='f6 grow no-underline br-pill b--dark-pink ba  ph3 pv2 mb2 dib dark-pink bg-washed-red' onClick = {()=>{
                                                 favKeys.splice(favKeys.indexOf(item), 1);
                                                 addToLocalStorage('favorites', favKeys);
                                                 setFav(getFromLocalStorage('favorites'))
-                                            }}>Remove from favorites</button> */}
+                                            }}>Remove</button>
                                     </div>
                                     )
                             
@@ -44,6 +46,8 @@ const Favorite = (props)=> {
                   
                 }
                 </div>
+                </div>
+               
             )
 }
     

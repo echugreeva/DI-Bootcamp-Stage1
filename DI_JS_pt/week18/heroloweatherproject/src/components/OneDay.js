@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from 'react'
 import { AppContext } from '../App'
-import OneChange from './OneChange';
+// import OneChange from './OneChange';
 import OneDaysEx from './OneDayWeatherEx'
 import { addToLocalStorage, getFromLocalStorage } from "../helpers/localStorage";
 
@@ -8,7 +8,8 @@ const OneDay = ({ keyC, keyF, city, country }) => {
 
     const [oneDay, setDay] = useState(OneDaysEx)
 
-    const { chosen, favKeys, setFav } = useContext(AppContext)
+    const {chosen, favKeys, setFav} = useContext(AppContext)
+    
 
     console.log(chosen.key, chosen.city, chosen.country);
     console.log(`oneday component props` + keyC + keyF + city + country)
@@ -51,24 +52,17 @@ const OneDay = ({ keyC, keyF, city, country }) => {
     useEffect(() => {
         fetchWeather(toFetch)
         console.log(`oneday fetched weather`)
-    }, [])
+    }, [chosen, favKeys])
 
     if (window.location.href.indexOf("favorites") > -1) {
 
         return (
-            <div key={keyF} className='center  w-20 h-25 pa2 hidden ba br3 b--light-purple shadow-3 mv4 bg-lightest-green'>
+            <div key={keyF}>
                 <p>{country}, {city} </p>
                 <p>Temperature: </p>
                 <p>{oneDay[0].Temperature.Metric.Value} C</p>
                 <img src={imgSrc} />
                 <p>{oneDay[0].WeatherText}</p>
-                <button className='f6 grow no-underline br-pill b--dark-pink ba bw2 ph3 pv2 mb2 dib dark-pink' onClick={() => {
-                    console.log(localStorage.favorites)
-                    favKeys.splice(favKeys.indexOf({ country: country, city: city, key: keyF }), 1);
-                    addToLocalStorage('favorites', favKeys);
-                    setFav(getFromLocalStorage('favorites'))
-                }}>Remove from favorites</button>
-
 
             </div>
         )
@@ -81,14 +75,13 @@ const OneDay = ({ keyC, keyF, city, country }) => {
 
     else {
         return (
-            <div className='center w-20 h-25 pa2 hidden ba br3 b--light-purple shadow-3 mv4'>
+            <div className='center w-80 w-40-m w-20-ns h-25 pa2 hidden ba br3 b--light-purple shadow-3 mv4'>
                 <p>{chosen.country}, {chosen.city}</p>
                 <p>Temperature: </p>
                 <p>{oneDay[0].Temperature.Metric.Value} C</p>
                 <img src={imgSrc} />
                 <p>{oneDay[0].WeatherText}</p>
-                {/* <button>test</button>  */}
-                <button className='f6 grow no-underline br-pill b--dark-green ba bw2 ph3 pv2 mb2 dib dark-green' onClick={() => {
+                <button className='f6 grow no-underline br-pill b--dark-green ba ph3 pv2 mb2 dib dark-green' onClick={() => {
                     let favorite = getFromLocalStorage('favorites') || [];
                     favorite.push(chosen);
                     console.log(chosen)

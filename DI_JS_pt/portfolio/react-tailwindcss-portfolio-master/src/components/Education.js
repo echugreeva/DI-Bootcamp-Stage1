@@ -1,5 +1,4 @@
 import React from "react";
-import { TerminalIcon, UsersIcon } from "@heroicons/react/solid";
 import { education, languages } from "../data";
 import {FaGraduationCap} from "react-icons/fa";
 import {ImLibrary}from "react-icons/im"

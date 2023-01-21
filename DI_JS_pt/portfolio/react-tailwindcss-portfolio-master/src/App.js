@@ -5,14 +5,16 @@ import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Education from "./components/Education";
+import Timeline from "./components/Timeline";
 
 export default function App() {
   return (
-    <main className="text-gray-400 bg-gray-900 body-font">
+    <main className="text-gray-300 bg-indigo-900 body-font">
       <Navbar />
       <About />
       <Projects />
       <Skills />
+      <Timeline/>
       <Education />
       <Contact />
     </main>

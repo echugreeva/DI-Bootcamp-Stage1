@@ -28,7 +28,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="relative bg-gray-800">
+    <section id="contact" className="relative bg-indigo-800">
       <div className="container  px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
         <form
           netlify
@@ -98,7 +98,7 @@ export default function Contact() {
               <h2 className="title-font font-semibold text-white tracking-widest text-s mt-4">
                 EMAIL
               </h2>
-              <p className="text-indigo-400 leading-relaxed mt-1">
+              <p className="text-white leading-relaxed mt-1">
                 e.chugreeva@gmail.com
               </p>
               <h2 className="title-font font-semibold text-white tracking-widest text-s mt-4">

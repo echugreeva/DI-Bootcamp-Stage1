@@ -1,50 +1,44 @@
-import {useState, createContext} from 'react'
-import {Routes, Route} from 'react-router-dom'
-import FiveDaysEx from './components/FiveDaysWeatherEx.json'
-import OneDaysEx from './components/OneDayWeatherEx'
-//  import AutocompleteEx from './components/AutoCompleteEx'
+import { useState, createContext } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css';
 import Navbar from './components/Navbar';
 import ErrorBoundary from './components/ErrorBoundary';
 import Favorite from './components/Favorite';
-// import Navbar from './components/Navbar'
-// import Search from './components/Search'
-// import OneDay from './components/OneDay';
-// import FiveDays from './components/FiveDay';
-import Home from './components/Home'
+import Home from './components/Home';
+import Footer from './components/Footer';
 import { addToLocalStorage, getFromLocalStorage } from "./helpers/localStorage";
 export const AppContext = createContext();
 
 
 function App() {
-  
-  const [input,setInput]=useState(''); //search for city
-  const [chosen, setChosen]=useState({country:'Israel', city:'Tel Aviv', key:'215854'});
-  const [favKeys,setFav]=useState([]); //set favorite
-  const [keyList,setKeyList]=useState([]) //list of cities from search
-  // const [oneDay, setOneDay]=useState(OneDaysEx)
-  const [fiveDays, setFiveDay]=useState([])
-  console.log (`end of app ${chosen.key}`)
-  console.log (`end of app fav ${favKeys[0]}`)
+
+  const [chosen, setChosen] = useState({ country: 'Israel', city: 'Tel Aviv', key: '215854' });
+  const [favKeys, setFav] = useState(getFromLocalStorage('favorites') || []);
+  const [keyList, setKeyList] = useState([]) //list of cities from search
+  const [fiveDays, setFiveDay] = useState([])
+  console.log(`end of app ${chosen.key}`)
+  console.log(`end of app fav ${favKeys[0]}`)
   return (
     <AppContext.Provider value={
-      {keyList,setKeyList,
-      input,setInput,
-      chosen, setChosen, 
-      fiveDays, setFiveDay,
-      favKeys,setFav }
-      }>
-      <div className="App"  style={{backgroundImage: "url('https://images.pexels.com/photos/12486830/pexels-photo-12486830.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", minHeight:"100vh"}}>
-        <Navbar/>
+      {
+        keyList, setKeyList,
+        chosen, setChosen,
+        fiveDays, setFiveDay,
+        favKeys, setFav
+      }
+    }>
+      <div className="App" style={{ backgroundImage: "url('https://images.pexels.com/photos/12486830/pexels-photo-12486830.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", backgroundSize: "cover", minHeight: "100vh" }}>
+        <Navbar />
         <Routes>
-          <Route exact path="/" element={<ErrorBoundary><Home/></ErrorBoundary>} />
-          <Route exact path="/favorites" element={<ErrorBoundary><div><Favorite/></div></ErrorBoundary>} />
-        </Routes> 
-    </div>
+          <Route exact path="/" element={<ErrorBoundary><Home /></ErrorBoundary>} />
+          <Route exact path="/favorites" element={<ErrorBoundary><div><Favorite /></div></ErrorBoundary>} />
+        </Routes>
+        <Footer />
+      </div>
     </AppContext.Provider>
-    
+
   );
-  
+
 }
 
 export default App;
